@@ -5,7 +5,7 @@ A standalone GitHub Pages IDE for learning Python with **English (default)** and
 ## Learning workflow
 
 - 70 coding exercises, aligned with W3Schools Python Tutorial topics. Each exercise links to its corresponding W3Schools lesson.
-- **41 beginner exercises** (intro, variables, strings, collections, conditions, loops) use ordinary Python scripts; no artificial function wrapper.
+- **54 exercises** (syntax, input/output, variables, numbers, strings, collections, conditions, loops, modules, JSON, RegEx, exceptions, file handling, and combined practice) use ordinary Python scripts; no artificial function wrapper.
 - Script exercises read with `input()` (when needed) and output via `print()`. The **Program input** field supplies stdin to **Run**. **Test** checks the program with independent input/output examples.
 - Function, lambda, class, decorator and iterator tasks retain function/class definitions where those concepts are explicitly being assessed.
 - Code editor powered by Ace; Python runs locally in the browser through Pyodide and a worker.
@@ -34,7 +34,7 @@ No server or build step is needed.
 GitHub Actions runs JavaScript syntax checks and Python grading tests:
 
 - 70 original reference solutions for function/advanced exercises
-- 41 new ordinary-program reference solutions for beginner exercises
+- 54 ordinary-program reference solutions, covering all non-function Python topics
 - Separate tests for wrong answers, missing returns, Boolean typing, Python syntax errors, and stdin/stdout behavior.
 
 ## Files
