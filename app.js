@@ -54,6 +54,8 @@
   let requestCounter = 0;
   let pendingTimer = null;
   let pendingRequestId = null;
+  let pendingQuestionId = null;
+  let pendingWasTest = false;
   let editor = null;
   let suppressEditorChange = false;
   let toastTimer = null;
@@ -127,6 +129,12 @@
       savedCode[current.id] = editor.getValue();
       localStorage.setItem(STORAGE.code, JSON.stringify(savedCode));
       ui.unsavedDot.classList.add("visible");
+      ui.resultPanel.classList.remove("success", "failure");
+      ui.resultTitle.textContent = language === "en" ? "Code modified" : "コードを変更しました";
+      ui.resultMessage.textContent = language === "en"
+        ? "Run Test again to check the updated solution."
+        : "変更後の解答を確認するには、もう一度テストしてください。";
+      ui.scoreValue.textContent = "—";
     });
 
     setTheme(localStorage.getItem(STORAGE.theme) || "dark");
@@ -170,32 +178,59 @@
       return;
     }
     if (data.type === "result" && data.requestId === pendingRequestId) {
+      const testedQuestionId = pendingQuestionId;
+      const testedWasTest = pendingWasTest;
       clearTimeout(pendingTimer);
       pendingTimer = null;
       pendingRequestId = null;
+      pendingQuestionId = null;
+      pendingWasTest = false;
       ui.runBtn.disabled = !runtimeReady;
       ui.submitBtn.disabled = !runtimeReady;
-      handleResult(data.result);
+      if (testedQuestionId !== current?.id) {
+        if (testedWasTest && data.result?.ok && data.result.total > 0 &&
+            data.result.passed === data.result.total) {
+          progress[testedQuestionId] = {completed:true, score:100, updatedAt:Date.now()};
+          localStorage.setItem(STORAGE.progress, JSON.stringify(progress));
+          renderProgress();
+          renderQuestionList();
+        }
+        return;
+      }
+      handleResult(data.result, testedWasTest);
     }
   }
 
-  function handleResult(result) {
-    const outputParts = [];
-    if (result.stdout) outputParts.push(result.stdout.trimEnd());
-    if (result.stderr) outputParts.push(result.stderr.trimEnd());
-    if (result.error) outputParts.push(result.error.trimEnd());
-    ui.consoleOutput.textContent = outputParts.filter(Boolean).join("\n") || "(no output)";
+  function handleResult(result, withTests) {
+    const outputParts = [result.stdout?.trimEnd(), result.stderr?.trimEnd(), result.error?.trimEnd()].filter(Boolean);
+    ui.consoleOutput.textContent = outputParts.join("\n") ||
+      (withTests
+        ? (language === "en" ? "No printed output. Tests check return values." : "出力はありません。テストでは戻り値を確認します。")
+        : (language === "en" ? "Code executed. No printed output. Use Test to check function return values." : "実行完了。出力はありません。関数の戻り値はテストで確認できます。"));
+    ui.resultPanel.classList.remove("success", "failure");
 
-    if (result.total > 0) {
+    if (result.error) {
+      ui.testOutput.replaceChildren();
+      ui.resultPanel.classList.add("failure");
+      ui.resultEyebrow.textContent = language === "en" ? "RESULT" : "結果";
+      ui.resultTitle.textContent = result.errorType === "grader_error"
+        ? (language === "en" ? "Test configuration error" : "テスト設定エラー")
+        : (language === "en" ? "Python error" : "Python エラー");
+      ui.resultMessage.textContent = language === "en"
+        ? "See OUTPUT for the error and line number. Correct your code and test again."
+        : "出力タブでエラーと行番号を確認し、修正して再テストしてください。";
+      ui.scoreValue.textContent = withTests && result.errorType !== "grader_error" ? "0%" : "—";
+      activateConsoleTab("output");
+      return;
+    }
+
+    if (withTests && result.total > 0) {
       renderTests(result.details || []);
       activateConsoleTab("tests");
       const score = Math.round((result.passed / result.total) * 100);
       ui.scoreValue.textContent = score + "%";
-      ui.resultPanel.classList.remove("success","failure");
-
-      if (result.ok && result.passed === result.total) {
+      if (result.passed === result.total) {
         ui.resultPanel.classList.add("success");
-        ui.resultEyebrow.textContent = language === "en" ? "RESULT" : "結果";
         ui.resultTitle.textContent = language === "en" ? "All tests passed" : "すべてのテストに合格しました";
         ui.resultMessage.textContent = language === "en" ? "This exercise is marked complete." : "この課題を完了済みにしました。";
         progress[current.id] = {completed:true, score:100, updatedAt:Date.now()};
@@ -207,15 +242,15 @@
       } else {
         ui.resultPanel.classList.add("failure");
         ui.resultTitle.textContent = language === "en" ? "Some tests failed" : "不合格のテストがあります";
-        ui.resultMessage.textContent = (result.passed || 0) + "/" + result.total + (language === "en" ? " tests passed." : " 件のテストに合格しました。");
+        ui.resultMessage.textContent = (result.passed || 0) + "/" + result.total +
+          (language === "en" ? " tests passed." : " 件のテストに合格しました。");
       }
-    } else if (result.error) {
-      ui.resultPanel.classList.remove("success");
+    } else if (withTests) {
       ui.resultPanel.classList.add("failure");
-      ui.resultTitle.textContent = language === "en" ? "Runtime error" : "実行時エラー";
-      ui.resultMessage.textContent = language === "en" ? "Check the OUTPUT panel for details." : "詳細は OUTPUT タブを確認してください。";
+      ui.resultTitle.textContent = language === "en" ? "No tests configured" : "テストがありません";
+      ui.resultMessage.textContent = language === "en" ? "This exercise has no tests." : "この課題にはテストが設定されていません。";
       ui.scoreValue.textContent = "—";
-      activateConsoleTab("output");
+      activateConsoleTab("tests");
     } else {
       activateConsoleTab("output");
     }
@@ -223,7 +258,7 @@
 
   function renderTests(details) {
     ui.testOutput.replaceChildren();
-    details.forEach(d => {
+    for (const d of details) {
       const row = document.createElement("div");
       row.className = "test-row";
       const icon = document.createElement("span");
@@ -231,20 +266,55 @@
       icon.textContent = d.ok ? "✓" : "×";
       const main = document.createElement("div");
       main.className = "test-main";
-      main.textContent = (language === "en" ? "Test " : "テスト ") + d.index + ": " + d.expr;
-      const sub = document.createElement("span");
-      sub.className = "test-sub";
-      sub.textContent = d.ok ? ("✓ " + d.actual) : ((language === "en" ? "expected " : "期待値 ") + d.expected + (language === "en" ? " • got " : " • 実際 ") + d.actual);
-      main.appendChild(sub);
+      const heading = document.createElement("div");
+      heading.className = "test-expression";
+      heading.textContent = (language === "en" ? "Test " : "テスト ") + d.index + ": " + d.expr;
+      main.appendChild(heading);
+      const comparison = document.createElement("div");
+      comparison.className = "test-comparison";
+      if (d.ok) {
+        const passed = document.createElement("span");
+        passed.className = "ok";
+        passed.textContent = (language === "en" ? "Passed: " : "合格: ") + d.actual;
+        comparison.appendChild(passed);
+      } else {
+        const expected = document.createElement("span");
+        expected.textContent = (language === "en" ? "Expected: " : "期待値: ") + d.expected;
+        const received = document.createElement("span");
+        received.textContent = (language === "en" ? "Received: " : "実際の値: ") + d.actual;
+        received.className = "fail";
+        comparison.append(expected, received);
+      }
+      main.appendChild(comparison);
+      if (!d.ok) {
+        const tip = document.createElement("div");
+        tip.className = "test-tip";
+        if (d.issue === "missing_return") {
+          tip.textContent = language === "en"
+            ? "This function returned None. Use return for a value; print() only displays text and pass does nothing."
+            : "関数が None を返しました。値を返すには return を使います。print() は表示のみで、pass は何もしません。";
+        } else if (d.issue === "wrong_type") {
+          tip.textContent = language === "en"
+            ? "Wrong type: use a Boolean (True/False), not a number (1/0), or vice versa."
+            : "型が違います。真偽値（True/False）と数値（1/0）を区別してください。";
+        } else if (d.issue === "test_exception") {
+          tip.textContent = language === "en"
+            ? "Your function raised an exception. Check its name, arguments and body."
+            : "関数の実行中に例外が発生しました。関数名・引数・処理を確認してください。";
+        }
+        if (tip.textContent) main.appendChild(tip);
+      }
       row.append(icon, main);
       ui.testOutput.appendChild(row);
-    });
+    }
   }
 
   function runCurrent(withTests) {
     if (!runtimeReady || !current || pendingRequestId !== null) return;
     const requestId = ++requestCounter;
     pendingRequestId = requestId;
+    pendingQuestionId = current.id;
+    pendingWasTest = withTests;
     ui.runBtn.disabled = true;
     ui.submitBtn.disabled = true;
     ui.consoleOutput.textContent = withTests ? (language === "en" ? "Running tests…" : "テストを実行中…") : (language === "en" ? "Running…" : "実行中…");
@@ -259,6 +329,8 @@
     });
     pendingTimer = setTimeout(() => {
       pendingRequestId = null;
+      pendingQuestionId = null;
+      pendingWasTest = false;
       ui.consoleOutput.textContent = language === "en"
         ? "Execution stopped: code exceeded 6 seconds. The Python worker was restarted."
         : "実行を停止しました：処理が6秒を超えたため、Python ワーカーを再起動しました。";
