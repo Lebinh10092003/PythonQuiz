@@ -43,13 +43,13 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--sans);
-  overflow: hidden;
+  overflow: auto;
 }
 button, input, select { font: inherit; }
 button { color: inherit; }
 .hidden { display: none !important; }
 
-.app-shell { min-height: 100vh; display: flex; flex-direction: column; }
+.app-shell { height: 100vh; height: 100dvh; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
 .topbar {
   height: 62px;
   display: flex;
@@ -95,7 +95,7 @@ button { color: inherit; }
 }
 .icon-btn:hover { border-color: var(--muted-2); background: var(--panel-3); }
 
-.workspace { flex: 1; min-height: 0; display: grid; grid-template-columns: 300px minmax(0, 1fr); }
+.workspace { flex: 1 1 auto; height: 0; min-height: 0; display: grid; grid-template-columns: 300px minmax(0, 1fr); }
 .sidebar {
   min-height: 0; overflow: hidden; display: flex; flex-direction: column;
   border-right: 1px solid var(--border); background: var(--panel);
@@ -117,7 +117,7 @@ button { color: inherit; }
 .search-wrap input { min-width: 0; width: 100%; border: 0; outline: 0; background: transparent; color: var(--text); font-size: 12px; }
 .filter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
 .filter-grid .select { min-width: 0; font-size: 11px; }
-.question-list { min-height: 0; overflow: auto; padding: 0 8px 16px; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+.question-list { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 8px 16px; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
 .question-group-title { padding: 14px 8px 6px; color: var(--muted-2); font-size: 10px; font-weight: 800; letter-spacing: .8px; text-transform: uppercase; }
 .question-item {
   width: 100%; display: grid; grid-template-columns: 28px minmax(0, 1fr) 10px; align-items: center; gap: 7px;
@@ -136,7 +136,7 @@ button { color: inherit; }
 .completion-dot { width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--muted-2); }
 .question-item.completed .completion-dot { border-color: var(--green); background: var(--green); }
 
-.main-panel { min-height: 0; overflow: auto; background: var(--bg); }
+.main-panel { min-height: 0; height: 100%; overflow-y: auto; overflow-x: hidden; overscroll-behavior-y: contain; scrollbar-width: thin; background: var(--bg); }
 .problem-panel { padding: 22px 24px 18px; border-bottom: 1px solid var(--border); background: var(--panel); }
 .problem-topline { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .problem-meta { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: 11px; }
@@ -221,10 +221,12 @@ body.light .console-panel { background: #101826; }
 .toast.show { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 900px) {
-  body { overflow: auto; }
-  .workspace { display: block; }
+  body { overflow-y: auto; }
+  .app-shell { height: auto; min-height: 100dvh; overflow: visible; }
+  .workspace { height: auto; min-height: auto; display: block; }
+  .main-panel { height: auto; overflow: visible; }
   .sidebar {
-    position: fixed; inset: 62px auto 0 0; width: min(88vw, 330px); z-index: 30;
+    position: fixed; inset: 62px auto 0 0; height: calc(100dvh - 62px); width: min(88vw, 330px); z-index: 30;
     transform: translateX(-102%); transition: transform .2s ease; box-shadow: var(--shadow);
   }
   .sidebar.open { transform: translateX(0); }
@@ -240,6 +242,7 @@ body.light .console-panel { background: #101826; }
 
 @media (max-width: 620px) {
   .topbar { height: auto; min-height: 62px; padding: 9px 10px; }
+  .sidebar { height: calc(100dvh - 62px); }
   .brand span { display: none; }
   .runtime-pill { min-width: 0; width: 34px; padding: 8px; }
   .runtime-pill span:last-child { display: none; }
