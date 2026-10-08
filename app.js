@@ -16,10 +16,10 @@
     levelFilter: $("levelFilter"), topicFilter: $("topicFilter"), languageSelect: $("languageSelect"),
     progressText: $("progressText"), progressBar: $("progressBar"), progressLabel: $("progressLabel"),
     sidebarTitle: $("sidebarTitle"), runtimePill: $("runtimePill"), runtimeText: $("runtimeText"),
-    titleVi: $("titleVi"), titleEn: $("titleEn"), promptVi: $("promptVi"), promptEn: $("promptEn"),
-    viBlock: $("viBlock"), enBlock: $("enBlock"), levelBadge: $("levelBadge"), topicLabel: $("topicLabel"),
+    titleJa: $("titleJa"), titleEn: $("titleEn"), promptJa: $("promptJa"), promptEn: $("promptEn"),
+    jaBlock: $("jaBlock"), enBlock: $("enBlock"), levelBadge: $("levelBadge"), topicLabel: $("topicLabel"),
     questionNumber: $("questionNumber"), exampleCode: $("exampleCode"), exampleLabel: $("exampleLabel"),
-    hintVi: $("hintVi"), hintEn: $("hintEn"), hintSummary: $("hintSummary"),
+    hintJa: $("hintJa"), hintEn: $("hintEn"), hintSummary: $("hintSummary"),
     runBtn: $("runBtn"), submitBtn: $("submitBtn"), resetBtn: $("resetBtn"),
     prevBtn: $("prevBtn"), nextBtn: $("nextBtn"), themeBtn: $("themeBtn"),
     openSidebarBtn: $("openSidebarBtn"), closeSidebarBtn: $("closeSidebarBtn"),
@@ -36,7 +36,17 @@
   };
   const progress = readJson(STORAGE.progress, {});
   const savedCode = readJson(STORAGE.code, {});
-  let language = localStorage.getItem(STORAGE.language) || "both";
+  const storedLanguage = localStorage.getItem(STORAGE.language);
+  let language = ["en", "ja"].includes(storedLanguage) ? storedLanguage : "en";
+  if (storedLanguage !== language) localStorage.setItem(STORAGE.language, language);
+  const LEVEL_LABELS = {
+    Starter: {en:"Starter", ja:"入門"},
+    Basic: {en:"Basic", ja:"基礎"},
+    Core: {en:"Core", ja:"基本演習"},
+    Intermediate: {en:"Intermediate", ja:"中級"},
+    Advanced: {en:"Advanced", ja:"上級"}
+  };
+  const levelText = (value) => LEVEL_LABELS[value]?.[language] || value;
   let currentId = localStorage.getItem(STORAGE.current) || questions[0]?.id || "";
   let current = questions.find(q => q.id === currentId) || questions[0] || null;
   let runtimeReady = false;
@@ -50,8 +60,7 @@
 
   function textFor(obj) {
     if (!obj) return "";
-    if (language === "en") return obj.en || obj.vi || "";
-    return obj.vi || obj.en || "";
+    return obj[language] || obj.en || "";
   }
 
   function toast(message) {
@@ -129,13 +138,13 @@
     ui.runBtn.disabled = true;
     ui.submitBtn.disabled = true;
     ui.runtimePill.className = "runtime-pill";
-    ui.runtimeText.textContent = language === "en" ? "Loading Python…" : "Đang tải Python…";
+    ui.runtimeText.textContent = language === "en" ? "Loading Python…" : "Python を読み込み中…";
     worker = new Worker("./python-worker.js");
     worker.onmessage = onWorkerMessage;
     worker.onerror = () => {
       ui.runtimePill.className = "runtime-pill error";
       ui.runtimeText.textContent = "Python error";
-      ui.consoleOutput.textContent = "Không thể khởi tạo Python runtime / Failed to initialize Python runtime.";
+      ui.consoleOutput.textContent = language === "en" ? "Failed to initialize Python runtime." : "Python 実行環境の初期化に失敗しました。";
       runtimeReady = false;
     };
     worker.postMessage({type:"init"});
@@ -149,7 +158,7 @@
       ui.submitBtn.disabled = false;
       ui.runtimePill.className = "runtime-pill ready";
       ui.runtimeText.textContent = "Python " + (data.version || "") + " ready";
-      if (ui.consoleOutput.textContent.includes("loading") || ui.consoleOutput.textContent.includes("Đang tải")) {
+      if (ui.consoleOutput.textContent.includes("loading") || ui.consoleOutput.textContent.includes("読み込み中")) {
         ui.consoleOutput.textContent = "Python ready. Ctrl+Enter: Run • Ctrl+Shift+Enter: Test";
       }
       return;
@@ -186,25 +195,25 @@
 
       if (result.ok && result.passed === result.total) {
         ui.resultPanel.classList.add("success");
-        ui.resultEyebrow.textContent = language === "en" ? "RESULT" : "KẾT QUẢ";
-        ui.resultTitle.textContent = language === "en" ? "All tests passed" : "Đã vượt qua toàn bộ test";
-        ui.resultMessage.textContent = language === "en" ? "This exercise is marked complete." : "Bài này đã được đánh dấu hoàn thành.";
+        ui.resultEyebrow.textContent = language === "en" ? "RESULT" : "結果";
+        ui.resultTitle.textContent = language === "en" ? "All tests passed" : "すべてのテストに合格しました";
+        ui.resultMessage.textContent = language === "en" ? "This exercise is marked complete." : "この課題を完了済みにしました。";
         progress[current.id] = {completed:true, score:100, updatedAt:Date.now()};
         localStorage.setItem(STORAGE.progress, JSON.stringify(progress));
         ui.unsavedDot.classList.remove("visible");
         renderProgress();
         renderQuestionList();
-        toast(language === "en" ? "Exercise completed" : "Hoàn thành bài tập");
+        toast(language === "en" ? "Exercise completed" : "課題を完了しました");
       } else {
         ui.resultPanel.classList.add("failure");
-        ui.resultTitle.textContent = language === "en" ? "Some tests failed" : "Còn test chưa đạt";
-        ui.resultMessage.textContent = (result.passed || 0) + "/" + result.total + (language === "en" ? " tests passed." : " test đạt.");
+        ui.resultTitle.textContent = language === "en" ? "Some tests failed" : "不合格のテストがあります";
+        ui.resultMessage.textContent = (result.passed || 0) + "/" + result.total + (language === "en" ? " tests passed." : " 件のテストに合格しました。");
       }
     } else if (result.error) {
       ui.resultPanel.classList.remove("success");
       ui.resultPanel.classList.add("failure");
-      ui.resultTitle.textContent = language === "en" ? "Runtime error" : "Lỗi khi chạy";
-      ui.resultMessage.textContent = language === "en" ? "Check the OUTPUT panel for details." : "Xem chi tiết lỗi trong tab OUTPUT.";
+      ui.resultTitle.textContent = language === "en" ? "Runtime error" : "実行時エラー";
+      ui.resultMessage.textContent = language === "en" ? "Check the OUTPUT panel for details." : "詳細は OUTPUT タブを確認してください。";
       ui.scoreValue.textContent = "—";
       activateConsoleTab("output");
     } else {
@@ -222,10 +231,10 @@
       icon.textContent = d.ok ? "✓" : "×";
       const main = document.createElement("div");
       main.className = "test-main";
-      main.textContent = "Test " + d.index + ": " + d.expr;
+      main.textContent = (language === "en" ? "Test " : "テスト ") + d.index + ": " + d.expr;
       const sub = document.createElement("span");
       sub.className = "test-sub";
-      sub.textContent = d.ok ? ("✓ " + d.actual) : ("expected " + d.expected + " • got " + d.actual);
+      sub.textContent = d.ok ? ("✓ " + d.actual) : ((language === "en" ? "expected " : "期待値 ") + d.expected + (language === "en" ? " • got " : " • 実際 ") + d.actual);
       main.appendChild(sub);
       row.append(icon, main);
       ui.testOutput.appendChild(row);
@@ -238,7 +247,7 @@
     pendingRequestId = requestId;
     ui.runBtn.disabled = true;
     ui.submitBtn.disabled = true;
-    ui.consoleOutput.textContent = withTests ? "Running tests…" : "Running…";
+    ui.consoleOutput.textContent = withTests ? (language === "en" ? "Running tests…" : "テストを実行中…") : (language === "en" ? "Running…" : "実行中…");
     ui.testOutput.replaceChildren();
     activateConsoleTab(withTests ? "tests" : "output");
     worker.postMessage({
@@ -250,11 +259,13 @@
     });
     pendingTimer = setTimeout(() => {
       pendingRequestId = null;
-      ui.consoleOutput.textContent = "Execution stopped: code exceeded 6 seconds. The Python worker was restarted.\n\nĐã dừng: mã chạy quá 6 giây. Python worker đã được khởi động lại.";
+      ui.consoleOutput.textContent = language === "en"
+        ? "Execution stopped: code exceeded 6 seconds. The Python worker was restarted."
+        : "実行を停止しました：処理が6秒を超えたため、Python ワーカーを再起動しました。";
       ui.resultPanel.classList.remove("success");
       ui.resultPanel.classList.add("failure");
-      ui.resultTitle.textContent = language === "en" ? "Time limit exceeded" : "Vượt giới hạn thời gian";
-      ui.resultMessage.textContent = language === "en" ? "Check for an infinite loop or inefficient code." : "Kiểm tra vòng lặp vô hạn hoặc mã chưa tối ưu.";
+      ui.resultTitle.textContent = language === "en" ? "Time limit exceeded" : "実行時間の制限を超えました";
+      ui.resultMessage.textContent = language === "en" ? "Check for an infinite loop or inefficient code." : "無限ループや効率の悪い処理がないか確認してください。";
       ui.scoreValue.textContent = "—";
       startWorker();
     }, 6000);
@@ -271,7 +282,7 @@
     const level = ui.levelFilter.value;
     const topic = ui.topicFilter.value;
     return questions.filter(q => {
-      const haystack = [q.title.vi,q.title.en,q.topic.vi,q.topic.en].join(" ").toLowerCase();
+      const haystack = [q.title.ja,q.title.en,q.topic.ja,q.topic.en].join(" ").toLowerCase();
       return (!term || haystack.includes(term))
         && (level === "all" || q.level === level)
         && (topic === "all" || q.topic.en === topic);
@@ -284,7 +295,7 @@
     if (!list.length) {
       const empty = document.createElement("div");
       empty.style.cssText = "padding:20px 10px;color:var(--muted);font-size:12px;text-align:center;";
-      empty.textContent = language === "en" ? "No exercises found." : "Không tìm thấy bài phù hợp.";
+      empty.textContent = language === "en" ? "No exercises found." : "該当する課題がありません。";
       ui.questionList.appendChild(empty);
       return;
     }
@@ -295,7 +306,7 @@
         lastLevel = q.level;
         const head = document.createElement("div");
         head.className = "question-group-title";
-        head.textContent = q.level;
+        head.textContent = levelText(q.level);
         ui.questionList.appendChild(head);
       }
       const index = questions.indexOf(q) + 1;
@@ -330,30 +341,46 @@
   }
 
   function renderLanguageUI() {
-    ui.sidebarTitle.textContent = language === "en" ? "Coding exercises" : "Bài luyện tập";
-    ui.progressLabel.textContent = language === "en" ? "Progress" : "Tiến độ";
-    ui.exampleLabel.textContent = language === "en" ? "Example" : (language === "vi" ? "Ví dụ" : "Ví dụ / Example");
-    ui.hintSummary.textContent = language === "en" ? "Hint" : (language === "vi" ? "Gợi ý" : "Gợi ý / Hint");
-    ui.scoreLabel.textContent = language === "en" ? "Score" : "Điểm";
-    ui.openSidebarBtn.textContent = language === "en" ? "☰ Exercises" : "☰ Bài tập";
+    document.documentElement.lang = language;
+    ui.sidebarTitle.textContent = language === "en" ? "Coding exercises" : "コーディング課題";
+    ui.progressLabel.textContent = language === "en" ? "Progress" : "進捗";
+    ui.exampleLabel.textContent = language === "en" ? "Example" : "例";
+    ui.hintSummary.textContent = language === "en" ? "Hint" : "ヒント";
+    ui.scoreLabel.textContent = language === "en" ? "Score" : "スコア";
+    ui.resultEyebrow.textContent = language === "en" ? "RESULT" : "結果";
+    ui.openSidebarBtn.textContent = language === "en" ? "☰ Exercises" : "☰ 課題一覧";
+    ui.searchInput.placeholder = language === "en" ? "Search exercises…" : "課題を検索…";
+    ui.levelFilter.options[0].textContent = language === "en" ? "All levels" : "すべてのレベル";
+    ui.prevBtn.title = language === "en" ? "Previous exercise" : "前の課題";
+    ui.nextBtn.title = language === "en" ? "Next exercise" : "次の課題";
+    ui.themeBtn.title = language === "en" ? "Toggle theme" : "テーマを切り替え";
+    ui.closeSidebarBtn.title = language === "en" ? "Close" : "閉じる";
+    ui.clearConsoleBtn.textContent = language === "en" ? "Clear" : "消去";
+    ui.resetBtn.textContent = language === "en" ? "↺ Reset" : "↺ リセット";
+    ui.runBtn.textContent = language === "en" ? "▶ Run" : "▶ 実行";
+    ui.submitBtn.textContent = language === "en" ? "✓ Test" : "✓ テスト";
+    document.querySelector('[data-tab="output"]').textContent = language === "en" ? "OUTPUT" : "出力";
+    document.querySelector('[data-tab="tests"]').textContent = language === "en" ? "TESTS" : "テスト";
   }
 
   function renderCurrent() {
     if (!current) return;
     const index = questions.indexOf(current);
-    ui.levelBadge.textContent = current.level;
+    ui.levelBadge.textContent = levelText(current.level);
     ui.topicLabel.textContent = textFor(current.topic);
     ui.questionNumber.textContent = "#" + String(index + 1).padStart(2,"0");
     ui.mobileQuestionIndex.textContent = (index + 1) + " / " + questions.length;
-    ui.titleVi.textContent = current.title.vi;
+    ui.titleJa.textContent = current.title.ja;
     ui.titleEn.textContent = current.title.en;
-    ui.promptVi.textContent = current.prompt.vi;
+    ui.promptJa.textContent = current.prompt.ja;
     ui.promptEn.textContent = current.prompt.en;
-    ui.hintVi.textContent = current.hint.vi;
+    ui.hintJa.textContent = current.hint.ja;
     ui.hintEn.textContent = current.hint.en;
     ui.exampleCode.textContent = current.example;
-    ui.viBlock.classList.toggle("hidden", language === "en");
-    ui.enBlock.classList.toggle("hidden", language === "vi");
+    ui.jaBlock.classList.toggle("hidden", language !== "ja");
+    ui.hintJa.classList.toggle("hidden", language !== "ja");
+    ui.hintEn.classList.toggle("hidden", language !== "en");
+    ui.enBlock.classList.toggle("hidden", language !== "en");
     ui.prevBtn.disabled = index <= 0;
     ui.nextBtn.disabled = index >= questions.length - 1;
 
@@ -365,12 +392,12 @@
     ui.resultPanel.classList.remove("success","failure");
     if (progress[current.id]?.completed) {
       ui.resultPanel.classList.add("success");
-      ui.resultTitle.textContent = language === "en" ? "Completed" : "Đã hoàn thành";
-      ui.resultMessage.textContent = language === "en" ? "You can edit and test again at any time." : "Bạn vẫn có thể sửa code và chấm lại bất kỳ lúc nào.";
+      ui.resultTitle.textContent = language === "en" ? "Completed" : "完了済み";
+      ui.resultMessage.textContent = language === "en" ? "You can edit and test again at any time." : "いつでもコードを修正し、再テストできます。";
       ui.scoreValue.textContent = (progress[current.id].score || 100) + "%";
     } else {
-      ui.resultTitle.textContent = language === "en" ? "Not submitted yet" : "Chưa chấm bài";
-      ui.resultMessage.textContent = language === "en" ? "Write your solution and press Test." : "Viết lời giải và nhấn Test để kiểm tra với các test case.";
+      ui.resultTitle.textContent = language === "en" ? "Not submitted yet" : "未提出";
+      ui.resultMessage.textContent = language === "en" ? "Write your solution and press Test." : "解答を入力し、テストボタンで確認してください。";
       ui.scoreValue.textContent = "—";
     }
     ui.consoleOutput.textContent = runtimeReady ? "Ctrl+Enter: Run • Ctrl+Shift+Enter: Test" : "Python runtime is loading…";
@@ -407,7 +434,7 @@
     topics.forEach(topic => {
       const option = document.createElement("option");
       option.value = topic.en;
-      option.textContent = language === "en" ? topic.en : topic.vi;
+      option.textContent = language === "en" ? topic.en : topic.ja;
       ui.topicFilter.appendChild(option);
     });
   }
@@ -415,7 +442,7 @@
   function rebuildTopicFilter() {
     const selected = ui.topicFilter.value;
     while (ui.topicFilter.options.length > 1) ui.topicFilter.remove(1);
-    const label = language === "en" ? "All topics" : "Tất cả chủ đề";
+    const label = language === "en" ? "All topics" : "すべてのトピック";
     ui.topicFilter.options[0].textContent = label;
     const topics = [];
     const seen = new Set();
@@ -425,7 +452,7 @@
     topics.forEach(topic => {
       const option = document.createElement("option");
       option.value = topic.en;
-      option.textContent = language === "en" ? topic.en : topic.vi;
+      option.textContent = language === "en" ? topic.en : topic.ja;
       ui.topicFilter.appendChild(option);
     });
     ui.topicFilter.value = [...ui.topicFilter.options].some(o => o.value === selected) ? selected : "all";
@@ -439,7 +466,7 @@
       renderLanguageUI();
       rebuildTopicFilter();
       renderCurrent();
-      if (!runtimeReady) ui.runtimeText.textContent = language === "en" ? "Loading Python…" : "Đang tải Python…";
+      if (!runtimeReady) ui.runtimeText.textContent = language === "en" ? "Loading Python…" : "Python を読み込み中…";
     });
     ui.searchInput.addEventListener("input", renderQuestionList);
     ui.levelFilter.addEventListener("change", renderQuestionList);
@@ -454,7 +481,7 @@
       delete savedCode[current.id];
       localStorage.setItem(STORAGE.code, JSON.stringify(savedCode));
       ui.unsavedDot.classList.remove("visible");
-      toast(language === "en" ? "Starter code restored" : "Đã khôi phục code mẫu");
+      toast(language === "en" ? "Starter code restored" : "初期コードを復元しました");
     });
     ui.prevBtn.addEventListener("click", () => {
       const i = questions.indexOf(current);
