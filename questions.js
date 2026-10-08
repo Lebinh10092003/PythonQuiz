@@ -3,22 +3,22 @@ window.QUESTIONS = [
     "id": "hello-world",
     "level": "Starter",
     "topic": {
-      "vi": "Bắt đầu",
-      "en": "Getting Started"
+      "en": "Getting Started",
+      "ja": "はじめに"
     },
     "title": {
-      "vi": "Lời chào đầu tiên",
-      "en": "First greeting"
+      "en": "First greeting",
+      "ja": "最初のあいさつ"
     },
     "prompt": {
-      "vi": "Viết hàm hello() trả về đúng chuỗi Hello, World!. Không in ra màn hình; hãy dùng return.",
-      "en": "Write a hello() function that returns exactly Hello, World!. Do not print it; use return."
+      "en": "Write a hello() function that returns exactly Hello, World!. Do not print it; use return.",
+      "ja": "hello() 関数を作成し、文字列 'Hello, World!' を正確に返してください。画面に出力せず、return を使用してください。"
     },
-    "starter": "def hello():\n    # Trả về / Return: Hello, World!\n    pass",
+    "starter": "def hello():\n    # Return: Hello, World!\n    pass",
     "example": "hello()  →  'Hello, World!'",
     "hint": {
-      "vi": "Dùng return với một chuỗi ký tự.",
-      "en": "Use return with a string literal."
+      "en": "Use return with a string literal.",
+      "ja": "文字列リテラルを return で返します。"
     },
     "checks": [
       {
@@ -31,22 +31,22 @@ window.QUESTIONS = [
     "id": "greet-name",
     "level": "Starter",
     "topic": {
-      "vi": "Bắt đầu",
-      "en": "Getting Started"
+      "en": "Getting Started",
+      "ja": "はじめに"
     },
     "title": {
-      "vi": "Chào theo tên",
-      "en": "Greet by name"
+      "en": "Greet by name",
+      "ja": "名前を使ったあいさつ"
     },
     "prompt": {
-      "vi": "Viết greet(name) trả về chuỗi Hello, <name>! với tên được truyền vào.",
-      "en": "Write greet(name) returning Hello, <name>! using the provided name."
+      "en": "Write greet(name) returning Hello, <name>! using the provided name.",
+      "ja": "受け取った name を使い、'Hello, <name>!' という形式の文字列を返す greet(name) を作成してください。"
     },
     "starter": "def greet(name):\n    pass",
     "example": "greet('Binh')  →  'Hello, Binh!'",
     "hint": {
-      "vi": "Có thể dùng f-string.",
-      "en": "An f-string is a good fit."
+      "en": "An f-string is a good fit.",
+      "ja": "f-string を使うと簡単です。"
     },
     "checks": [
       {
@@ -63,22 +63,22 @@ window.QUESTIONS = [
     "id": "add-two",
     "level": "Starter",
     "topic": {
-      "vi": "Bắt đầu",
-      "en": "Getting Started"
+      "en": "Getting Started",
+      "ja": "はじめに"
     },
     "title": {
-      "vi": "Cộng hai số",
-      "en": "Add two numbers"
+      "en": "Add two numbers",
+      "ja": "2つの数の加算"
     },
     "prompt": {
-      "vi": "Viết add(a, b) trả về tổng của a và b.",
-      "en": "Write add(a, b) that returns the sum of a and b."
+      "en": "Write add(a, b) that returns the sum of a and b.",
+      "ja": "a と b の合計を返す add(a, b) を作成してください。"
     },
     "starter": "def add(a, b):\n    pass",
     "example": "add(4, 7)  →  11",
     "hint": {
-      "vi": "Dùng toán tử +.",
-      "en": "Use the + operator."
+      "en": "Use the + operator.",
+      "ja": "+ 演算子を使用します。"
     },
     "checks": [
       {
@@ -99,22 +99,22 @@ window.QUESTIONS = [
     "id": "type-name",
     "level": "Starter",
     "topic": {
-      "vi": "Biến & kiểu dữ liệu",
-      "en": "Variables & Data Types"
+      "en": "Variables & Data Types",
+      "ja": "変数とデータ型"
     },
     "title": {
-      "vi": "Tên kiểu dữ liệu",
-      "en": "Data type name"
+      "en": "Data type name",
+      "ja": "データ型の名前"
     },
     "prompt": {
-      "vi": "Viết type_name(value) trả về tên kiểu dữ liệu của value dưới dạng chuỗi, ví dụ int, str, list.",
-      "en": "Write type_name(value) that returns the value's type name as a string, such as int, str, or list."
+      "en": "Write type_name(value) that returns the value's type name as a string, such as int, str, or list.",
+      "ja": "値の型名（int、str、list など）を文字列で返す type_name(value) を作成してください。"
     },
     "starter": "def type_name(value):\n    pass",
     "example": "type_name(42)  →  'int'",
     "hint": {
-      "vi": "Dùng type(...) và thuộc tính __name__.",
-      "en": "Use type(...) and its __name__ attribute."
+      "en": "Use type(...) and its __name__ attribute.",
+      "ja": "type(...) の __name__ 属性を使います。"
     },
     "checks": [
       {
@@ -135,22 +135,22 @@ window.QUESTIONS = [
     "id": "to-int",
     "level": "Starter",
     "topic": {
-      "vi": "Số & ép kiểu",
-      "en": "Numbers & Casting"
+      "en": "Numbers & Casting",
+      "ja": "数値と型変換"
     },
     "title": {
-      "vi": "Ép chuỗi sang số nguyên",
-      "en": "Cast text to integer"
+      "en": "Cast text to integer",
+      "ja": "文字列を整数に変換"
     },
     "prompt": {
-      "vi": "Viết to_int(text) chuyển chuỗi số sang int và trả về kết quả.",
-      "en": "Write to_int(text) that converts numeric text to int and returns it."
+      "en": "Write to_int(text) that converts numeric text to int and returns it.",
+      "ja": "数値を表す文字列を int に変換して返す to_int(text) を作成してください。"
     },
     "starter": "def to_int(text):\n    pass",
     "example": "to_int('125')  →  125",
     "hint": {
-      "vi": "Dùng int(...).",
-      "en": "Use int(...)."
+      "en": "Use int(...).",
+      "ja": "int(...) を使用します。"
     },
     "checks": [
       {
@@ -167,22 +167,22 @@ window.QUESTIONS = [
     "id": "rectangle-area",
     "level": "Starter",
     "topic": {
-      "vi": "Số & ép kiểu",
-      "en": "Numbers & Casting"
+      "en": "Numbers & Casting",
+      "ja": "数値と型変換"
     },
     "title": {
-      "vi": "Diện tích hình chữ nhật",
-      "en": "Rectangle area"
+      "en": "Rectangle area",
+      "ja": "長方形の面積"
     },
     "prompt": {
-      "vi": "Viết rectangle_area(width, height) trả về diện tích hình chữ nhật.",
-      "en": "Write rectangle_area(width, height) and return the rectangle area."
+      "en": "Write rectangle_area(width, height) and return the rectangle area.",
+      "ja": "長方形の面積を返す rectangle_area(width, height) を作成してください。"
     },
     "starter": "def rectangle_area(width, height):\n    pass",
     "example": "rectangle_area(5, 3)  →  15",
     "hint": {
-      "vi": "Diện tích = chiều rộng × chiều cao.",
-      "en": "Area = width × height."
+      "en": "Area = width × height.",
+      "ja": "面積 = 幅 × 高さ です。"
     },
     "checks": [
       {
@@ -199,22 +199,22 @@ window.QUESTIONS = [
     "id": "first-last",
     "level": "Basic",
     "topic": {
-      "vi": "Chuỗi",
-      "en": "Strings"
+      "en": "Strings",
+      "ja": "文字列"
     },
     "title": {
-      "vi": "Ký tự đầu và cuối",
-      "en": "First and last character"
+      "en": "First and last character",
+      "ja": "最初と最後の文字"
     },
     "prompt": {
-      "vi": "Viết first_last(text) trả về tuple gồm ký tự đầu tiên và ký tự cuối cùng của chuỗi không rỗng.",
-      "en": "Write first_last(text) returning a tuple containing the first and last characters of a non-empty string."
+      "en": "Write first_last(text) returning a tuple containing the first and last characters of a non-empty string.",
+      "ja": "空でない文字列から、最初と最後の文字を含むタプルを返す first_last(text) を作成してください。"
     },
     "starter": "def first_last(text):\n    pass",
     "example": "first_last('Python')  →  ('P', 'n')",
     "hint": {
-      "vi": "Dùng chỉ số 0 và -1.",
-      "en": "Use indexes 0 and -1."
+      "en": "Use indexes 0 and -1.",
+      "ja": "インデックス 0 と -1 を使います。"
     },
     "checks": [
       {
@@ -231,22 +231,22 @@ window.QUESTIONS = [
     "id": "normalize-name",
     "level": "Basic",
     "topic": {
-      "vi": "Chuỗi",
-      "en": "Strings"
+      "en": "Strings",
+      "ja": "文字列"
     },
     "title": {
-      "vi": "Chuẩn hóa tên",
-      "en": "Normalize a name"
+      "en": "Normalize a name",
+      "ja": "名前の表記を整える"
     },
     "prompt": {
-      "vi": "Viết normalize_name(name): bỏ khoảng trắng thừa ở hai đầu rồi viết hoa chữ cái đầu mỗi từ.",
-      "en": "Write normalize_name(name): trim outer whitespace, then capitalize the first letter of each word."
+      "en": "Write normalize_name(name): trim outer whitespace, then capitalize the first letter of each word.",
+      "ja": "normalize_name(name) を作成してください。文字列の両端の空白を削除し、各単語の先頭文字を大文字にします。"
     },
     "starter": "def normalize_name(name):\n    pass",
     "example": "normalize_name('  le van binh  ')  →  'Le Van Binh'",
     "hint": {
-      "vi": "Kết hợp strip() và title().",
-      "en": "Combine strip() and title()."
+      "en": "Combine strip() and title().",
+      "ja": "strip() と title() を組み合わせます。"
     },
     "checks": [
       {
@@ -263,22 +263,22 @@ window.QUESTIONS = [
     "id": "reverse-text",
     "level": "Basic",
     "topic": {
-      "vi": "Chuỗi",
-      "en": "Strings"
+      "en": "Strings",
+      "ja": "文字列"
     },
     "title": {
-      "vi": "Đảo chuỗi",
-      "en": "Reverse text"
+      "en": "Reverse text",
+      "ja": "文字列を逆順にする"
     },
     "prompt": {
-      "vi": "Viết reverse_text(text) trả về chuỗi theo thứ tự ngược lại.",
-      "en": "Write reverse_text(text) returning the text in reverse order."
+      "en": "Write reverse_text(text) returning the text in reverse order.",
+      "ja": "文字列を逆順にした結果を返す reverse_text(text) を作成してください。"
     },
     "starter": "def reverse_text(text):\n    pass",
     "example": "reverse_text('Python')  →  'nohtyP'",
     "hint": {
-      "vi": "Thử slicing với bước nhảy âm.",
-      "en": "Try slicing with a negative step."
+      "en": "Try slicing with a negative step.",
+      "ja": "負のステップを使ったスライスを試しましょう。"
     },
     "checks": [
       {
@@ -295,22 +295,22 @@ window.QUESTIONS = [
     "id": "count-char",
     "level": "Basic",
     "topic": {
-      "vi": "Chuỗi",
-      "en": "Strings"
+      "en": "Strings",
+      "ja": "文字列"
     },
     "title": {
-      "vi": "Đếm ký tự",
-      "en": "Count a character"
+      "en": "Count a character",
+      "ja": "文字の出現回数"
     },
     "prompt": {
-      "vi": "Viết count_char(text, char) trả về số lần char xuất hiện trong text.",
-      "en": "Write count_char(text, char) returning how many times char appears in text."
+      "en": "Write count_char(text, char) returning how many times char appears in text.",
+      "ja": "text 内に char が何回現れるかを返す count_char(text, char) を作成してください。"
     },
     "starter": "def count_char(text, char):\n    pass",
     "example": "count_char('banana', 'a')  →  3",
     "hint": {
-      "vi": "Chuỗi có phương thức count().",
-      "en": "Strings have a count() method."
+      "en": "Strings have a count() method.",
+      "ja": "文字列には count() メソッドがあります。"
     },
     "checks": [
       {
@@ -327,22 +327,22 @@ window.QUESTIONS = [
     "id": "contains-word",
     "level": "Basic",
     "topic": {
-      "vi": "Chuỗi",
-      "en": "Strings"
+      "en": "Strings",
+      "ja": "文字列"
     },
     "title": {
-      "vi": "Kiểm tra chuỗi con",
-      "en": "Substring membership"
+      "en": "Substring membership",
+      "ja": "部分文字列の確認"
     },
     "prompt": {
-      "vi": "Viết contains_word(text, word) trả về True nếu word xuất hiện trong text, ngược lại False. Phân biệt hoa thường.",
-      "en": "Write contains_word(text, word) returning True when word occurs in text, otherwise False. Keep matching case-sensitive."
+      "en": "Write contains_word(text, word) returning True when word occurs in text, otherwise False. Keep matching case-sensitive.",
+      "ja": "word が text に含まれれば True、含まれなければ False を返す contains_word(text, word) を作成してください。大文字と小文字は区別します。"
     },
     "starter": "def contains_word(text, word):\n    pass",
     "example": "contains_word('Learn Python', 'Python')  →  True",
     "hint": {
-      "vi": "Dùng toán tử in.",
-      "en": "Use the in operator."
+      "en": "Use the in operator.",
+      "ja": "in 演算子を使用します。"
     },
     "checks": [
       {
@@ -359,22 +359,22 @@ window.QUESTIONS = [
     "id": "profile-text",
     "level": "Basic",
     "topic": {
-      "vi": "Chuỗi",
-      "en": "Strings"
+      "en": "Strings",
+      "ja": "文字列"
     },
     "title": {
-      "vi": "Định dạng hồ sơ",
-      "en": "Format a profile"
+      "en": "Format a profile",
+      "ja": "プロフィールの書式設定"
     },
     "prompt": {
-      "vi": "Viết profile(name, age) trả về đúng mẫu: <name> is <age> years old.",
-      "en": "Write profile(name, age) returning exactly: <name> is <age> years old."
+      "en": "Write profile(name, age) returning exactly: <name> is <age> years old.",
+      "ja": "'<name> is <age> years old.' という形式の文字列を正確に返す profile(name, age) を作成してください。"
     },
     "starter": "def profile(name, age):\n    pass",
     "example": "profile('An', 15)  →  'An is 15 years old.'",
     "hint": {
-      "vi": "Dùng f-string.",
-      "en": "Use an f-string."
+      "en": "Use an f-string.",
+      "ja": "f-string を使用します。"
     },
     "checks": [
       {
@@ -391,22 +391,22 @@ window.QUESTIONS = [
     "id": "is-even",
     "level": "Basic",
     "topic": {
-      "vi": "Boolean & toán tử",
-      "en": "Booleans & Operators"
+      "en": "Booleans & Operators",
+      "ja": "真偽値と演算子"
     },
     "title": {
-      "vi": "Số chẵn",
-      "en": "Even number"
+      "en": "Even number",
+      "ja": "偶数かどうか"
     },
     "prompt": {
-      "vi": "Viết is_even(n) trả về True nếu n là số chẵn.",
-      "en": "Write is_even(n) returning True if n is even."
+      "en": "Write is_even(n) returning True if n is even.",
+      "ja": "n が偶数なら True を返す is_even(n) を作成してください。"
     },
     "starter": "def is_even(n):\n    pass",
     "example": "is_even(12)  →  True",
     "hint": {
-      "vi": "Kiểm tra phần dư khi chia cho 2.",
-      "en": "Check the remainder after division by 2."
+      "en": "Check the remainder after division by 2.",
+      "ja": "2 で割った余りを確認します。"
     },
     "checks": [
       {
@@ -427,22 +427,22 @@ window.QUESTIONS = [
     "id": "compare",
     "level": "Basic",
     "topic": {
-      "vi": "Boolean & toán tử",
-      "en": "Booleans & Operators"
+      "en": "Booleans & Operators",
+      "ja": "真偽値と演算子"
     },
     "title": {
-      "vi": "So sánh hai số",
-      "en": "Compare two numbers"
+      "en": "Compare two numbers",
+      "ja": "2つの数を比較"
     },
     "prompt": {
-      "vi": "Viết compare(a, b): trả về -1 nếu a < b, 0 nếu bằng nhau, 1 nếu a > b.",
-      "en": "Write compare(a, b): return -1 if a < b, 0 if equal, and 1 if a > b."
+      "en": "Write compare(a, b): return -1 if a < b, 0 if equal, and 1 if a > b.",
+      "ja": "compare(a, b) を作成してください。a < b なら -1、等しければ 0、a > b なら 1 を返します。"
     },
     "starter": "def compare(a, b):\n    pass",
     "example": "compare(9, 3)  →  1",
     "hint": {
-      "vi": "Dùng if / elif / else.",
-      "en": "Use if / elif / else."
+      "en": "Use if / elif / else.",
+      "ja": "if / elif / else を使います。"
     },
     "checks": [
       {
@@ -463,22 +463,22 @@ window.QUESTIONS = [
     "id": "in-range",
     "level": "Basic",
     "topic": {
-      "vi": "Boolean & toán tử",
-      "en": "Booleans & Operators"
+      "en": "Booleans & Operators",
+      "ja": "真偽値と演算子"
     },
     "title": {
-      "vi": "Nằm trong khoảng",
-      "en": "Inside a range"
+      "en": "Inside a range",
+      "ja": "範囲内かどうか"
     },
     "prompt": {
-      "vi": "Viết in_range(n, low, high) trả về True khi low <= n <= high.",
-      "en": "Write in_range(n, low, high) returning True when low <= n <= high."
+      "en": "Write in_range(n, low, high) returning True when low <= n <= high.",
+      "ja": "low <= n <= high のとき True を返す in_range(n, low, high) を作成してください。"
     },
     "starter": "def in_range(n, low, high):\n    pass",
     "example": "in_range(5, 1, 10)  →  True",
     "hint": {
-      "vi": "Python cho phép chained comparison.",
-      "en": "Python supports chained comparisons."
+      "en": "Python supports chained comparisons.",
+      "ja": "Python では比較演算子を連結できます。"
     },
     "checks": [
       {
@@ -499,22 +499,22 @@ window.QUESTIONS = [
     "id": "calc-ops",
     "level": "Basic",
     "topic": {
-      "vi": "Boolean & toán tử",
-      "en": "Booleans & Operators"
+      "en": "Booleans & Operators",
+      "ja": "真偽値と演算子"
     },
     "title": {
-      "vi": "Ba phép toán",
-      "en": "Three operations"
+      "en": "Three operations",
+      "ja": "3つの算術演算"
     },
     "prompt": {
-      "vi": "Viết calc_ops(a, b) trả về tuple (tổng, hiệu a-b, tích).",
-      "en": "Write calc_ops(a, b) returning a tuple of (sum, a-b difference, product)."
+      "en": "Write calc_ops(a, b) returning a tuple of (sum, a-b difference, product).",
+      "ja": "合計、差 (a-b)、積をタプルで返す calc_ops(a, b) を作成してください。"
     },
     "starter": "def calc_ops(a, b):\n    pass",
     "example": "calc_ops(6, 2)  →  (8, 4, 12)",
     "hint": {
-      "vi": "Có thể return nhiều giá trị bằng tuple.",
-      "en": "You can return multiple values as a tuple."
+      "en": "You can return multiple values as a tuple.",
+      "ja": "複数の値をタプルとして返せます。"
     },
     "checks": [
       {
@@ -531,22 +531,22 @@ window.QUESTIONS = [
     "id": "list-total",
     "level": "Basic",
     "topic": {
-      "vi": "List",
-      "en": "Lists"
+      "en": "Lists",
+      "ja": "リスト"
     },
     "title": {
-      "vi": "Tổng phần tử List",
-      "en": "List total"
+      "en": "List total",
+      "ja": "リストの合計"
     },
     "prompt": {
-      "vi": "Viết list_total(numbers) trả về tổng các phần tử trong list.",
-      "en": "Write list_total(numbers) returning the sum of all list items."
+      "en": "Write list_total(numbers) returning the sum of all list items.",
+      "ja": "リスト内のすべての値の合計を返す list_total(numbers) を作成してください。"
     },
     "starter": "def list_total(numbers):\n    pass",
     "example": "list_total([1, 2, 3, 4])  →  10",
     "hint": {
-      "vi": "Có thể dùng sum().",
-      "en": "You may use sum()."
+      "en": "You may use sum().",
+      "ja": "sum() を使えます。"
     },
     "checks": [
       {
@@ -563,22 +563,22 @@ window.QUESTIONS = [
     "id": "list-average",
     "level": "Basic",
     "topic": {
-      "vi": "List",
-      "en": "Lists"
+      "en": "Lists",
+      "ja": "リスト"
     },
     "title": {
-      "vi": "Trung bình cộng",
-      "en": "List average"
+      "en": "List average",
+      "ja": "リストの平均"
     },
     "prompt": {
-      "vi": "Viết average(numbers) trả về trung bình cộng của list không rỗng.",
-      "en": "Write average(numbers) returning the arithmetic mean of a non-empty list."
+      "en": "Write average(numbers) returning the arithmetic mean of a non-empty list.",
+      "ja": "空でないリストの算術平均を返す average(numbers) を作成してください。"
     },
     "starter": "def average(numbers):\n    pass",
     "example": "average([2, 4, 6])  →  4.0",
     "hint": {
-      "vi": "Tổng chia cho số phần tử.",
-      "en": "Sum divided by the number of items."
+      "en": "Sum divided by the number of items.",
+      "ja": "合計を要素数で割ります。"
     },
     "checks": [
       {
@@ -595,22 +595,22 @@ window.QUESTIONS = [
     "id": "unique-sorted",
     "level": "Basic",
     "topic": {
-      "vi": "List",
-      "en": "Lists"
+      "en": "Lists",
+      "ja": "リスト"
     },
     "title": {
-      "vi": "Loại trùng và sắp xếp",
-      "en": "Unique and sorted"
+      "en": "Unique and sorted",
+      "ja": "重複を除いて並べ替え"
     },
     "prompt": {
-      "vi": "Viết unique_sorted(items) trả về list tăng dần, loại bỏ phần tử trùng.",
-      "en": "Write unique_sorted(items) returning an ascending list with duplicates removed."
+      "en": "Write unique_sorted(items) returning an ascending list with duplicates removed.",
+      "ja": "重複を除外し、昇順に並べた新しいリストを返す unique_sorted(items) を作成してください。"
     },
     "starter": "def unique_sorted(items):\n    pass",
     "example": "unique_sorted([3, 1, 3, 2])  →  [1, 2, 3]",
     "hint": {
-      "vi": "Có thể kết hợp set() và sorted().",
-      "en": "You can combine set() and sorted()."
+      "en": "You can combine set() and sorted().",
+      "ja": "set() と sorted() を組み合わせられます。"
     },
     "checks": [
       {
@@ -627,22 +627,22 @@ window.QUESTIONS = [
     "id": "second-largest",
     "level": "Core",
     "topic": {
-      "vi": "List",
-      "en": "Lists"
+      "en": "Lists",
+      "ja": "リスト"
     },
     "title": {
-      "vi": "Số lớn thứ hai",
-      "en": "Second largest"
+      "en": "Second largest",
+      "ja": "2番目に大きい値"
     },
     "prompt": {
-      "vi": "Viết second_largest(numbers) trả về giá trị lớn thứ hai khác biệt trong list. Giả sử luôn có ít nhất 2 giá trị khác nhau.",
-      "en": "Write second_largest(numbers) returning the second distinct largest value. Assume at least two distinct values exist."
+      "en": "Write second_largest(numbers) returning the second distinct largest value. Assume at least two distinct values exist.",
+      "ja": "異なる値のうち2番目に大きいものを返す second_largest(numbers) を作成してください。異なる値は必ず2種類以上あります。"
     },
     "starter": "def second_largest(numbers):\n    pass",
     "example": "second_largest([5, 1, 5, 3])  →  3",
     "hint": {
-      "vi": "Loại trùng trước khi sắp xếp.",
-      "en": "Remove duplicates before sorting."
+      "en": "Remove duplicates before sorting.",
+      "ja": "並べ替える前に重複を取り除きます。"
     },
     "checks": [
       {
@@ -659,22 +659,22 @@ window.QUESTIONS = [
     "id": "even-squares",
     "level": "Core",
     "topic": {
-      "vi": "List",
-      "en": "Lists"
+      "en": "Lists",
+      "ja": "リスト"
     },
     "title": {
-      "vi": "Bình phương số chẵn",
-      "en": "Squares of even numbers"
+      "en": "Squares of even numbers",
+      "ja": "偶数の二乗"
     },
     "prompt": {
-      "vi": "Viết even_squares(numbers) trả về list bình phương của các số chẵn, giữ nguyên thứ tự.",
-      "en": "Write even_squares(numbers) returning squares of even values while preserving order."
+      "en": "Write even_squares(numbers) returning squares of even values while preserving order.",
+      "ja": "偶数だけを二乗し、元の順序を保ったリストを返す even_squares(numbers) を作成してください。"
     },
     "starter": "def even_squares(numbers):\n    pass",
     "example": "even_squares([1, 2, 3, 4])  →  [4, 16]",
     "hint": {
-      "vi": "List comprehension phù hợp cho bài này.",
-      "en": "A list comprehension fits this task."
+      "en": "A list comprehension fits this task.",
+      "ja": "リスト内包表記が適しています。"
     },
     "checks": [
       {
@@ -691,22 +691,22 @@ window.QUESTIONS = [
     "id": "rotate-left",
     "level": "Core",
     "topic": {
-      "vi": "List",
-      "en": "Lists"
+      "en": "Lists",
+      "ja": "リスト"
     },
     "title": {
-      "vi": "Xoay List sang trái",
-      "en": "Rotate a list left"
+      "en": "Rotate a list left",
+      "ja": "リストを左に回転"
     },
     "prompt": {
-      "vi": "Viết rotate_left(items) đưa phần tử đầu xuống cuối. List rỗng phải trả về [].",
-      "en": "Write rotate_left(items) moving the first item to the end. An empty list must return []."
+      "en": "Write rotate_left(items) moving the first item to the end. An empty list must return [].",
+      "ja": "リストの先頭要素を末尾に移動する rotate_left(items) を作成してください。空リストの場合は [] を返します。"
     },
     "starter": "def rotate_left(items):\n    pass",
     "example": "rotate_left([1, 2, 3])  →  [2, 3, 1]",
     "hint": {
-      "vi": "Kết hợp slicing; nhớ xử lý list rỗng.",
-      "en": "Use slicing; remember the empty-list case."
+      "en": "Use slicing; remember the empty-list case.",
+      "ja": "スライスを使い、空リストにも対応します。"
     },
     "checks": [
       {
@@ -727,22 +727,22 @@ window.QUESTIONS = [
     "id": "swap-tuple",
     "level": "Basic",
     "topic": {
-      "vi": "Tuple",
-      "en": "Tuples"
+      "en": "Tuples",
+      "ja": "タプル"
     },
     "title": {
-      "vi": "Đổi chỗ bằng Tuple",
-      "en": "Tuple swap"
+      "en": "Tuple swap",
+      "ja": "タプルの要素を交換"
     },
     "prompt": {
-      "vi": "Viết swap_pair(pair) nhận tuple 2 phần tử và trả về tuple với thứ tự đảo lại.",
-      "en": "Write swap_pair(pair) for a 2-item tuple and return the items swapped."
+      "en": "Write swap_pair(pair) for a 2-item tuple and return the items swapped.",
+      "ja": "2要素のタプルを受け取り、順番を入れ替えたタプルを返す swap_pair(pair) を作成してください。"
     },
     "starter": "def swap_pair(pair):\n    pass",
     "example": "swap_pair((10, 20))  →  (20, 10)",
     "hint": {
-      "vi": "Có thể unpack tuple thành hai biến.",
-      "en": "You can unpack the tuple into two variables."
+      "en": "You can unpack the tuple into two variables.",
+      "ja": "タプルを2つの変数にアンパックできます。"
     },
     "checks": [
       {
@@ -759,22 +759,22 @@ window.QUESTIONS = [
     "id": "point-quadrant",
     "level": "Core",
     "topic": {
-      "vi": "Tuple",
-      "en": "Tuples"
+      "en": "Tuples",
+      "ja": "タプル"
     },
     "title": {
-      "vi": "Góc phần tư tọa độ",
-      "en": "Coordinate quadrant"
+      "en": "Coordinate quadrant",
+      "ja": "座標の象限"
     },
     "prompt": {
-      "vi": "Viết quadrant(point) với point=(x,y). Trả về 1,2,3,4 theo góc phần tư; trả về 0 nếu điểm nằm trên trục.",
-      "en": "Write quadrant(point), where point=(x,y). Return 1,2,3,4 for the quadrant; return 0 when the point lies on an axis."
+      "en": "Write quadrant(point), where point=(x,y). Return 1,2,3,4 for the quadrant; return 0 when the point lies on an axis.",
+      "ja": "point=(x,y) を受け取る quadrant(point) を作成してください。第1〜第4象限なら 1〜4、座標軸上なら 0 を返します。"
     },
     "starter": "def quadrant(point):\n    pass",
     "example": "quadrant((3, -2))  →  4",
     "hint": {
-      "vi": "Unpack x, y rồi dùng điều kiện.",
-      "en": "Unpack x, y and use conditions."
+      "en": "Unpack x, y and use conditions.",
+      "ja": "x と y をアンパックして条件分岐します。"
     },
     "checks": [
       {
@@ -803,22 +803,22 @@ window.QUESTIONS = [
     "id": "set-intersection",
     "level": "Basic",
     "topic": {
-      "vi": "Set",
-      "en": "Sets"
+      "en": "Sets",
+      "ja": "集合（set）"
     },
     "title": {
-      "vi": "Giao hai tập hợp",
-      "en": "Set intersection"
+      "en": "Set intersection",
+      "ja": "集合の共通部分"
     },
     "prompt": {
-      "vi": "Viết common(a, b) trả về set là phần giao của hai iterable.",
-      "en": "Write common(a, b) returning the set intersection of two iterables."
+      "en": "Write common(a, b) returning the set intersection of two iterables.",
+      "ja": "2つのイテラブルの共通部分を set で返す common(a, b) を作成してください。"
     },
     "starter": "def common(a, b):\n    pass",
     "example": "common([1,2,3], [2,3,4])  →  {2, 3}",
     "hint": {
-      "vi": "Chuyển về set và dùng phép giao.",
-      "en": "Convert to sets and use intersection."
+      "en": "Convert to sets and use intersection.",
+      "ja": "set に変換して積集合を求めます。"
     },
     "checks": [
       {
@@ -835,22 +835,22 @@ window.QUESTIONS = [
     "id": "set-symmetric",
     "level": "Core",
     "topic": {
-      "vi": "Set",
-      "en": "Sets"
+      "en": "Sets",
+      "ja": "集合（set）"
     },
     "title": {
-      "vi": "Hiệu đối xứng",
-      "en": "Symmetric difference"
+      "en": "Symmetric difference",
+      "ja": "対称差集合"
     },
     "prompt": {
-      "vi": "Viết only_one(a, b) trả về set các phần tử chỉ xuất hiện ở một trong hai tập, không xuất hiện ở cả hai.",
-      "en": "Write only_one(a, b) returning items present in exactly one of the two sets."
+      "en": "Write only_one(a, b) returning items present in exactly one of the two sets.",
+      "ja": "2つの集合のどちらか一方にだけ含まれる要素を set で返す only_one(a, b) を作成してください。"
     },
     "starter": "def only_one(a, b):\n    pass",
     "example": "only_one({1,2}, {2,3})  →  {1, 3}",
     "hint": {
-      "vi": "Dùng symmetric difference (^ hoặc symmetric_difference).",
-      "en": "Use symmetric difference (^ or symmetric_difference)."
+      "en": "Use symmetric difference (^ or symmetric_difference).",
+      "ja": "対称差（^ または symmetric_difference）を使います。"
     },
     "checks": [
       {
@@ -867,22 +867,22 @@ window.QUESTIONS = [
     "id": "dict-get",
     "level": "Basic",
     "topic": {
-      "vi": "Dictionary",
-      "en": "Dictionaries"
+      "en": "Dictionaries",
+      "ja": "辞書"
     },
     "title": {
-      "vi": "Lấy giá trị an toàn",
-      "en": "Safe dictionary lookup"
+      "en": "Safe dictionary lookup",
+      "ja": "辞書から安全に値を取得"
     },
     "prompt": {
-      "vi": "Viết get_value(data, key) trả về value nếu key tồn tại, nếu không trả về None.",
-      "en": "Write get_value(data, key) returning the value when the key exists, otherwise None."
+      "en": "Write get_value(data, key) returning the value when the key exists, otherwise None.",
+      "ja": "キーが存在すればその値を返し、なければ None を返す get_value(data, key) を作成してください。"
     },
     "starter": "def get_value(data, key):\n    pass",
     "example": "get_value({'x': 5}, 'y')  →  None",
     "hint": {
-      "vi": "Dictionary có phương thức get().",
-      "en": "Dictionaries have a get() method."
+      "en": "Dictionaries have a get() method.",
+      "ja": "辞書の get() メソッドを使います。"
     },
     "checks": [
       {
@@ -899,22 +899,22 @@ window.QUESTIONS = [
     "id": "word-frequency",
     "level": "Core",
     "topic": {
-      "vi": "Dictionary",
-      "en": "Dictionaries"
+      "en": "Dictionaries",
+      "ja": "辞書"
     },
     "title": {
-      "vi": "Tần suất từ",
-      "en": "Word frequency"
+      "en": "Word frequency",
+      "ja": "単語の出現頻度"
     },
     "prompt": {
-      "vi": "Viết word_frequency(words) trả về dictionary đếm số lần xuất hiện của từng từ.",
-      "en": "Write word_frequency(words) returning a dictionary that counts each word."
+      "en": "Write word_frequency(words) returning a dictionary that counts each word.",
+      "ja": "各単語の出現回数を数える辞書を返す word_frequency(words) を作成してください。"
     },
     "starter": "def word_frequency(words):\n    pass",
     "example": "word_frequency(['a','b','a'])  →  {'a': 2, 'b': 1}",
     "hint": {
-      "vi": "Duyệt từng từ và tăng bộ đếm trong dict.",
-      "en": "Loop through words and increment a dictionary counter."
+      "en": "Loop through words and increment a dictionary counter.",
+      "ja": "単語を順に調べて辞書のカウンターを増やします。"
     },
     "checks": [
       {
@@ -931,22 +931,22 @@ window.QUESTIONS = [
     "id": "merge-dicts",
     "level": "Core",
     "topic": {
-      "vi": "Dictionary",
-      "en": "Dictionaries"
+      "en": "Dictionaries",
+      "ja": "辞書"
     },
     "title": {
-      "vi": "Gộp Dictionary",
-      "en": "Merge dictionaries"
+      "en": "Merge dictionaries",
+      "ja": "辞書を結合"
     },
     "prompt": {
-      "vi": "Viết merge_dicts(a, b) trả về dictionary mới chứa dữ liệu của a và b; nếu trùng key thì giá trị từ b được ưu tiên. Không sửa a hoặc b.",
-      "en": "Write merge_dicts(a, b) returning a new dictionary containing both; b wins on duplicate keys. Do not mutate a or b."
+      "en": "Write merge_dicts(a, b) returning a new dictionary containing both; b wins on duplicate keys. Do not mutate a or b.",
+      "ja": "a と b の内容を結合した新しい辞書を返す merge_dicts(a, b) を作成してください。同じキーは b の値を優先し、元の辞書は変更しないでください。"
     },
     "starter": "def merge_dicts(a, b):\n    pass",
     "example": "merge_dicts({'x':1}, {'x':2,'y':3})  →  {'x':2,'y':3}",
     "hint": {
-      "vi": "Có thể dùng copy/unpacking | operator.",
-      "en": "You can use copying, unpacking, or the | operator."
+      "en": "You can use copying, unpacking, or the | operator.",
+      "ja": "辞書のコピー、アンパック、| 演算子などを使えます。"
     },
     "checks": [
       {
@@ -963,22 +963,22 @@ window.QUESTIONS = [
     "id": "best-student",
     "level": "Core",
     "topic": {
-      "vi": "Dictionary",
-      "en": "Dictionaries"
+      "en": "Dictionaries",
+      "ja": "辞書"
     },
     "title": {
-      "vi": "Học sinh điểm cao nhất",
-      "en": "Top scoring student"
+      "en": "Top scoring student",
+      "ja": "最高得点の生徒"
     },
     "prompt": {
-      "vi": "Viết best_student(scores) nhận dict {tên: điểm} không rỗng và trả về tên có điểm cao nhất.",
-      "en": "Write best_student(scores) for a non-empty {name: score} dict and return the name with the highest score."
+      "en": "Write best_student(scores) for a non-empty {name: score} dict and return the name with the highest score.",
+      "ja": "空でない {名前: 点数} の辞書から、最高得点の生徒名を返す best_student(scores) を作成してください。"
     },
     "starter": "def best_student(scores):\n    pass",
     "example": "best_student({'An':8, 'Binh':9})  →  'Binh'",
     "hint": {
-      "vi": "max() có thể nhận key=...",
-      "en": "max() can accept a key= function."
+      "en": "max() can accept a key= function.",
+      "ja": "max() の key= 引数が使えます。"
     },
     "checks": [
       {
@@ -995,22 +995,22 @@ window.QUESTIONS = [
     "id": "grade",
     "level": "Basic",
     "topic": {
-      "vi": "Điều kiện",
-      "en": "Conditions"
+      "en": "Conditions",
+      "ja": "条件分岐"
     },
     "title": {
-      "vi": "Xếp loại điểm",
-      "en": "Grade a score"
+      "en": "Grade a score",
+      "ja": "点数の成績評価"
     },
     "prompt": {
-      "vi": "Viết grade(score): >=90 'A', >=80 'B', >=70 'C', >=60 'D', còn lại 'F'.",
-      "en": "Write grade(score): >=90 'A', >=80 'B', >=70 'C', >=60 'D', otherwise 'F'."
+      "en": "Write grade(score): >=90 'A', >=80 'B', >=70 'C', >=60 'D', otherwise 'F'.",
+      "ja": "grade(score) を作成してください。90以上なら 'A'、80以上なら 'B'、70以上なら 'C'、60以上なら 'D'、それ以外は 'F' を返します。"
     },
     "starter": "def grade(score):\n    pass",
     "example": "grade(85)  →  'B'",
     "hint": {
-      "vi": "Kiểm tra từ ngưỡng cao xuống thấp.",
-      "en": "Check thresholds from highest to lowest."
+      "en": "Check thresholds from highest to lowest.",
+      "ja": "高い基準から順に判定します。"
     },
     "checks": [
       {
@@ -1039,22 +1039,22 @@ window.QUESTIONS = [
     "id": "leap-year",
     "level": "Core",
     "topic": {
-      "vi": "Điều kiện",
-      "en": "Conditions"
+      "en": "Conditions",
+      "ja": "条件分岐"
     },
     "title": {
-      "vi": "Năm nhuận",
-      "en": "Leap year"
+      "en": "Leap year",
+      "ja": "うるう年の判定"
     },
     "prompt": {
-      "vi": "Viết is_leap_year(year) theo quy tắc Gregorian: chia hết 400 hoặc chia hết 4 nhưng không chia hết 100.",
-      "en": "Write is_leap_year(year) using Gregorian rules: divisible by 400, or divisible by 4 but not by 100."
+      "en": "Write is_leap_year(year) using Gregorian rules: divisible by 400, or divisible by 4 but not by 100.",
+      "ja": "グレゴリオ暦の規則に従う is_leap_year(year) を作成してください。400 で割り切れる年、または 4 で割り切れて 100 では割り切れない年がうるう年です。"
     },
     "starter": "def is_leap_year(year):\n    pass",
     "example": "is_leap_year(2000)  →  True",
     "hint": {
-      "vi": "Kết hợp and/or với phép chia dư.",
-      "en": "Combine and/or with modulo."
+      "en": "Combine and/or with modulo.",
+      "ja": "剰余演算と and/or を組み合わせます。"
     },
     "checks": [
       {
@@ -1079,22 +1079,22 @@ window.QUESTIONS = [
     "id": "fizzbuzz-one",
     "level": "Basic",
     "topic": {
-      "vi": "Điều kiện",
-      "en": "Conditions"
+      "en": "Conditions",
+      "ja": "条件分岐"
     },
     "title": {
-      "vi": "FizzBuzz một số",
-      "en": "Single-number FizzBuzz"
+      "en": "Single-number FizzBuzz",
+      "ja": "1つの数で FizzBuzz"
     },
     "prompt": {
-      "vi": "Viết fizzbuzz(n): chia hết 3 và 5 → 'FizzBuzz'; chỉ 3 → 'Fizz'; chỉ 5 → 'Buzz'; còn lại trả về n.",
-      "en": "Write fizzbuzz(n): divisible by 3 and 5 → 'FizzBuzz'; only 3 → 'Fizz'; only 5 → 'Buzz'; otherwise return n."
+      "en": "Write fizzbuzz(n): divisible by 3 and 5 → 'FizzBuzz'; only 3 → 'Fizz'; only 5 → 'Buzz'; otherwise return n.",
+      "ja": "fizzbuzz(n) を作成してください。3と5の両方で割り切れれば 'FizzBuzz'、3のみなら 'Fizz'、5のみなら 'Buzz'、それ以外は n を返します。"
     },
     "starter": "def fizzbuzz(n):\n    pass",
     "example": "fizzbuzz(30)  →  'FizzBuzz'",
     "hint": {
-      "vi": "Kiểm tra điều kiện chia hết cả 3 và 5 trước.",
-      "en": "Check divisibility by both 3 and 5 first."
+      "en": "Check divisibility by both 3 and 5 first.",
+      "ja": "最初に 3 と 5 の両方で割り切れるか確認します。"
     },
     "checks": [
       {
@@ -1119,22 +1119,22 @@ window.QUESTIONS = [
     "id": "match-day",
     "level": "Core",
     "topic": {
-      "vi": "Điều kiện",
-      "en": "Conditions"
+      "en": "Conditions",
+      "ja": "条件分岐"
     },
     "title": {
-      "vi": "Phân loại ngày bằng match",
-      "en": "Classify a day with match"
+      "en": "Classify a day with match",
+      "ja": "match による曜日の分類"
     },
     "prompt": {
-      "vi": "Viết day_type(day) nhận tên ngày tiếng Anh viết thường. Mon-Fri → 'weekday', Sat/Sun → 'weekend', khác → 'invalid'. Khuyến khích dùng match.",
-      "en": "Write day_type(day) for lowercase English day names. Mon-Fri → 'weekday', Sat/Sun → 'weekend', otherwise 'invalid'. Prefer match."
+      "en": "Write day_type(day) for lowercase English day names. Mon-Fri → 'weekday', Sat/Sun → 'weekend', otherwise 'invalid'. Prefer match.",
+      "ja": "英語の小文字の曜日名を受け取る day_type(day) を作成してください。月〜金なら 'weekday'、土・日なら 'weekend'、それ以外は 'invalid' を返します。match の使用を推奨します。"
     },
     "starter": "def day_type(day):\n    # day: 'monday', 'tuesday', ...\n    pass",
     "example": "day_type('sunday')  →  'weekend'",
     "hint": {
-      "vi": "match hỗ trợ nhiều pattern bằng ký hiệu |.",
-      "en": "match can combine patterns with |."
+      "en": "match can combine patterns with |.",
+      "ja": "match では | を使って複数のパターンをまとめられます。"
     },
     "checks": [
       {
@@ -1155,22 +1155,22 @@ window.QUESTIONS = [
     "id": "sum-to-n",
     "level": "Basic",
     "topic": {
-      "vi": "Vòng lặp",
-      "en": "Loops"
+      "en": "Loops",
+      "ja": "ループ"
     },
     "title": {
-      "vi": "Tổng từ 1 đến n bằng while",
-      "en": "Sum 1..n with while"
+      "en": "Sum 1..n with while",
+      "ja": "while で 1 から n までの合計"
     },
     "prompt": {
-      "vi": "Viết sum_to_n(n) dùng vòng lặp while để tính 1 + 2 + ... + n với n >= 0.",
-      "en": "Write sum_to_n(n) using a while loop to compute 1 + 2 + ... + n for n >= 0."
+      "en": "Write sum_to_n(n) using a while loop to compute 1 + 2 + ... + n for n >= 0.",
+      "ja": "while ループを使って 1 + 2 + ... + n（n >= 0）を計算する sum_to_n(n) を作成してください。"
     },
     "starter": "def sum_to_n(n):\n    pass",
     "example": "sum_to_n(5)  →  15",
     "hint": {
-      "vi": "Tạo biến tổng và biến đếm.",
-      "en": "Use an accumulator and a counter."
+      "en": "Use an accumulator and a counter.",
+      "ja": "累積用の変数とカウンターを用意します。"
     },
     "checks": [
       {
@@ -1191,22 +1191,22 @@ window.QUESTIONS = [
     "id": "digit-count",
     "level": "Core",
     "topic": {
-      "vi": "Vòng lặp",
-      "en": "Loops"
+      "en": "Loops",
+      "ja": "ループ"
     },
     "title": {
-      "vi": "Đếm chữ số bằng while",
-      "en": "Count digits with while"
+      "en": "Count digits with while",
+      "ja": "while で桁数を数える"
     },
     "prompt": {
-      "vi": "Viết digit_count(n) trả về số chữ số của số nguyên n bằng while. Giá trị âm bỏ dấu; 0 có 1 chữ số.",
-      "en": "Write digit_count(n) returning the number of digits using while. Ignore the sign; 0 has one digit."
+      "en": "Write digit_count(n) returning the number of digits using while. Ignore the sign; 0 has one digit.",
+      "ja": "while を使って整数 n の桁数を返す digit_count(n) を作成してください。負号は数えず、0 は1桁です。"
     },
     "starter": "def digit_count(n):\n    pass",
     "example": "digit_count(-1205)  →  4",
     "hint": {
-      "vi": "abs() giúp bỏ dấu; chia nguyên cho 10 trong vòng lặp.",
-      "en": "Use abs(); repeatedly integer-divide by 10."
+      "en": "Use abs(); repeatedly integer-divide by 10.",
+      "ja": "abs() で符号を除き、10 での整数除算を繰り返します。"
     },
     "checks": [
       {
@@ -1227,22 +1227,22 @@ window.QUESTIONS = [
     "id": "first-divisible",
     "level": "Core",
     "topic": {
-      "vi": "Vòng lặp",
-      "en": "Loops"
+      "en": "Loops",
+      "ja": "ループ"
     },
     "title": {
-      "vi": "Tìm số chia hết đầu tiên",
-      "en": "First divisible number"
+      "en": "First divisible number",
+      "ja": "最初に割り切れる整数"
     },
     "prompt": {
-      "vi": "Viết first_divisible(start, divisor) tìm số nguyên nhỏ nhất >= start chia hết cho divisor. divisor luôn khác 0.",
-      "en": "Write first_divisible(start, divisor) returning the smallest integer >= start divisible by divisor. divisor is non-zero."
+      "en": "Write first_divisible(start, divisor) returning the smallest integer >= start divisible by divisor. divisor is non-zero.",
+      "ja": "start 以上で divisor で割り切れる最小の整数を返す first_divisible(start, divisor) を作成してください。divisor は 0 ではありません。"
     },
     "starter": "def first_divisible(start, divisor):\n    pass",
     "example": "first_divisible(10, 6)  →  12",
     "hint": {
-      "vi": "Có thể tăng dần từ start trong while và break/return khi đạt điều kiện.",
-      "en": "Increment from start in a while loop and stop when the condition is met."
+      "en": "Increment from start in a while loop and stop when the condition is met.",
+      "ja": "while で start から増やし、条件を満たしたら終了します。"
     },
     "checks": [
       {
@@ -1263,22 +1263,22 @@ window.QUESTIONS = [
     "id": "sum-even",
     "level": "Basic",
     "topic": {
-      "vi": "Vòng lặp",
-      "en": "Loops"
+      "en": "Loops",
+      "ja": "ループ"
     },
     "title": {
-      "vi": "Tổng số chẵn với for",
-      "en": "Sum evens with for"
+      "en": "Sum evens with for",
+      "ja": "for で偶数の合計"
     },
     "prompt": {
-      "vi": "Viết sum_even_to_n(n) tính tổng các số chẵn từ 0 đến n (bao gồm n nếu chẵn) bằng for/range.",
-      "en": "Write sum_even_to_n(n) summing even integers from 0 through n using for/range."
+      "en": "Write sum_even_to_n(n) summing even integers from 0 through n using for/range.",
+      "ja": "for/range を使い、0 から n までの偶数を合計する sum_even_to_n(n) を作成してください。n が偶数なら含めます。"
     },
     "starter": "def sum_even_to_n(n):\n    pass",
     "example": "sum_even_to_n(10)  →  30",
     "hint": {
-      "vi": "range() có tham số bước nhảy.",
-      "en": "range() has a step argument."
+      "en": "range() has a step argument.",
+      "ja": "range() ではステップ幅を指定できます。"
     },
     "checks": [
       {
@@ -1299,22 +1299,22 @@ window.QUESTIONS = [
     "id": "times-table",
     "level": "Core",
     "topic": {
-      "vi": "Vòng lặp",
-      "en": "Loops"
+      "en": "Loops",
+      "ja": "ループ"
     },
     "title": {
-      "vi": "Bảng nhân",
-      "en": "Multiplication table"
+      "en": "Multiplication table",
+      "ja": "掛け算表"
     },
     "prompt": {
-      "vi": "Viết multiplication_table(n) trả về list 10 tích [n*1, n*2, ..., n*10].",
-      "en": "Write multiplication_table(n) returning the 10 products [n*1, n*2, ..., n*10]."
+      "en": "Write multiplication_table(n) returning the 10 products [n*1, n*2, ..., n*10].",
+      "ja": "[n*1, n*2, ..., n*10] という10個の積をリストで返す multiplication_table(n) を作成してください。"
     },
     "starter": "def multiplication_table(n):\n    pass",
     "example": "multiplication_table(3)  →  [3,6,...,30]",
     "hint": {
-      "vi": "Duyệt range(1, 11).",
-      "en": "Loop over range(1, 11)."
+      "en": "Loop over range(1, 11).",
+      "ja": "range(1, 11) を順に処理します。"
     },
     "checks": [
       {
@@ -1331,22 +1331,22 @@ window.QUESTIONS = [
     "id": "flatten-matrix",
     "level": "Core",
     "topic": {
-      "vi": "Vòng lặp",
-      "en": "Loops"
+      "en": "Loops",
+      "ja": "ループ"
     },
     "title": {
-      "vi": "Làm phẳng ma trận",
-      "en": "Flatten a matrix"
+      "en": "Flatten a matrix",
+      "ja": "二重リストを平坦化"
     },
     "prompt": {
-      "vi": "Viết flatten(matrix) dùng vòng lặp lồng nhau để biến list các list thành một list phẳng.",
-      "en": "Write flatten(matrix) using nested loops to turn a list of lists into one flat list."
+      "en": "Write flatten(matrix) using nested loops to turn a list of lists into one flat list.",
+      "ja": "ネストしたループでリストのリストを1つの平坦なリストに変換する flatten(matrix) を作成してください。"
     },
     "starter": "def flatten(matrix):\n    pass",
     "example": "flatten([[1,2],[3],[4,5]])  →  [1,2,3,4,5]",
     "hint": {
-      "vi": "Một vòng for cho từng hàng, một vòng for cho từng phần tử.",
-      "en": "Use one loop for rows and another for items."
+      "en": "Use one loop for rows and another for items.",
+      "ja": "外側のループで行、内側で各要素を処理します。"
     },
     "checks": [
       {
@@ -1363,22 +1363,22 @@ window.QUESTIONS = [
     "id": "is-prime",
     "level": "Core",
     "topic": {
-      "vi": "Vòng lặp",
-      "en": "Loops"
+      "en": "Loops",
+      "ja": "ループ"
     },
     "title": {
-      "vi": "Kiểm tra số nguyên tố",
-      "en": "Prime check"
+      "en": "Prime check",
+      "ja": "素数の判定"
     },
     "prompt": {
-      "vi": "Viết is_prime(n) trả về True nếu n là số nguyên tố. n < 2 không phải số nguyên tố.",
-      "en": "Write is_prime(n) returning True for prime numbers. Values below 2 are not prime."
+      "en": "Write is_prime(n) returning True for prime numbers. Values below 2 are not prime.",
+      "ja": "n が素数なら True を返す is_prime(n) を作成してください。2未満の数は素数ではありません。"
     },
     "starter": "def is_prime(n):\n    pass",
     "example": "is_prime(29)  →  True",
     "hint": {
-      "vi": "Chỉ cần thử ước đến căn bậc hai của n.",
-      "en": "You only need to test divisors up to sqrt(n)."
+      "en": "You only need to test divisors up to sqrt(n).",
+      "ja": "約数は n の平方根まで確認すれば十分です。"
     },
     "checks": [
       {
@@ -1403,22 +1403,22 @@ window.QUESTIONS = [
     "id": "factorial",
     "level": "Basic",
     "topic": {
-      "vi": "Hàm",
-      "en": "Functions"
+      "en": "Functions",
+      "ja": "関数"
     },
     "title": {
-      "vi": "Giai thừa",
-      "en": "Factorial"
+      "en": "Factorial",
+      "ja": "階乗を計算"
     },
     "prompt": {
-      "vi": "Viết factorial(n) trả về n! với n >= 0. Có thể dùng vòng lặp.",
-      "en": "Write factorial(n) returning n! for n >= 0. A loop is fine."
+      "en": "Write factorial(n) returning n! for n >= 0. A loop is fine.",
+      "ja": "n >= 0 に対して n! を返す factorial(n) を作成してください。ループを使って構いません。"
     },
     "starter": "def factorial(n):\n    pass",
     "example": "factorial(5)  →  120",
     "hint": {
-      "vi": "0! = 1; nhân dồn từ 1 đến n.",
-      "en": "0! = 1; multiply values from 1 to n."
+      "en": "0! = 1; multiply values from 1 to n.",
+      "ja": "0! = 1 です。1 から n まで順に掛けます。"
     },
     "checks": [
       {
@@ -1439,22 +1439,22 @@ window.QUESTIONS = [
     "id": "default-arg",
     "level": "Core",
     "topic": {
-      "vi": "Hàm",
-      "en": "Functions"
+      "en": "Functions",
+      "ja": "関数"
     },
     "title": {
-      "vi": "Tham số mặc định",
-      "en": "Default parameter"
+      "en": "Default parameter",
+      "ja": "デフォルト引数"
     },
     "prompt": {
-      "vi": "Viết greet_person(name, greeting='Hello') trả về '<greeting>, <name>!'.",
-      "en": "Write greet_person(name, greeting='Hello') returning '<greeting>, <name>!'."
+      "en": "Write greet_person(name, greeting='Hello') returning '<greeting>, <name>!'.",
+      "ja": "greet_person(name, greeting='Hello') を作成し、'<greeting>, <name>!' という文字列を返してください。"
     },
     "starter": "def greet_person(name, greeting='Hello'):\n    pass",
     "example": "greet_person('An')  →  'Hello, An!'",
     "hint": {
-      "vi": "Khai báo giá trị mặc định ngay trong chữ ký hàm.",
-      "en": "Put the default value in the function signature."
+      "en": "Put the default value in the function signature.",
+      "ja": "引数の初期値を関数定義に指定します。"
     },
     "checks": [
       {
@@ -1471,22 +1471,22 @@ window.QUESTIONS = [
     "id": "args-stats",
     "level": "Core",
     "topic": {
-      "vi": "Hàm",
-      "en": "Functions"
+      "en": "Functions",
+      "ja": "関数"
     },
     "title": {
-      "vi": "Tham số *args",
-      "en": "*args statistics"
+      "en": "*args statistics",
+      "ja": "*args で統計量を計算"
     },
     "prompt": {
-      "vi": "Viết stats(*numbers) trả về tuple (min, max, sum). Giả sử luôn có ít nhất một số.",
-      "en": "Write stats(*numbers) returning (min, max, sum). Assume at least one number."
+      "en": "Write stats(*numbers) returning (min, max, sum). Assume at least one number.",
+      "ja": "stats(*numbers) を作成し、(最小値, 最大値, 合計) を返してください。数値は1つ以上渡されます。"
     },
     "starter": "def stats(*numbers):\n    pass",
     "example": "stats(3,1,5)  →  (1,5,9)",
     "hint": {
-      "vi": "*args được nhận như một tuple.",
-      "en": "*args arrives as a tuple."
+      "en": "*args arrives as a tuple.",
+      "ja": "*args はタプルとして受け取ります。"
     },
     "checks": [
       {
@@ -1503,22 +1503,22 @@ window.QUESTIONS = [
     "id": "kwargs-profile",
     "level": "Core",
     "topic": {
-      "vi": "Hàm",
-      "en": "Functions"
+      "en": "Functions",
+      "ja": "関数"
     },
     "title": {
-      "vi": "Tham số **kwargs",
-      "en": "**kwargs profile"
+      "en": "**kwargs profile",
+      "ja": "**kwargs でプロフィール作成"
     },
     "prompt": {
-      "vi": "Viết build_profile(**kwargs) trả về một dictionary mới chứa đúng các cặp key/value được truyền vào.",
-      "en": "Write build_profile(**kwargs) returning a new dictionary containing exactly the supplied key/value pairs."
+      "en": "Write build_profile(**kwargs) returning a new dictionary containing exactly the supplied key/value pairs.",
+      "ja": "渡されたすべてのキーワード引数をそのまま含む新しい辞書を返す build_profile(**kwargs) を作成してください。"
     },
     "starter": "def build_profile(**kwargs):\n    pass",
     "example": "build_profile(name='An', age=15)  →  {'name':'An','age':15}",
     "hint": {
-      "vi": "**kwargs là dictionary; nên trả về bản sao mới.",
-      "en": "**kwargs is a dictionary; return a new copy."
+      "en": "**kwargs is a dictionary; return a new copy.",
+      "ja": "**kwargs は辞書です。新しい辞書として返します。"
     },
     "checks": [
       {
@@ -1535,22 +1535,22 @@ window.QUESTIONS = [
     "id": "recursive-sum",
     "level": "Intermediate",
     "topic": {
-      "vi": "Hàm",
-      "en": "Functions"
+      "en": "Functions",
+      "ja": "関数"
     },
     "title": {
-      "vi": "Đệ quy tính tổng",
-      "en": "Recursive sum"
+      "en": "Recursive sum",
+      "ja": "再帰で合計を求める"
     },
     "prompt": {
-      "vi": "Viết recursive_sum(numbers) tính tổng list bằng đệ quy. List rỗng trả về 0.",
-      "en": "Write recursive_sum(numbers) using recursion. An empty list returns 0."
+      "en": "Write recursive_sum(numbers) using recursion. An empty list returns 0.",
+      "ja": "再帰を使ってリストの合計を計算する recursive_sum(numbers) を作成してください。空リストは 0 を返します。"
     },
     "starter": "def recursive_sum(numbers):\n    pass",
     "example": "recursive_sum([1,2,3])  →  6",
     "hint": {
-      "vi": "Base case là list rỗng; sau đó cộng phần tử đầu với lời gọi cho phần còn lại.",
-      "en": "Use the empty list as the base case, then add the first item to the recursive result."
+      "en": "Use the empty list as the base case, then add the first item to the recursive result.",
+      "ja": "空リストを基本ケースとし、先頭要素と残りの再帰結果を足します。"
     },
     "checks": [
       {
@@ -1567,22 +1567,22 @@ window.QUESTIONS = [
     "id": "lambda-sort",
     "level": "Intermediate",
     "topic": {
-      "vi": "Lambda & phạm vi",
-      "en": "Lambda & Scope"
+      "en": "Lambda & Scope",
+      "ja": "lambda とスコープ"
     },
     "title": {
-      "vi": "Sắp xếp bằng lambda",
-      "en": "Sort with lambda"
+      "en": "Sort with lambda",
+      "ja": "lambda を使った並べ替え"
     },
     "prompt": {
-      "vi": "Viết sort_by_second(pairs) trả về list mới sắp xếp các tuple theo phần tử thứ hai tăng dần.",
-      "en": "Write sort_by_second(pairs) returning a new list sorted by each tuple's second item."
+      "en": "Write sort_by_second(pairs) returning a new list sorted by each tuple's second item.",
+      "ja": "各タプルの2番目の要素を基準に昇順で並べた新しいリストを返す sort_by_second(pairs) を作成してください。"
     },
     "starter": "def sort_by_second(pairs):\n    pass",
     "example": "sort_by_second([('a',3),('b',1)])  →  [('b',1),('a',3)]",
     "hint": {
-      "vi": "Dùng sorted(..., key=lambda ...).",
-      "en": "Use sorted(..., key=lambda ...)."
+      "en": "Use sorted(..., key=lambda ...).",
+      "ja": "sorted(..., key=lambda ...) を使います。"
     },
     "checks": [
       {
@@ -1599,22 +1599,22 @@ window.QUESTIONS = [
     "id": "apply-operation",
     "level": "Intermediate",
     "topic": {
-      "vi": "Lambda & phạm vi",
-      "en": "Lambda & Scope"
+      "en": "Lambda & Scope",
+      "ja": "lambda とスコープ"
     },
     "title": {
-      "vi": "Hàm bậc cao đơn giản",
-      "en": "Simple higher-order behavior"
+      "en": "Simple higher-order behavior",
+      "ja": "演算を選択する関数"
     },
     "prompt": {
-      "vi": "Viết apply_operation(a, b, op) với op là '+', '*', hoặc 'max'. Trả về kết quả tương ứng.",
-      "en": "Write apply_operation(a, b, op), where op is '+', '*', or 'max'. Return the corresponding result."
+      "en": "Write apply_operation(a, b, op), where op is '+', '*', or 'max'. Return the corresponding result.",
+      "ja": "op が '+'、'*'、'max' のいずれかとなる apply_operation(a, b, op) を作成し、それぞれの演算結果を返してください。"
     },
     "starter": "def apply_operation(a, b, op):\n    pass",
     "example": "apply_operation(4,7,'max')  →  7",
     "hint": {
-      "vi": "Có thể ánh xạ tên phép toán sang lambda/function.",
-      "en": "You can map operation names to lambdas/functions."
+      "en": "You can map operation names to lambdas/functions.",
+      "ja": "演算名を lambda や関数に対応させられます。"
     },
     "checks": [
       {
@@ -1635,22 +1635,22 @@ window.QUESTIONS = [
     "id": "closure-multiplier",
     "level": "Intermediate",
     "topic": {
-      "vi": "Lambda & phạm vi",
-      "en": "Lambda & Scope"
+      "en": "Lambda & Scope",
+      "ja": "lambda とスコープ"
     },
     "title": {
-      "vi": "Closure tạo bộ nhân",
-      "en": "Multiplier closure"
+      "en": "Multiplier closure",
+      "ja": "乗算するクロージャ"
     },
     "prompt": {
-      "vi": "Viết make_multiplier(n) trả về một hàm mới; hàm đó nhận x và trả về x*n.",
-      "en": "Write make_multiplier(n) returning a new function that takes x and returns x*n."
+      "en": "Write make_multiplier(n) returning a new function that takes x and returns x*n.",
+      "ja": "x を受け取って x*n を返す新しい関数を生成する make_multiplier(n) を作成してください。"
     },
     "starter": "def make_multiplier(n):\n    pass",
     "example": "make_multiplier(3)(4)  →  12",
     "hint": {
-      "vi": "Định nghĩa hàm bên trong hoặc trả về lambda.",
-      "en": "Define an inner function or return a lambda."
+      "en": "Define an inner function or return a lambda.",
+      "ja": "内部関数を定義するか、lambda を返します。"
     },
     "checks": [
       {
@@ -1667,22 +1667,22 @@ window.QUESTIONS = [
     "id": "filter-positive",
     "level": "Core",
     "topic": {
-      "vi": "Lambda & phạm vi",
-      "en": "Lambda & Scope"
+      "en": "Lambda & Scope",
+      "ja": "lambda とスコープ"
     },
     "title": {
-      "vi": "Lọc số dương",
-      "en": "Filter positive numbers"
+      "en": "Filter positive numbers",
+      "ja": "正の数だけ抽出"
     },
     "prompt": {
-      "vi": "Viết positive_numbers(numbers) trả về list chỉ gồm các số > 0, giữ nguyên thứ tự.",
-      "en": "Write positive_numbers(numbers) returning only values > 0 while preserving order."
+      "en": "Write positive_numbers(numbers) returning only values > 0 while preserving order.",
+      "ja": "0 より大きい値だけを元の順序で返す positive_numbers(numbers) を作成してください。"
     },
     "starter": "def positive_numbers(numbers):\n    pass",
     "example": "positive_numbers([-1,0,3,2])  →  [3,2]",
     "hint": {
-      "vi": "Có thể dùng filter + lambda hoặc list comprehension.",
-      "en": "Use filter + lambda or a list comprehension."
+      "en": "Use filter + lambda or a list comprehension.",
+      "ja": "filter と lambda、またはリスト内包表記を使います。"
     },
     "checks": [
       {
@@ -1699,22 +1699,22 @@ window.QUESTIONS = [
     "id": "student-class",
     "level": "Intermediate",
     "topic": {
-      "vi": "Lập trình hướng đối tượng",
-      "en": "Classes & OOP"
+      "en": "Classes & OOP",
+      "ja": "クラスとオブジェクト指向"
     },
     "title": {
-      "vi": "Lớp Student",
-      "en": "Student class"
+      "en": "Student class",
+      "ja": "Student クラス"
     },
     "prompt": {
-      "vi": "Tạo class Student có __init__(name, score), lưu hai thuộc tính và method passed() trả về True khi score >= 5.",
-      "en": "Create a Student class with __init__(name, score), store both attributes, and add passed() returning True when score >= 5."
+      "en": "Create a Student class with __init__(name, score), store both attributes, and add passed() returning True when score >= 5.",
+      "ja": "__init__(name, score) で2つの属性を保存し、score >= 5 のとき True を返す passed() メソッドを持つ Student クラスを作成してください。"
     },
     "starter": "class Student:\n    def __init__(self, name, score):\n        pass\n\n    def passed(self):\n        pass",
     "example": "Student('An', 8).passed()  →  True",
     "hint": {
-      "vi": "Dùng self.name và self.score.",
-      "en": "Use self.name and self.score."
+      "en": "Use self.name and self.score.",
+      "ja": "self.name と self.score を使います。"
     },
     "checks": [
       {
@@ -1735,22 +1735,22 @@ window.QUESTIONS = [
     "id": "rectangle-class",
     "level": "Intermediate",
     "topic": {
-      "vi": "Lập trình hướng đối tượng",
-      "en": "Classes & OOP"
+      "en": "Classes & OOP",
+      "ja": "クラスとオブジェクト指向"
     },
     "title": {
-      "vi": "Lớp Rectangle",
-      "en": "Rectangle class"
+      "en": "Rectangle class",
+      "ja": "Rectangle クラス"
     },
     "prompt": {
-      "vi": "Tạo class Rectangle(width, height) với area() và perimeter().",
-      "en": "Create Rectangle(width, height) with area() and perimeter() methods."
+      "en": "Create Rectangle(width, height) with area() and perimeter() methods.",
+      "ja": "width と height を受け取る Rectangle クラスを作成し、area() と perimeter() メソッドを実装してください。"
     },
     "starter": "class Rectangle:\n    def __init__(self, width, height):\n        pass\n\n    def area(self):\n        pass\n\n    def perimeter(self):\n        pass",
     "example": "Rectangle(5,3).area()  →  15",
     "hint": {
-      "vi": "Chu vi = 2*(width+height).",
-      "en": "Perimeter = 2*(width+height)."
+      "en": "Perimeter = 2*(width+height).",
+      "ja": "周長 = 2*(width+height) です。"
     },
     "checks": [
       {
@@ -1767,22 +1767,22 @@ window.QUESTIONS = [
     "id": "inheritance-dog",
     "level": "Intermediate",
     "topic": {
-      "vi": "Lập trình hướng đối tượng",
-      "en": "Classes & OOP"
+      "en": "Classes & OOP",
+      "ja": "クラスとオブジェクト指向"
     },
     "title": {
-      "vi": "Kế thừa Animal → Dog",
-      "en": "Animal → Dog inheritance"
+      "en": "Animal → Dog inheritance",
+      "ja": "Animal から Dog への継承"
     },
     "prompt": {
-      "vi": "Tạo Animal có speak() trả về '...'. Tạo Dog kế thừa Animal và override speak() để trả về 'Woof'.",
-      "en": "Create Animal.speak() returning '...'. Create Dog inheriting Animal and override speak() to return 'Woof'."
+      "en": "Create Animal.speak() returning '...'. Create Dog inheriting Animal and override speak() to return 'Woof'.",
+      "ja": "'...' を返す Animal.speak() を作成し、Animal を継承する Dog クラスで speak() をオーバーライドして 'Woof' を返してください。"
     },
     "starter": "class Animal:\n    def speak(self):\n        pass\n\nclass Dog(Animal):\n    def speak(self):\n        pass",
     "example": "Dog().speak()  →  'Woof'",
     "hint": {
-      "vi": "Khai báo class Dog(Animal).",
-      "en": "Declare class Dog(Animal)."
+      "en": "Declare class Dog(Animal).",
+      "ja": "class Dog(Animal) と定義します。"
     },
     "checks": [
       {
@@ -1803,22 +1803,22 @@ window.QUESTIONS = [
     "id": "polymorphism",
     "level": "Intermediate",
     "topic": {
-      "vi": "Lập trình hướng đối tượng",
-      "en": "Classes & OOP"
+      "en": "Classes & OOP",
+      "ja": "クラスとオブジェクト指向"
     },
     "title": {
-      "vi": "Đa hình qua speak()",
-      "en": "Polymorphism via speak()"
+      "en": "Polymorphism via speak()",
+      "ja": "speak() を使ったポリモーフィズム"
     },
     "prompt": {
-      "vi": "Tạo Cat.speak() → 'Meow', Dog.speak() → 'Woof', và animal_sound(animal) chỉ gọi animal.speak().",
-      "en": "Create Cat.speak() → 'Meow', Dog.speak() → 'Woof', and animal_sound(animal) that only calls animal.speak()."
+      "en": "Create Cat.speak() → 'Meow', Dog.speak() → 'Woof', and animal_sound(animal) that only calls animal.speak().",
+      "ja": "Cat.speak() は 'Meow'、Dog.speak() は 'Woof' を返すようにし、animal.speak() を呼ぶだけの animal_sound(animal) を作成してください。"
     },
     "starter": "class Cat:\n    def speak(self):\n        pass\n\nclass Dog:\n    def speak(self):\n        pass\n\ndef animal_sound(animal):\n    pass",
     "example": "animal_sound(Cat())  →  'Meow'",
     "hint": {
-      "vi": "animal_sound không cần kiểm tra kiểu đối tượng.",
-      "en": "animal_sound does not need type checks."
+      "en": "animal_sound does not need type checks.",
+      "ja": "animal_sound 内で型を判定する必要はありません。"
     },
     "checks": [
       {
@@ -1835,22 +1835,22 @@ window.QUESTIONS = [
     "id": "countdown-iterator",
     "level": "Advanced",
     "topic": {
-      "vi": "Lập trình hướng đối tượng",
-      "en": "Classes & OOP"
+      "en": "Classes & OOP",
+      "ja": "クラスとオブジェクト指向"
     },
     "title": {
-      "vi": "Iterator Countdown",
-      "en": "Countdown iterator"
+      "en": "Countdown iterator",
+      "ja": "カウントダウンのイテレータ"
     },
     "prompt": {
-      "vi": "Tạo class Countdown(start) là iterator trả lần lượt start, start-1, ..., 1 rồi dừng.",
-      "en": "Create Countdown(start) as an iterator yielding start, start-1, ..., 1 and then stopping."
+      "en": "Create Countdown(start) as an iterator yielding start, start-1, ..., 1 and then stopping.",
+      "ja": "start、start-1、...、1 を順に返して終了する Countdown(start) イテレータクラスを作成してください。"
     },
     "starter": "class Countdown:\n    def __init__(self, start):\n        pass\n\n    def __iter__(self):\n        pass\n\n    def __next__(self):\n        pass",
     "example": "list(Countdown(3))  →  [3,2,1]",
     "hint": {
-      "vi": "__iter__ có thể trả self; __next__ raise StopIteration khi kết thúc.",
-      "en": "__iter__ can return self; __next__ raises StopIteration when finished."
+      "en": "__iter__ can return self; __next__ raises StopIteration when finished.",
+      "ja": "__iter__ は self を返し、__next__ は終了時に StopIteration を送出します。"
     },
     "checks": [
       {
@@ -1871,22 +1871,22 @@ window.QUESTIONS = [
     "id": "circle-area",
     "level": "Intermediate",
     "topic": {
-      "vi": "Module & thư viện chuẩn",
-      "en": "Modules & Standard Library"
+      "en": "Modules & Standard Library",
+      "ja": "モジュールと標準ライブラリ"
     },
     "title": {
-      "vi": "Dùng module math",
-      "en": "Use the math module"
+      "en": "Use the math module",
+      "ja": "math モジュールを使う"
     },
     "prompt": {
-      "vi": "Viết circle_area(radius) dùng math.pi và trả về diện tích làm tròn 2 chữ số thập phân.",
-      "en": "Write circle_area(radius) using math.pi and return the area rounded to 2 decimal places."
+      "en": "Write circle_area(radius) using math.pi and return the area rounded to 2 decimal places.",
+      "ja": "math.pi を使って円の面積を計算し、小数点以下2桁に丸めて返す circle_area(radius) を作成してください。"
     },
     "starter": "import math\n\ndef circle_area(radius):\n    pass",
     "example": "circle_area(2)  →  12.57",
     "hint": {
-      "vi": "Dùng round(value, 2).",
-      "en": "Use round(value, 2)."
+      "en": "Use round(value, 2).",
+      "ja": "round(value, 2) を使います。"
     },
     "checks": [
       {
@@ -1903,22 +1903,22 @@ window.QUESTIONS = [
     "id": "days-between",
     "level": "Intermediate",
     "topic": {
-      "vi": "Module & thư viện chuẩn",
-      "en": "Modules & Standard Library"
+      "en": "Modules & Standard Library",
+      "ja": "モジュールと標準ライブラリ"
     },
     "title": {
-      "vi": "Khoảng cách ngày",
-      "en": "Days between dates"
+      "en": "Days between dates",
+      "ja": "2つの日付の差"
     },
     "prompt": {
-      "vi": "Viết days_between(date1, date2) nhận hai chuỗi YYYY-MM-DD và trả về số ngày tuyệt đối giữa chúng.",
-      "en": "Write days_between(date1, date2) for two YYYY-MM-DD strings and return the absolute number of days between them."
+      "en": "Write days_between(date1, date2) for two YYYY-MM-DD strings and return the absolute number of days between them.",
+      "ja": "YYYY-MM-DD 形式の2つの文字列を受け取り、その間の日数の絶対値を返す days_between(date1, date2) を作成してください。"
     },
     "starter": "from datetime import datetime\n\ndef days_between(date1, date2):\n    pass",
     "example": "days_between('2026-01-01','2026-01-10')  →  9",
     "hint": {
-      "vi": "Dùng datetime.strptime(..., '%Y-%m-%d') rồi lấy hiệu.",
-      "en": "Use datetime.strptime(..., '%Y-%m-%d') and subtract."
+      "en": "Use datetime.strptime(..., '%Y-%m-%d') and subtract.",
+      "ja": "datetime.strptime(..., '%Y-%m-%d') で変換し、差を求めます。"
     },
     "checks": [
       {
@@ -1935,22 +1935,22 @@ window.QUESTIONS = [
     "id": "json-field",
     "level": "Intermediate",
     "topic": {
-      "vi": "JSON & RegEx",
-      "en": "JSON & RegEx"
+      "en": "JSON & RegEx",
+      "ja": "JSON と正規表現"
     },
     "title": {
-      "vi": "Đọc JSON",
-      "en": "Read JSON"
+      "en": "Read JSON",
+      "ja": "JSON の読み込み"
     },
     "prompt": {
-      "vi": "Viết json_field(text, key) parse chuỗi JSON và trả về giá trị tương ứng với key; nếu thiếu key trả về None.",
-      "en": "Write json_field(text, key), parse the JSON string, and return the value for key; return None if missing."
+      "en": "Write json_field(text, key), parse the JSON string, and return the value for key; return None if missing.",
+      "ja": "JSON 文字列を解析し、key に対応する値を返す json_field(text, key) を作成してください。キーがなければ None を返します。"
     },
     "starter": "import json\n\ndef json_field(text, key):\n    pass",
     "example": "json_field('{\"name\":\"An\"}', 'name')  →  'An'",
     "hint": {
-      "vi": "Dùng json.loads() rồi dict.get().",
-      "en": "Use json.loads() then dict.get()."
+      "en": "Use json.loads() then dict.get().",
+      "ja": "json.loads() の後に dict.get() を使います。"
     },
     "checks": [
       {
@@ -1967,22 +1967,22 @@ window.QUESTIONS = [
     "id": "regex-email",
     "level": "Intermediate",
     "topic": {
-      "vi": "JSON & RegEx",
-      "en": "JSON & RegEx"
+      "en": "JSON & RegEx",
+      "ja": "JSON と正規表現"
     },
     "title": {
-      "vi": "Kiểm tra email bằng RegEx",
-      "en": "Validate email with RegEx"
+      "en": "Validate email with RegEx",
+      "ja": "正規表現でメール形式を確認"
     },
     "prompt": {
-      "vi": "Viết is_simple_email(text) trả về True nếu chuỗi có dạng cơ bản local@domain.tld, không chứa khoảng trắng. Dùng re.fullmatch.",
-      "en": "Write is_simple_email(text) returning True for a basic local@domain.tld shape without spaces. Use re.fullmatch."
+      "en": "Write is_simple_email(text) returning True for a basic local@domain.tld shape without spaces. Use re.fullmatch.",
+      "ja": "空白を含まない基本的な local@domain.tld 形式なら True を返す is_simple_email(text) を作成してください。re.fullmatch を使います。"
     },
     "starter": "import re\n\ndef is_simple_email(text):\n    pass",
     "example": "is_simple_email('a@b.com')  →  True",
     "hint": {
-      "vi": "Mẫu đơn giản: ký tự không phải khoảng trắng/@, dấu @, domain, dấu chấm, phần đuôi.",
-      "en": "A basic pattern can match non-space/non-@ text, @, domain, dot, and suffix."
+      "en": "A basic pattern can match non-space/non-@ text, @, domain, dot, and suffix.",
+      "ja": "空白や @ 以外の文字、@、ドメイン、ドット、末尾部分を正規表現で指定します。"
     },
     "checks": [
       {
@@ -2007,22 +2007,22 @@ window.QUESTIONS = [
     "id": "safe-divide",
     "level": "Intermediate",
     "topic": {
-      "vi": "Ngoại lệ & định dạng",
-      "en": "Exceptions & Formatting"
+      "en": "Exceptions & Formatting",
+      "ja": "例外処理と書式設定"
     },
     "title": {
-      "vi": "Chia an toàn với try/except",
-      "en": "Safe division with try/except"
+      "en": "Safe division with try/except",
+      "ja": "try/except で安全に除算"
     },
     "prompt": {
-      "vi": "Viết safe_divide(a, b) trả về a/b; nếu b=0 thì trả về None bằng cách xử lý ZeroDivisionError.",
-      "en": "Write safe_divide(a, b) returning a/b; when b=0 return None by handling ZeroDivisionError."
+      "en": "Write safe_divide(a, b) returning a/b; when b=0 return None by handling ZeroDivisionError.",
+      "ja": "a/b を返す safe_divide(a, b) を作成してください。b=0 なら ZeroDivisionError を処理して None を返します。"
     },
     "starter": "def safe_divide(a, b):\n    pass",
     "example": "safe_divide(10, 0)  →  None",
     "hint": {
-      "vi": "Dùng try / except ZeroDivisionError.",
-      "en": "Use try / except ZeroDivisionError."
+      "en": "Use try / except ZeroDivisionError.",
+      "ja": "try / except ZeroDivisionError を使います。"
     },
     "checks": [
       {
@@ -2039,22 +2039,22 @@ window.QUESTIONS = [
     "id": "format-price",
     "level": "Intermediate",
     "topic": {
-      "vi": "Ngoại lệ & định dạng",
-      "en": "Exceptions & Formatting"
+      "en": "Exceptions & Formatting",
+      "ja": "例外処理と書式設定"
     },
     "title": {
-      "vi": "Định dạng số trong f-string",
-      "en": "Format numbers in an f-string"
+      "en": "Format numbers in an f-string",
+      "ja": "f-string で数値を整形"
     },
     "prompt": {
-      "vi": "Viết format_price(name, price) trả về '<name>: <price>' với price có dấu phân tách hàng nghìn và đúng 2 chữ số thập phân.",
-      "en": "Write format_price(name, price) returning '<name>: <price>' with thousands separators and exactly 2 decimal places."
+      "en": "Write format_price(name, price) returning '<name>: <price>' with thousands separators and exactly 2 decimal places.",
+      "ja": "'<name>: <price>' という文字列を返す format_price(name, price) を作成してください。価格は桁区切り付き、小数点以下ちょうど2桁にします。"
     },
     "starter": "def format_price(name, price):\n    pass",
     "example": "format_price('Laptop', 1234.5)  →  'Laptop: 1,234.50'",
     "hint": {
-      "vi": "Trong f-string có thể dùng định dạng :,.2f.",
-      "en": "In an f-string, use the :,.2f format specifier."
+      "en": "In an f-string, use the :,.2f format specifier.",
+      "ja": "f-string の書式指定 :,.2f を使います。"
     },
     "checks": [
       {
@@ -2071,22 +2071,22 @@ window.QUESTIONS = [
     "id": "parse-age",
     "level": "Core",
     "topic": {
-      "vi": "Ngoại lệ & định dạng",
-      "en": "Exceptions & Formatting"
+      "en": "Exceptions & Formatting",
+      "ja": "例外処理と書式設定"
     },
     "title": {
-      "vi": "Mô phỏng dữ liệu input",
-      "en": "Simulate user input parsing"
+      "en": "Simulate user input parsing",
+      "ja": "input の入力値を解析"
     },
     "prompt": {
-      "vi": "Viết parse_age(text) mô phỏng dữ liệu nhận từ input(): bỏ khoảng trắng và chuyển thành int.",
-      "en": "Write parse_age(text) to simulate input() data: trim whitespace and convert it to int."
+      "en": "Write parse_age(text) to simulate input() data: trim whitespace and convert it to int.",
+      "ja": "input() の入力を想定した parse_age(text) を作成してください。前後の空白を削除し、整数に変換します。"
     },
     "starter": "def parse_age(text):\n    pass",
     "example": "parse_age(' 18 ')  →  18",
     "hint": {
-      "vi": "input() luôn cho chuỗi; ở đây text đóng vai trò chuỗi đó.",
-      "en": "input() returns a string; here text plays that role."
+      "en": "input() returns a string; here text plays that role.",
+      "ja": "input() の戻り値は文字列です。この課題では text がそれに相当します。"
     },
     "checks": [
       {
@@ -2103,22 +2103,22 @@ window.QUESTIONS = [
     "id": "none-default",
     "level": "Core",
     "topic": {
-      "vi": "Ngoại lệ & định dạng",
-      "en": "Exceptions & Formatting"
+      "en": "Exceptions & Formatting",
+      "ja": "例外処理と書式設定"
     },
     "title": {
-      "vi": "Làm việc với None",
-      "en": "Work with None"
+      "en": "Work with None",
+      "ja": "None の扱い"
     },
     "prompt": {
-      "vi": "Viết value_or_default(value, default) trả về default chỉ khi value is None; các giá trị 0, False, '' vẫn phải giữ nguyên.",
-      "en": "Write value_or_default(value, default) returning default only when value is None; keep 0, False, and '' unchanged."
+      "en": "Write value_or_default(value, default) returning default only when value is None; keep 0, False, and '' unchanged.",
+      "ja": "value が None の場合だけ default を返す value_or_default(value, default) を作成してください。0、False、'' はそのまま返します。"
     },
     "starter": "def value_or_default(value, default):\n    pass",
     "example": "value_or_default(None, 10)  →  10",
     "hint": {
-      "vi": "Dùng is None thay vì kiểm tra truthy/falsy.",
-      "en": "Use is None rather than truthiness."
+      "en": "Use is None rather than truthiness.",
+      "ja": "真偽値判定ではなく is None を使います。"
     },
     "checks": [
       {
@@ -2139,22 +2139,22 @@ window.QUESTIONS = [
     "id": "write-read-file",
     "level": "Intermediate",
     "topic": {
-      "vi": "Xử lý tệp",
-      "en": "File Handling"
+      "en": "File Handling",
+      "ja": "ファイル操作"
     },
     "title": {
-      "vi": "Ghi rồi đọc tệp",
-      "en": "Write then read a file"
+      "en": "Write then read a file",
+      "ja": "ファイルに書いて読み込む"
     },
     "prompt": {
-      "vi": "Viết write_and_read(path, text): ghi text vào path ở chế độ 'w' với encoding='utf-8', sau đó đọc lại và trả về nội dung.",
-      "en": "Write write_and_read(path, text): write text to path using mode 'w' and encoding='utf-8', then read it back and return the content."
+      "en": "Write write_and_read(path, text): write text to path using mode 'w' and encoding='utf-8', then read it back and return the content.",
+      "ja": "write_and_read(path, text) を作成してください。encoding='utf-8'、モード 'w' で text を path に書き込み、再び読み取って内容を返します。"
     },
     "starter": "def write_and_read(path, text):\n    pass",
     "example": "write_and_read('/tmp/demo.txt', 'Python')  →  'Python'",
     "hint": {
-      "vi": "Dùng hai khối with open(...): một để ghi, một để đọc.",
-      "en": "Use two with open(...) blocks: one for writing and one for reading."
+      "en": "Use two with open(...) blocks: one for writing and one for reading.",
+      "ja": "with open(...) を2回使い、最初は書き込み、次に読み込みます。"
     },
     "checks": [
       {
@@ -2171,22 +2171,22 @@ window.QUESTIONS = [
     "id": "even-generator",
     "level": "Advanced",
     "topic": {
-      "vi": "Hàm",
-      "en": "Functions"
+      "en": "Functions",
+      "ja": "関数"
     },
     "title": {
-      "vi": "Generator số chẵn",
-      "en": "Even-number generator"
+      "en": "Even-number generator",
+      "ja": "偶数を生成するジェネレータ"
     },
     "prompt": {
-      "vi": "Viết even_numbers(n) là generator yield các số chẵn từ 0 đến n, bao gồm n nếu chẵn.",
-      "en": "Write even_numbers(n) as a generator yielding even values from 0 through n."
+      "en": "Write even_numbers(n) as a generator yielding even values from 0 through n.",
+      "ja": "0 から n までの偶数を yield するジェネレータ even_numbers(n) を作成してください。n が偶数なら含めます。"
     },
     "starter": "def even_numbers(n):\n    pass",
     "example": "list(even_numbers(6))  →  [0,2,4,6]",
     "hint": {
-      "vi": "Dùng yield trong vòng lặp.",
-      "en": "Use yield inside a loop."
+      "en": "Use yield inside a loop.",
+      "ja": "ループ内で yield を使います。"
     },
     "checks": [
       {
@@ -2203,22 +2203,22 @@ window.QUESTIONS = [
     "id": "double-decorator",
     "level": "Advanced",
     "topic": {
-      "vi": "Hàm",
-      "en": "Functions"
+      "en": "Functions",
+      "ja": "関数"
     },
     "title": {
-      "vi": "Decorator nhân đôi kết quả",
-      "en": "Decorator that doubles a result"
+      "en": "Decorator that doubles a result",
+      "ja": "結果を2倍にするデコレータ"
     },
     "prompt": {
-      "vi": "Viết decorator double_result(func) trả về wrapper nhân đôi kết quả func. Sau đó áp dụng @double_result cho hàm add(a,b) trả về a+b.",
-      "en": "Write a double_result(func) decorator whose wrapper doubles func's result. Apply @double_result to add(a,b), where add normally returns a+b."
+      "en": "Write a double_result(func) decorator whose wrapper doubles func's result. Apply @double_result to add(a,b), where add normally returns a+b.",
+      "ja": "関数の戻り値を2倍にする wrapper を返す double_result(func) デコレータを作成してください。通常 a+b を返す add(a,b) に @double_result を適用します。"
     },
     "starter": "def double_result(func):\n    pass\n\n@double_result\ndef add(a, b):\n    return a + b",
     "example": "add(2, 3)  →  10",
     "hint": {
-      "vi": "wrapper nhận *args, **kwargs rồi trả về 2 * func(...).",
-      "en": "The wrapper can take *args, **kwargs and return 2 * func(...)."
+      "en": "The wrapper can take *args, **kwargs and return 2 * func(...).",
+      "ja": "wrapper に *args と **kwargs を受け取り、2 * func(...) を返せます。"
     },
     "checks": [
       {
@@ -2235,22 +2235,22 @@ window.QUESTIONS = [
     "id": "palindrome-clean",
     "level": "Advanced",
     "topic": {
-      "vi": "Thử thách tổng hợp",
-      "en": "Advanced Challenges"
+      "en": "Advanced Challenges",
+      "ja": "応用課題"
     },
     "title": {
-      "vi": "Palindrome bỏ ký tự thừa",
-      "en": "Normalized palindrome"
+      "en": "Normalized palindrome",
+      "ja": "正規化した回文判定"
     },
     "prompt": {
-      "vi": "Viết is_palindrome(text) bỏ mọi ký tự không phải chữ/số và không phân biệt hoa thường.",
-      "en": "Write is_palindrome(text) ignoring non-alphanumeric characters and letter case."
+      "en": "Write is_palindrome(text) ignoring non-alphanumeric characters and letter case.",
+      "ja": "英数字以外の文字と大文字・小文字の違いを無視して回文かどうか判定する is_palindrome(text) を作成してください。"
     },
     "starter": "def is_palindrome(text):\n    pass",
     "example": "is_palindrome('A man, a plan, a canal: Panama!')  →  True",
     "hint": {
-      "vi": "isalnum() và lower()/casefold() sẽ hữu ích.",
-      "en": "isalnum() plus lower()/casefold() are useful."
+      "en": "isalnum() plus lower()/casefold() are useful.",
+      "ja": "isalnum() と lower()/casefold() が役立ちます。"
     },
     "checks": [
       {
@@ -2271,22 +2271,22 @@ window.QUESTIONS = [
     "id": "analyze-numbers",
     "level": "Advanced",
     "topic": {
-      "vi": "Thử thách tổng hợp",
-      "en": "Advanced Challenges"
+      "en": "Advanced Challenges",
+      "ja": "応用課題"
     },
     "title": {
-      "vi": "Phân tích dãy số",
-      "en": "Analyze numbers"
+      "en": "Analyze numbers",
+      "ja": "数値リストの分析"
     },
     "prompt": {
-      "vi": "Viết analyze_numbers(numbers) cho list không rỗng, trả dict gồm count, min, max, sum, average.",
-      "en": "Write analyze_numbers(numbers) for a non-empty list, returning a dict with count, min, max, sum, average."
+      "en": "Write analyze_numbers(numbers) for a non-empty list, returning a dict with count, min, max, sum, average.",
+      "ja": "空でない数値リストについて、count、min、max、sum、average を含む辞書を返す analyze_numbers(numbers) を作成してください。"
     },
     "starter": "def analyze_numbers(numbers):\n    pass",
     "example": "analyze_numbers([1,2,3])  →  {'count':3,...,'average':2.0}",
     "hint": {
-      "vi": "Kết hợp len, min, max, sum.",
-      "en": "Combine len, min, max, and sum."
+      "en": "Combine len, min, max, and sum.",
+      "ja": "len、min、max、sum を組み合わせます。"
     },
     "checks": [
       {
@@ -2303,22 +2303,22 @@ window.QUESTIONS = [
     "id": "cart-total",
     "level": "Advanced",
     "topic": {
-      "vi": "Thử thách tổng hợp",
-      "en": "Advanced Challenges"
+      "en": "Advanced Challenges",
+      "ja": "応用課題"
     },
     "title": {
-      "vi": "Tính tổng giỏ hàng",
-      "en": "Shopping cart total"
+      "en": "Shopping cart total",
+      "ja": "ショッピングカートの合計"
     },
     "prompt": {
-      "vi": "Viết cart_total(cart, prices, discount=0). cart là dict {sản phẩm: số lượng}, prices là dict {sản phẩm: đơn giá}; tính tổng rồi giảm discount phần trăm. Trả về số làm tròn 2 chữ số.",
-      "en": "Write cart_total(cart, prices, discount=0). cart maps item→quantity and prices maps item→unit price; compute total then apply discount percent. Return rounded to 2 decimals."
+      "en": "Write cart_total(cart, prices, discount=0). cart maps item→quantity and prices maps item→unit price; compute total then apply discount percent. Return rounded to 2 decimals.",
+      "ja": "cart_total(cart, prices, discount=0) を作成してください。cart は商品と数量、prices は商品と単価の辞書です。合計から discount % を割り引き、小数点以下2桁に丸めて返します。"
     },
     "starter": "def cart_total(cart, prices, discount=0):\n    pass",
     "example": "cart_total({'pen':2}, {'pen':10}, 10)  →  18.0",
     "hint": {
-      "vi": "Duyệt cart.items(), nhân quantity với prices[item], rồi áp dụng phần trăm giảm.",
-      "en": "Loop through cart.items(), multiply quantity by prices[item], then apply the discount percentage."
+      "en": "Loop through cart.items(), multiply quantity by prices[item], then apply the discount percentage.",
+      "ja": "cart.items() を巡回し、数量と単価を掛けてから割引率を適用します。"
     },
     "checks": [
       {
@@ -2335,22 +2335,22 @@ window.QUESTIONS = [
     "id": "password-strength",
     "level": "Advanced",
     "topic": {
-      "vi": "Thử thách tổng hợp",
-      "en": "Advanced Challenges"
+      "en": "Advanced Challenges",
+      "ja": "応用課題"
     },
     "title": {
-      "vi": "Kiểm tra mật khẩu",
-      "en": "Password strength"
+      "en": "Password strength",
+      "ja": "パスワードの強度判定"
     },
     "prompt": {
-      "vi": "Viết strong_password(text) trả về True khi mật khẩu dài ít nhất 8 ký tự và có ít nhất 1 chữ hoa, 1 chữ thường, 1 chữ số, 1 ký tự không phải chữ/số.",
-      "en": "Write strong_password(text) returning True when length >= 8 and it contains at least one uppercase, lowercase, digit, and non-alphanumeric character."
+      "en": "Write strong_password(text) returning True when length >= 8 and it contains at least one uppercase, lowercase, digit, and non-alphanumeric character.",
+      "ja": "長さが8文字以上で、大文字・小文字・数字・英数字以外の記号をそれぞれ1つ以上含む場合に True を返す strong_password(text) を作成してください。"
     },
     "starter": "def strong_password(text):\n    pass",
     "example": "strong_password('PyQuiz#26')  →  True",
     "hint": {
-      "vi": "any() kết hợp isupper/islower/isdigit/isalnum rất phù hợp.",
-      "en": "any() with isupper/islower/isdigit/isalnum works well."
+      "en": "any() with isupper/islower/isdigit/isalnum works well.",
+      "ja": "any() と isupper/islower/isdigit/isalnum を組み合わせます。"
     },
     "checks": [
       {
