@@ -49,6 +49,13 @@
             <strong id="progressText">0 / 0</strong>
           </div>
           <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+          <div class="progress-actions">
+            <button id="saveProgressBtn" type="button">Save</button>
+            <button id="exportProgressBtn" type="button">Export</button>
+            <button id="importProgressBtn" type="button">Import</button>
+            <input id="importFile" type="file" accept=".json,application/json" hidden />
+          </div>
+          <div id="saveStatus" class="save-status" role="status">Autosaved locally</div>
         </div>
 
         <div class="filters">
@@ -101,6 +108,7 @@
             </div>
           </div>
 
+          <a id="lessonLink" class="lesson-link" target="_blank" rel="noopener noreferrer" href="https://www.w3schools.com/python/default.asp">↗ Study this topic on W3Schools</a>
           <div class="example-box" id="exampleBox">
             <div>
               <span id="exampleLabel">Example</span>
@@ -126,6 +134,7 @@
             </div>
             <div class="toolbar-actions">
               <button class="btn ghost" id="resetBtn" type="button">↺ Reset</button>
+              <button class="btn secondary" id="saveBtn" type="button">↓ Save</button>
               <button class="btn secondary" id="runBtn" type="button" disabled>▶ Run</button>
               <button class="btn primary" id="submitBtn" type="button" disabled>✓ Test</button>
             </div>
@@ -133,6 +142,10 @@
 
           <div id="editor" class="editor" aria-label="Python code editor"></div>
 
+          <div class="stdin-panel" id="stdinPanel">
+            <label for="stdinInput" id="stdinLabel">Program input (stdin) · optional for Run</label>
+            <textarea id="stdinInput" rows="2" spellcheck="false" placeholder="Values to be read by input(), one per line"></textarea>
+          </div>
           <div class="console-panel">
             <div class="console-head">
               <div class="console-tabs">
