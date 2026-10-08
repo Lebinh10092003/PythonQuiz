@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="PythonQuiz IDE - IDE luyện và kiểm tra kiến thức Python song ngữ Việt - Anh." />
+  <meta name="theme-color" content="#0b1220" />
+  <title>PythonQuiz IDE</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">&gt;_</div>
+        <div>
+          <strong>PythonQuiz IDE</strong>
+          <span>Code • Run • Test</span>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <div class="runtime-pill" id="runtimePill">
+          <span class="status-dot"></span>
+          <span id="runtimeText">Đang tải Python…</span>
+        </div>
+        <select id="languageSelect" class="select compact" aria-label="Ngôn ngữ">
+          <option value="both">VI + EN</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="en">English</option>
+        </select>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Đổi giao diện" title="Đổi giao diện">☼</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-head">
+          <div>
+            <div class="eyebrow">PYTHON ROADMAP</div>
+            <h1 id="sidebarTitle">Bài luyện tập</h1>
+          </div>
+          <button class="icon-btn mobile-only" id="closeSidebarBtn" type="button" aria-label="Đóng">×</button>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-row">
+            <span id="progressLabel">Tiến độ</span>
+            <strong id="progressText">0 / 0</strong>
+          </div>
+          <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+        </div>
+
+        <div class="filters">
+          <div class="search-wrap">
+            <span>⌕</span>
+            <input id="searchInput" type="search" placeholder="Tìm bài / Search…" autocomplete="off" />
+          </div>
+          <div class="filter-grid">
+            <select id="levelFilter" class="select">
+              <option value="all">Tất cả cấp độ</option>
+            </select>
+            <select id="topicFilter" class="select">
+              <option value="all">Tất cả chủ đề</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="questionList" class="question-list"></div>
+      </aside>
+
+      <section class="main-panel">
+        <div class="mobile-nav">
+          <button id="openSidebarBtn" class="btn secondary" type="button">☰ Bài tập</button>
+          <span id="mobileQuestionIndex"></span>
+        </div>
+
+        <section class="problem-panel">
+          <div class="problem-topline">
+            <div class="problem-meta">
+              <span class="badge" id="levelBadge">Starter</span>
+              <span class="topic" id="topicLabel">Getting Started</span>
+              <span class="question-number" id="questionNumber">#01</span>
+            </div>
+            <div class="problem-nav">
+              <button class="icon-btn" id="prevBtn" type="button" title="Bài trước">←</button>
+              <button class="icon-btn" id="nextBtn" type="button" title="Bài tiếp">→</button>
+            </div>
+          </div>
+
+          <div class="problem-copy">
+            <div id="viBlock" class="lang-block">
+              <div class="lang-label">VI</div>
+              <h2 id="titleVi"></h2>
+              <p id="promptVi"></p>
+            </div>
+            <div id="enBlock" class="lang-block">
+              <div class="lang-label">EN</div>
+              <h2 id="titleEn"></h2>
+              <p id="promptEn"></p>
+            </div>
+          </div>
+
+          <div class="example-box" id="exampleBox">
+            <div>
+              <span id="exampleLabel">Ví dụ / Example</span>
+              <code id="exampleCode"></code>
+            </div>
+          </div>
+
+          <details class="hint-box">
+            <summary id="hintSummary">Gợi ý / Hint</summary>
+            <div class="hint-grid">
+              <p id="hintVi"></p>
+              <p id="hintEn"></p>
+            </div>
+          </details>
+        </section>
+
+        <section class="ide-panel">
+          <div class="ide-toolbar">
+            <div class="file-tab">
+              <span class="python-dot"></span>
+              <span>solution.py</span>
+              <span class="unsaved-dot" id="unsavedDot"></span>
+            </div>
+            <div class="toolbar-actions">
+              <button class="btn ghost" id="resetBtn" type="button">↺ Reset</button>
+              <button class="btn secondary" id="runBtn" type="button" disabled>▶ Run</button>
+              <button class="btn primary" id="submitBtn" type="button" disabled>✓ Test</button>
+            </div>
+          </div>
+
+          <div id="editor" class="editor" aria-label="Python code editor"></div>
+
+          <div class="console-panel">
+            <div class="console-head">
+              <div class="console-tabs">
+                <button class="console-tab active" data-tab="output" type="button">OUTPUT</button>
+                <button class="console-tab" data-tab="tests" type="button">TESTS</button>
+              </div>
+              <button class="text-btn" id="clearConsoleBtn" type="button">Clear</button>
+            </div>
+            <pre id="consoleOutput" class="console-output">Python runtime is loading…</pre>
+            <div id="testOutput" class="test-output hidden"></div>
+          </div>
+        </section>
+
+        <section class="result-panel" id="resultPanel">
+          <div>
+            <div class="eyebrow" id="resultEyebrow">KẾT QUẢ</div>
+            <strong id="resultTitle">Chưa chấm bài</strong>
+            <p id="resultMessage">Viết lời giải và nhấn Test để kiểm tra với các test case.</p>
+          </div>
+          <div class="score-box">
+            <span id="scoreLabel">Điểm</span>
+            <strong id="scoreValue">—</strong>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.36.5/src-min-noconflict/ace.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.36.5/src-min-noconflict/mode-python.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.36.5/src-min-noconflict/theme-one_dark.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.36.5/src-min-noconflict/theme-chrome.js"></script>
+  <script src="./questions.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
