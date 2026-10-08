@@ -104,8 +104,8 @@ function gradeProgram(code, cases, withTests=true, stdin="") {
 
 test("program-style questions have appropriate stdin/stdout cases", () => {
   const programQuestions = questions.filter(q => q.mode === "program");
-  assert.equal(programQuestions.length,41);
-  assert.equal(Object.keys(programSolutions).length,41);
+  assert.equal(programQuestions.length,54);
+  assert.equal(Object.keys(programSolutions).length,54);
   for (const q of questions) {
     assert.match(q.lessonUrl, /^https:\/\/www\.w3schools\.com\/python\/python_[\w]+\.asp$/);
     if (q.mode !== "program") continue;
