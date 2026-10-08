@@ -547,7 +547,7 @@
     ui.exampleCode.textContent = current.example;
     ui.lessonLink.href = current.lessonUrl || "https://www.w3schools.com/python/default.asp";
     ui.stdinPanel.classList.toggle("hidden", current.mode !== "program");
-    ui.stdinInput.value = savedInputs[current.id] || "";
+    ui.stdinInput.value = Object.prototype.hasOwnProperty.call(savedInputs, current.id) ? savedInputs[current.id] : (current.programTests?.[0]?.input || "");
     ui.jaBlock.classList.toggle("hidden", language !== "ja");
     ui.hintJa.classList.toggle("hidden", language !== "ja");
     ui.hintEn.classList.toggle("hidden", language !== "en");
