@@ -1,4 +1,4 @@
-const PYODIDE_INDEX = "https://cdn.jsdelivr.net/pyodide/v314.0.7/full/";
+const PYODIDE_INDEX = "https://cdn.jsdelivr.net/pyodide/v0.28.3/full/";
 let pyodide = null;
 
 async function ensureRuntime() {
