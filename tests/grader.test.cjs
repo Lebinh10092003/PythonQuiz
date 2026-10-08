@@ -86,3 +86,69 @@ test("per-test exceptions preserve failure details", () => {
   assert.equal(result.details[0].issue,"test_exception");
   assert.match(result.details[0].actual,/NameError/);
 });
+
+const programSolutions = JSON.parse(fs.readFileSync(root + "/tests/program-golden.json", "utf8"));
+
+function gradeProgram(code, cases, withTests=true, stdin="") {
+  const prefix =
+    "USER_CODE = " + JSON.stringify(code) + "\\n" +
+    "CHECKS_JSON = '[]'\\n" +
+    "PROGRAM_CHECKS_JSON = " + JSON.stringify(JSON.stringify(cases)) + "\\n" +
+    "WITH_TESTS = " + (withTests ? "True" : "False") + "\\n" +
+    "MODE = 'program'\\n" +
+    "RUN_INPUT = " + JSON.stringify(stdin) + "\\n";
+  const run = spawnSync("python3", ["-"], {input:prefix+harness, encoding:"utf8", timeout:7000, maxBuffer:2_000_000});
+  assert.equal(run.status,0,"Python subprocess failed: "+run.stderr+" "+run.error);
+  return JSON.parse(run.stdout.trim());
+}
+
+test("program-style questions have appropriate stdin/stdout cases", () => {
+  const programQuestions = questions.filter(q => q.mode === "program");
+  assert.equal(programQuestions.length,41);
+  assert.equal(Object.keys(programSolutions).length,41);
+  for (const q of questions) {
+    assert.match(q.lessonUrl, /^https:\/\/www\.w3schools\.com\/python\/python_[\w]+\.asp$/);
+    if (q.mode !== "program") continue;
+    assert.equal(typeof q.starter,"string");
+    assert(!/def\s+\w+\s*\(/.test(q.starter),"Function wrapper in program starter: "+q.id);
+    assert(Array.isArray(q.programTests) && q.programTests.length > 0);
+    for (const c of q.programTests) {
+      assert.equal(typeof c.input,"string");
+      assert.equal(typeof c.expected,"string");
+    }
+  }
+});
+
+for (const question of questions.filter(q => q.mode === "program")) {
+  test("ordinary Python program passes stdin/stdout tests: "+question.id, () => {
+    const result=gradeProgram(programSolutions[question.id],question.programTests);
+    assert.equal(result.ok,true,result.error);
+    assert.equal(result.passed,question.programTests.length,JSON.stringify(result.details.filter(x=>!x.ok)));
+  });
+}
+
+test("a direct print statement completes Hello World without def", () => {
+  const first=questions[0];
+  const result=gradeProgram('print("Hello, World!")',first.programTests);
+  assert.equal(result.passed,first.programTests.length);
+});
+
+test("incorrect program output is rejected", () => {
+  const first=questions[0];
+  const result=gradeProgram('print("Hi")',first.programTests);
+  assert.equal(result.passed,0);
+  assert.equal(result.details[0].issue,"wrong_output");
+});
+
+test("program cases are independent", () => {
+  const q=questions.find(q=>q.id==="add-two");
+  const result=gradeProgram("a = int(input())\nb = int(input())\nprint(a+b)",q.programTests);
+  assert.equal(result.passed,q.programTests.length);
+});
+
+test("Run accepts provided stdin and prints output", () => {
+  const r=gradeProgram("name=input()\nprint('Hi '+name)",[],false,"Yuki\n");
+  assert.equal(r.ok,true,r.error);
+  assert.equal(r.stdout,"Hi Yuki\n");
+  assert.equal(r.total,0);
+});
