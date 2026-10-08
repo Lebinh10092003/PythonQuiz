@@ -323,12 +323,21 @@
       renderTests(result.details || []);
       activateConsoleTab("tests");
       const score = Math.round((result.passed / result.total) * 100);
+      const previous = progress[current.id] || {};
+      progress[current.id] = {
+        ...previous, started: true, lastScore: score,
+        bestScore: Math.max(previous.bestScore ?? 0, score),
+        attempts: (previous.attempts || 0) + 1,
+        updatedAt: Date.now()
+      };
+      saveSnapshot();
+      renderProgress();
       ui.scoreValue.textContent = score + "%";
       if (result.passed === result.total) {
         ui.resultPanel.classList.add("success");
         ui.resultTitle.textContent = language === "en" ? "All tests passed" : "すべてのテストに合格しました";
         ui.resultMessage.textContent = language === "en" ? "This exercise is marked complete." : "この課題を完了済みにしました。";
-        progress[current.id] = {completed:true, score:100, updatedAt:Date.now()};
+        progress[current.id] = {...progress[current.id], completed:true, score:100, bestScore:100, updatedAt:Date.now()};
         localStorage.setItem(STORAGE.progress, JSON.stringify(progress));
         ui.unsavedDot.classList.remove("visible");
         renderProgress();
@@ -471,6 +480,7 @@
   }
 
   function renderQuestionList() {
+    const previousScroll = ui.questionList.scrollTop;
     const list = filteredQuestions();
     ui.questionList.replaceChildren();
     if (!list.length) {
@@ -515,6 +525,7 @@
       });
       ui.questionList.appendChild(button);
     });
+    ui.questionList.scrollTop = previousScroll;
   }
 
   function renderProgress() {
@@ -592,9 +603,15 @@
       ui.resultMessage.textContent = language === "en" ? "You can edit and test again at any time." : "いつでもコードを修正し、再テストできます。";
       ui.scoreValue.textContent = (progress[current.id].score || 100) + "%";
     } else {
-      ui.resultTitle.textContent = language === "en" ? "Not submitted yet" : "未提出";
-      ui.resultMessage.textContent = language === "en" ? "Write your solution and press Test." : "解答を入力し、テストボタンで確認してください。";
-      ui.scoreValue.textContent = "—";
+      const lastScore = progress[current.id]?.lastScore;
+      const attempted = Number.isFinite(lastScore);
+      ui.resultTitle.textContent = attempted
+        ? (language === "en" ? "In progress" : "作業中")
+        : (language === "en" ? "Not submitted yet" : "未提出");
+      ui.resultMessage.textContent = attempted
+        ? (language === "en" ? "Last attempt: " : "前回の結果: ") + lastScore + "%"
+        : (language === "en" ? "Write your solution and press Test." : "解答を入力し、テストボタンで確認してください。");
+      ui.scoreValue.textContent = attempted ? lastScore + "%" : "—";
     }
     ui.consoleOutput.textContent = runtimeReady ? "Ctrl+Enter: Run • Ctrl+Shift+Enter: Test" : "Python runtime is loading…";
     ui.testOutput.replaceChildren();
