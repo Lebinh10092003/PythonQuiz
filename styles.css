@@ -191,7 +191,11 @@ body.light .console-panel { background: #101826; }
 .test-row .ok { color: #46d99a; }
 .test-row .fail { color: #ff737a; }
 .test-main { color: #cbd8ea; min-width: 0; }
-.test-sub { display: block; margin-top: 2px; color: #728197; word-break: break-word; }
+.test-expression { margin-bottom: 5px; overflow-wrap: anywhere; }
+.test-comparison { display: grid; gap: 3px; color: #b4c4d9; font-size: 11px; overflow-wrap: anywhere; }
+.test-comparison .ok { color: #46d99a; }
+.test-comparison .fail { color: #ff8b90; }
+.test-tip { margin-top: 6px; padding: 8px 10px; border-radius: 7px; border-left: 2px solid #ffc857; background: rgba(255, 200, 87, 0.08); color: #e5c986; line-height: 1.55; font-family: var(--sans); font-size: 11px; }
 
 .result-panel {
   margin: 0 24px 26px; display: flex; align-items: center; justify-content: space-between; gap: 18px;
