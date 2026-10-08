@@ -24,6 +24,14 @@ window.QUESTIONS = [
       {
         "expr": "hello()",
         "expected": "'Hello, World!'"
+      },
+      {
+        "expr": "isinstance(hello(), str)",
+        "expected": "True"
+      },
+      {
+        "expr": "len(hello())",
+        "expected": "13"
       }
     ]
   },
@@ -56,6 +64,14 @@ window.QUESTIONS = [
       {
         "expr": "greet('Python')",
         "expected": "'Hello, Python!'"
+      },
+      {
+        "expr": "greet('')",
+        "expected": "'Hello, !'"
+      },
+      {
+        "expr": "greet('Yuki')",
+        "expected": "'Hello, Yuki!'"
       }
     ]
   },
@@ -92,6 +108,14 @@ window.QUESTIONS = [
       {
         "expr": "add(2.5, 1.5)",
         "expected": "4.0"
+      },
+      {
+        "expr": "add(0,0)",
+        "expected": "0"
+      },
+      {
+        "expr": "add(-10,-5)",
+        "expected": "-15"
       }
     ]
   },
@@ -128,6 +152,18 @@ window.QUESTIONS = [
       {
         "expr": "type_name([1,2])",
         "expected": "'list'"
+      },
+      {
+        "expr": "type_name(True)",
+        "expected": "'bool'"
+      },
+      {
+        "expr": "type_name(None)",
+        "expected": "'NoneType'"
+      },
+      {
+        "expr": "type_name({'x':1})",
+        "expected": "'dict'"
       }
     ]
   },
@@ -160,6 +196,14 @@ window.QUESTIONS = [
       {
         "expr": "to_int('-7')",
         "expected": "-7"
+      },
+      {
+        "expr": "to_int('0')",
+        "expected": "0"
+      },
+      {
+        "expr": "to_int(' 42 ')",
+        "expected": "42"
       }
     ]
   },
@@ -192,6 +236,14 @@ window.QUESTIONS = [
       {
         "expr": "rectangle_area(2.5,4)",
         "expected": "10.0"
+      },
+      {
+        "expr": "rectangle_area(0,10)",
+        "expected": "0"
+      },
+      {
+        "expr": "rectangle_area(3,7)",
+        "expected": "21"
       }
     ]
   },
@@ -224,6 +276,14 @@ window.QUESTIONS = [
       {
         "expr": "first_last('abc')",
         "expected": "('a', 'c')"
+      },
+      {
+        "expr": "first_last('a')",
+        "expected": "('a','a')"
+      },
+      {
+        "expr": "first_last('あいう')",
+        "expected": "('あ','う')"
       }
     ]
   },
@@ -256,6 +316,14 @@ window.QUESTIONS = [
       {
         "expr": "normalize_name('python quiz')",
         "expected": "'Python Quiz'"
+      },
+      {
+        "expr": "normalize_name('  PYTHON  QUIZ  ')",
+        "expected": "'Python  Quiz'"
+      },
+      {
+        "expr": "normalize_name('')",
+        "expected": "''"
       }
     ]
   },
@@ -288,6 +356,14 @@ window.QUESTIONS = [
       {
         "expr": "reverse_text('abc 123')",
         "expected": "'321 cba'"
+      },
+      {
+        "expr": "reverse_text('')",
+        "expected": "''"
+      },
+      {
+        "expr": "reverse_text('たぬき')",
+        "expected": "'きぬた'"
       }
     ]
   },
@@ -319,6 +395,14 @@ window.QUESTIONS = [
       },
       {
         "expr": "count_char('Mississippi','s')",
+        "expected": "4"
+      },
+      {
+        "expr": "count_char('','x')",
+        "expected": "0"
+      },
+      {
+        "expr": "count_char('aaaa','a')",
         "expected": "4"
       }
     ]
@@ -352,6 +436,14 @@ window.QUESTIONS = [
       {
         "expr": "contains_word('Learn Python','python')",
         "expected": "False"
+      },
+      {
+        "expr": "contains_word('Python','')",
+        "expected": "True"
+      },
+      {
+        "expr": "contains_word('','Python')",
+        "expected": "False"
       }
     ]
   },
@@ -384,6 +476,14 @@ window.QUESTIONS = [
       {
         "expr": "profile('Binh',23)",
         "expected": "'Binh is 23 years old.'"
+      },
+      {
+        "expr": "profile('Yuki',0)",
+        "expected": "'Yuki is 0 years old.'"
+      },
+      {
+        "expr": "profile('',1)",
+        "expected": "' is 1 years old.'"
       }
     ]
   },
@@ -420,6 +520,14 @@ window.QUESTIONS = [
       {
         "expr": "is_even(-4)",
         "expected": "True"
+      },
+      {
+        "expr": "is_even(0)",
+        "expected": "True"
+      },
+      {
+        "expr": "is_even(-3)",
+        "expected": "False"
       }
     ]
   },
@@ -455,6 +563,14 @@ window.QUESTIONS = [
       },
       {
         "expr": "compare(9,3)",
+        "expected": "1"
+      },
+      {
+        "expr": "compare(-5,-2)",
+        "expected": "-1"
+      },
+      {
+        "expr": "compare(0,-1)",
         "expected": "1"
       }
     ]
@@ -492,6 +608,18 @@ window.QUESTIONS = [
       {
         "expr": "in_range(12,1,10)",
         "expected": "False"
+      },
+      {
+        "expr": "in_range(10,1,10)",
+        "expected": "True"
+      },
+      {
+        "expr": "in_range(0,1,10)",
+        "expected": "False"
+      },
+      {
+        "expr": "in_range(-3,-5,0)",
+        "expected": "True"
       }
     ]
   },
@@ -524,6 +652,14 @@ window.QUESTIONS = [
       {
         "expr": "calc_ops(-3,4)",
         "expected": "(1, -7, -12)"
+      },
+      {
+        "expr": "calc_ops(0,5)",
+        "expected": "(5,-5,0)"
+      },
+      {
+        "expr": "calc_ops(2.5,1.5)",
+        "expected": "(4.0,1.0,3.75)"
       }
     ]
   },
@@ -555,6 +691,14 @@ window.QUESTIONS = [
       },
       {
         "expr": "list_total([])",
+        "expected": "0"
+      },
+      {
+        "expr": "list_total([-2,2,-3])",
+        "expected": "-3"
+      },
+      {
+        "expr": "list_total([0,0])",
         "expected": "0"
       }
     ]
@@ -588,6 +732,14 @@ window.QUESTIONS = [
       {
         "expr": "average([1,2])",
         "expected": "1.5"
+      },
+      {
+        "expr": "average([-2,0,2])",
+        "expected": "0.0"
+      },
+      {
+        "expr": "average([10])",
+        "expected": "10.0"
       }
     ]
   },
@@ -620,6 +772,14 @@ window.QUESTIONS = [
       {
         "expr": "unique_sorted([5,5,5])",
         "expected": "[5]"
+      },
+      {
+        "expr": "unique_sorted([])",
+        "expected": "[]"
+      },
+      {
+        "expr": "unique_sorted([-1,5,-1,0])",
+        "expected": "[-1,0,5]"
       }
     ]
   },
@@ -652,6 +812,14 @@ window.QUESTIONS = [
       {
         "expr": "second_largest([10,9,8,10])",
         "expected": "9"
+      },
+      {
+        "expr": "second_largest([-5,-1,-3])",
+        "expected": "-3"
+      },
+      {
+        "expr": "second_largest([1,1,2,2,3,3])",
+        "expected": "2"
       }
     ]
   },
@@ -684,6 +852,14 @@ window.QUESTIONS = [
       {
         "expr": "even_squares([-2,3,6])",
         "expected": "[4, 36]"
+      },
+      {
+        "expr": "even_squares([])",
+        "expected": "[]"
+      },
+      {
+        "expr": "even_squares([0,5,-4])",
+        "expected": "[0,16]"
       }
     ]
   },
@@ -720,6 +896,14 @@ window.QUESTIONS = [
       {
         "expr": "rotate_left(['a'])",
         "expected": "['a']"
+      },
+      {
+        "expr": "rotate_left([1,2])",
+        "expected": "[2,1]"
+      },
+      {
+        "expr": "rotate_left([0,0,1])",
+        "expected": "[0,1,0]"
       }
     ]
   },
@@ -752,6 +936,14 @@ window.QUESTIONS = [
       {
         "expr": "swap_pair(('a','b'))",
         "expected": "('b', 'a')"
+      },
+      {
+        "expr": "swap_pair((0,0))",
+        "expected": "(0,0)"
+      },
+      {
+        "expr": "swap_pair((None,True))",
+        "expected": "(True,None)"
       }
     ]
   },
@@ -796,6 +988,14 @@ window.QUESTIONS = [
       {
         "expr": "quadrant((0,5))",
         "expected": "0"
+      },
+      {
+        "expr": "quadrant((1,0))",
+        "expected": "0"
+      },
+      {
+        "expr": "quadrant((0,-1))",
+        "expected": "0"
       }
     ]
   },
@@ -828,6 +1028,14 @@ window.QUESTIONS = [
       {
         "expr": "common('abc','bcd')",
         "expected": "{'b', 'c'}"
+      },
+      {
+        "expr": "common([],[1])",
+        "expected": "set()"
+      },
+      {
+        "expr": "common([0,0,1],[1,2])",
+        "expected": "{1}"
       }
     ]
   },
@@ -860,6 +1068,14 @@ window.QUESTIONS = [
       {
         "expr": "only_one({'a'},{'a'})",
         "expected": "set()"
+      },
+      {
+        "expr": "only_one(set(),{1,2})",
+        "expected": "{1,2}"
+      },
+      {
+        "expr": "only_one({1,2},{3,4})",
+        "expected": "{1,2,3,4}"
       }
     ]
   },
@@ -891,6 +1107,14 @@ window.QUESTIONS = [
       },
       {
         "expr": "get_value({'x':5},'y')",
+        "expected": "None"
+      },
+      {
+        "expr": "get_value({'x':None},'x')",
+        "expected": "None"
+      },
+      {
+        "expr": "get_value({},'a')",
         "expected": "None"
       }
     ]
@@ -924,6 +1148,14 @@ window.QUESTIONS = [
       {
         "expr": "word_frequency([])",
         "expected": "{}"
+      },
+      {
+        "expr": "word_frequency(['a','A','a'])",
+        "expected": "{'a':2,'A':1}"
+      },
+      {
+        "expr": "word_frequency(['日本','日本'])",
+        "expected": "{'日本':2}"
       }
     ]
   },
@@ -956,6 +1188,14 @@ window.QUESTIONS = [
       {
         "expr": "merge_dicts({}, {'a':1})",
         "expected": "{'a': 1}"
+      },
+      {
+        "expr": "merge_dicts({'a':1,'b':2},{'b':5})",
+        "expected": "{'a':1,'b':5}"
+      },
+      {
+        "expr": "merge_dicts({}, {})",
+        "expected": "{}"
       }
     ]
   },
@@ -988,6 +1228,14 @@ window.QUESTIONS = [
       {
         "expr": "best_student({'A':1})",
         "expected": "'A'"
+      },
+      {
+        "expr": "best_student({'Yuki':-2,'Ken':-1})",
+        "expected": "'Ken'"
+      },
+      {
+        "expr": "best_student({'A':0,'B':10})",
+        "expected": "'B'"
       }
     ]
   },
@@ -1032,6 +1280,26 @@ window.QUESTIONS = [
       {
         "expr": "grade(50)",
         "expected": "'F'"
+      },
+      {
+        "expr": "grade(90)",
+        "expected": "'A'"
+      },
+      {
+        "expr": "grade(80)",
+        "expected": "'B'"
+      },
+      {
+        "expr": "grade(70)",
+        "expected": "'C'"
+      },
+      {
+        "expr": "grade(60)",
+        "expected": "'D'"
+      },
+      {
+        "expr": "grade(59)",
+        "expected": "'F'"
       }
     ]
   },
@@ -1072,6 +1340,18 @@ window.QUESTIONS = [
       {
         "expr": "is_leap_year(2023)",
         "expected": "False"
+      },
+      {
+        "expr": "is_leap_year(2100)",
+        "expected": "False"
+      },
+      {
+        "expr": "is_leap_year(2400)",
+        "expected": "True"
+      },
+      {
+        "expr": "is_leap_year(2020)",
+        "expected": "True"
       }
     ]
   },
@@ -1112,6 +1392,18 @@ window.QUESTIONS = [
       {
         "expr": "fizzbuzz(7)",
         "expected": "7"
+      },
+      {
+        "expr": "fizzbuzz(15)",
+        "expected": "'FizzBuzz'"
+      },
+      {
+        "expr": "fizzbuzz(1)",
+        "expected": "1"
+      },
+      {
+        "expr": "fizzbuzz(0)",
+        "expected": "'FizzBuzz'"
       }
     ]
   },
@@ -1147,6 +1439,18 @@ window.QUESTIONS = [
       },
       {
         "expr": "day_type('holiday')",
+        "expected": "'invalid'"
+      },
+      {
+        "expr": "day_type('friday')",
+        "expected": "'weekday'"
+      },
+      {
+        "expr": "day_type('sunday')",
+        "expected": "'weekend'"
+      },
+      {
+        "expr": "day_type('MONDAY')",
         "expected": "'invalid'"
       }
     ]
@@ -1184,6 +1488,14 @@ window.QUESTIONS = [
       {
         "expr": "sum_to_n(100)",
         "expected": "5050"
+      },
+      {
+        "expr": "sum_to_n(1)",
+        "expected": "1"
+      },
+      {
+        "expr": "sum_to_n(10)",
+        "expected": "55"
       }
     ]
   },
@@ -1220,6 +1532,14 @@ window.QUESTIONS = [
       {
         "expr": "digit_count(99)",
         "expected": "2"
+      },
+      {
+        "expr": "digit_count(1000)",
+        "expected": "4"
+      },
+      {
+        "expr": "digit_count(-1)",
+        "expected": "1"
       }
     ]
   },
@@ -1256,6 +1576,18 @@ window.QUESTIONS = [
       {
         "expr": "first_divisible(-3,5)",
         "expected": "0"
+      },
+      {
+        "expr": "first_divisible(1,1)",
+        "expected": "1"
+      },
+      {
+        "expr": "first_divisible(-10,4)",
+        "expected": "-8"
+      },
+      {
+        "expr": "first_divisible(5,-3)",
+        "expected": "6"
       }
     ]
   },
@@ -1292,6 +1624,14 @@ window.QUESTIONS = [
       {
         "expr": "sum_even_to_n(6)",
         "expected": "12"
+      },
+      {
+        "expr": "sum_even_to_n(0)",
+        "expected": "0"
+      },
+      {
+        "expr": "sum_even_to_n(9)",
+        "expected": "20"
       }
     ]
   },
@@ -1324,6 +1664,14 @@ window.QUESTIONS = [
       {
         "expr": "multiplication_table(0)",
         "expected": "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]"
+      },
+      {
+        "expr": "multiplication_table(-2)",
+        "expected": "[-2,-4,-6,-8,-10,-12,-14,-16,-18,-20]"
+      },
+      {
+        "expr": "multiplication_table(1)",
+        "expected": "[1,2,3,4,5,6,7,8,9,10]"
       }
     ]
   },
@@ -1356,6 +1704,14 @@ window.QUESTIONS = [
       {
         "expr": "flatten([[],[1],[]])",
         "expected": "[1]"
+      },
+      {
+        "expr": "flatten([])",
+        "expected": "[]"
+      },
+      {
+        "expr": "flatten([[1],[2,3],[]])",
+        "expected": "[1,2,3]"
       }
     ]
   },
@@ -1396,6 +1752,26 @@ window.QUESTIONS = [
       {
         "expr": "is_prime(21)",
         "expected": "False"
+      },
+      {
+        "expr": "is_prime(0)",
+        "expected": "False"
+      },
+      {
+        "expr": "is_prime(-11)",
+        "expected": "False"
+      },
+      {
+        "expr": "is_prime(4)",
+        "expected": "False"
+      },
+      {
+        "expr": "is_prime(97)",
+        "expected": "True"
+      },
+      {
+        "expr": "is_prime(49)",
+        "expected": "False"
       }
     ]
   },
@@ -1432,6 +1808,14 @@ window.QUESTIONS = [
       {
         "expr": "factorial(7)",
         "expected": "5040"
+      },
+      {
+        "expr": "factorial(1)",
+        "expected": "1"
+      },
+      {
+        "expr": "factorial(10)",
+        "expected": "3628800"
       }
     ]
   },
@@ -1464,6 +1848,14 @@ window.QUESTIONS = [
       {
         "expr": "greet_person('Binh','Hi')",
         "expected": "'Hi, Binh!'"
+      },
+      {
+        "expr": "greet_person('Yuki','こんにちは')",
+        "expected": "'こんにちは, Yuki!'"
+      },
+      {
+        "expr": "greet_person('','Hi')",
+        "expected": "'Hi, !'"
       }
     ]
   },
@@ -1496,6 +1888,14 @@ window.QUESTIONS = [
       {
         "expr": "stats(-2,4)",
         "expected": "(-2, 4, 2)"
+      },
+      {
+        "expr": "stats(5)",
+        "expected": "(5,5,5)"
+      },
+      {
+        "expr": "stats(-5,-1,-3)",
+        "expected": "(-5,-1,-9)"
       }
     ]
   },
@@ -1528,6 +1928,14 @@ window.QUESTIONS = [
       {
         "expr": "build_profile()",
         "expected": "{}"
+      },
+      {
+        "expr": "build_profile(active=True,score=0)",
+        "expected": "{'active':True,'score':0}"
+      },
+      {
+        "expr": "build_profile(a=None)",
+        "expected": "{'a':None}"
       }
     ]
   },
@@ -1560,6 +1968,14 @@ window.QUESTIONS = [
       {
         "expr": "recursive_sum([1,2,3,4])",
         "expected": "10"
+      },
+      {
+        "expr": "recursive_sum([5])",
+        "expected": "5"
+      },
+      {
+        "expr": "recursive_sum([-10,5,1])",
+        "expected": "-4"
       }
     ]
   },
@@ -1592,6 +2008,14 @@ window.QUESTIONS = [
       {
         "expr": "sort_by_second([])",
         "expected": "[]"
+      },
+      {
+        "expr": "sort_by_second([('x',-1),('y',0)])",
+        "expected": "[('x',-1),('y',0)]"
+      },
+      {
+        "expr": "sort_by_second([('a',2),('b',1)])",
+        "expected": "[('b',1),('a',2)]"
       }
     ]
   },
@@ -1628,6 +2052,18 @@ window.QUESTIONS = [
       {
         "expr": "apply_operation(4,7,'max')",
         "expected": "7"
+      },
+      {
+        "expr": "apply_operation(-1,5,'+')",
+        "expected": "4"
+      },
+      {
+        "expr": "apply_operation(0,9,'*')",
+        "expected": "0"
+      },
+      {
+        "expr": "apply_operation(-2,0,'max')",
+        "expected": "0"
       }
     ]
   },
@@ -1659,6 +2095,14 @@ window.QUESTIONS = [
       },
       {
         "expr": "make_multiplier(-2)(5)",
+        "expected": "-10"
+      },
+      {
+        "expr": "make_multiplier(0)(10)",
+        "expected": "0"
+      },
+      {
+        "expr": "make_multiplier(5)(-2)",
         "expected": "-10"
       }
     ]
@@ -1692,6 +2136,14 @@ window.QUESTIONS = [
       {
         "expr": "positive_numbers([-5,-1])",
         "expected": "[]"
+      },
+      {
+        "expr": "positive_numbers([])",
+        "expected": "[]"
+      },
+      {
+        "expr": "positive_numbers([0,1,0,2])",
+        "expected": "[1,2]"
       }
     ]
   },
@@ -1728,6 +2180,18 @@ window.QUESTIONS = [
       {
         "expr": "Student('Chi',7).name",
         "expected": "'Chi'"
+      },
+      {
+        "expr": "Student('Yuki',5).passed()",
+        "expected": "True"
+      },
+      {
+        "expr": "Student('Ken',0).score",
+        "expected": "0"
+      },
+      {
+        "expr": "Student('A',4.99).passed()",
+        "expected": "False"
       }
     ]
   },
@@ -1760,6 +2224,18 @@ window.QUESTIONS = [
       {
         "expr": "Rectangle(5,3).perimeter()",
         "expected": "16"
+      },
+      {
+        "expr": "Rectangle(0,2).area()",
+        "expected": "0"
+      },
+      {
+        "expr": "Rectangle(2.5,3).perimeter()",
+        "expected": "11.0"
+      },
+      {
+        "expr": "Rectangle(2,4).width",
+        "expected": "2"
       }
     ]
   },
@@ -1796,6 +2272,14 @@ window.QUESTIONS = [
       {
         "expr": "isinstance(Dog(), Animal)",
         "expected": "True"
+      },
+      {
+        "expr": "isinstance(Animal(),Animal)",
+        "expected": "True"
+      },
+      {
+        "expr": "issubclass(Dog, Animal)",
+        "expected": "True"
       }
     ]
   },
@@ -1827,6 +2311,14 @@ window.QUESTIONS = [
       },
       {
         "expr": "animal_sound(Dog())",
+        "expected": "'Woof'"
+      },
+      {
+        "expr": "Cat().speak()",
+        "expected": "'Meow'"
+      },
+      {
+        "expr": "Dog().speak()",
         "expected": "'Woof'"
       }
     ]
@@ -1864,6 +2356,14 @@ window.QUESTIONS = [
       {
         "expr": "list(Countdown(0))",
         "expected": "[]"
+      },
+      {
+        "expr": "list(Countdown(5))",
+        "expected": "[5,4,3,2,1]"
+      },
+      {
+        "expr": "iter(Countdown(2)) is not None",
+        "expected": "True"
       }
     ]
   },
@@ -1896,6 +2396,14 @@ window.QUESTIONS = [
       {
         "expr": "circle_area(1)",
         "expected": "3.14"
+      },
+      {
+        "expr": "circle_area(0)",
+        "expected": "0.0"
+      },
+      {
+        "expr": "circle_area(3)",
+        "expected": "28.27"
       }
     ]
   },
@@ -1928,6 +2436,14 @@ window.QUESTIONS = [
       {
         "expr": "days_between('2026-02-01','2026-01-30')",
         "expected": "2"
+      },
+      {
+        "expr": "days_between('2024-02-28','2024-03-01')",
+        "expected": "2"
+      },
+      {
+        "expr": "days_between('2026-01-01','2026-01-01')",
+        "expected": "0"
       }
     ]
   },
@@ -1959,6 +2475,14 @@ window.QUESTIONS = [
       },
       {
         "expr": "json_field('{\"name\":\"An\"}','age')",
+        "expected": "None"
+      },
+      {
+        "expr": "json_field('{\"a\":0,\"b\":false}','b')",
+        "expected": "False"
+      },
+      {
+        "expr": "json_field('{\"x\":null}','x')",
         "expected": "None"
       }
     ]
@@ -2000,6 +2524,22 @@ window.QUESTIONS = [
       {
         "expr": "is_simple_email('abc@test')",
         "expected": "False"
+      },
+      {
+        "expr": "is_simple_email('a@b.co')",
+        "expected": "True"
+      },
+      {
+        "expr": "is_simple_email('abc')",
+        "expected": "False"
+      },
+      {
+        "expr": "is_simple_email('a@@b.com')",
+        "expected": "False"
+      },
+      {
+        "expr": "is_simple_email('a@b.')",
+        "expected": "False"
       }
     ]
   },
@@ -2032,6 +2572,14 @@ window.QUESTIONS = [
       {
         "expr": "safe_divide(10,0)",
         "expected": "None"
+      },
+      {
+        "expr": "safe_divide(-6,3)",
+        "expected": "-2.0"
+      },
+      {
+        "expr": "safe_divide(0,3)",
+        "expected": "0.0"
       }
     ]
   },
@@ -2064,6 +2612,14 @@ window.QUESTIONS = [
       {
         "expr": "format_price('Mouse',25)",
         "expected": "'Mouse: 25.00'"
+      },
+      {
+        "expr": "format_price('Item',0)",
+        "expected": "'Item: 0.00'"
+      },
+      {
+        "expr": "format_price('PC',1234567.891)",
+        "expected": "'PC: 1,234,567.89'"
       }
     ]
   },
@@ -2096,6 +2652,14 @@ window.QUESTIONS = [
       {
         "expr": "parse_age('007')",
         "expected": "7"
+      },
+      {
+        "expr": "parse_age('-5')",
+        "expected": "-5"
+      },
+      {
+        "expr": "parse_age(' 0 ')",
+        "expected": "0"
       }
     ]
   },
@@ -2132,6 +2696,14 @@ window.QUESTIONS = [
       {
         "expr": "value_or_default('', 'x')",
         "expected": "''"
+      },
+      {
+        "expr": "value_or_default(False,True)",
+        "expected": "False"
+      },
+      {
+        "expr": "value_or_default([],['default'])",
+        "expected": "[]"
       }
     ]
   },
@@ -2164,6 +2736,14 @@ window.QUESTIONS = [
       {
         "expr": "write_and_read('/tmp/pythonquiz_2.txt','Xin chào')",
         "expected": "'Xin chào'"
+      },
+      {
+        "expr": "write_and_read('/tmp/pythonquiz_3.txt','')",
+        "expected": "''"
+      },
+      {
+        "expr": "write_and_read('/tmp/pythonquiz_4.txt','日本語')",
+        "expected": "'日本語'"
       }
     ]
   },
@@ -2196,6 +2776,14 @@ window.QUESTIONS = [
       {
         "expr": "list(even_numbers(1))",
         "expected": "[0]"
+      },
+      {
+        "expr": "list(even_numbers(0))",
+        "expected": "[0]"
+      },
+      {
+        "expr": "list(even_numbers(5))",
+        "expected": "[0,2,4]"
       }
     ]
   },
@@ -2228,6 +2816,14 @@ window.QUESTIONS = [
       {
         "expr": "add(-1,4)",
         "expected": "6"
+      },
+      {
+        "expr": "add(0,0)",
+        "expected": "0"
+      },
+      {
+        "expr": "add(5,-7)",
+        "expected": "-4"
       }
     ]
   },
@@ -2264,6 +2860,18 @@ window.QUESTIONS = [
       {
         "expr": "is_palindrome('12321')",
         "expected": "True"
+      },
+      {
+        "expr": "is_palindrome('')",
+        "expected": "True"
+      },
+      {
+        "expr": "is_palindrome('RaceCar')",
+        "expected": "True"
+      },
+      {
+        "expr": "is_palindrome('hello!')",
+        "expected": "False"
       }
     ]
   },
@@ -2296,6 +2904,14 @@ window.QUESTIONS = [
       {
         "expr": "analyze_numbers([2.5,5.5])",
         "expected": "{'count': 2, 'min': 2.5, 'max': 5.5, 'sum': 8.0, 'average': 4.0}"
+      },
+      {
+        "expr": "analyze_numbers([-1])",
+        "expected": "{'count':1,'min':-1,'max':-1,'sum':-1,'average':-1.0}"
+      },
+      {
+        "expr": "analyze_numbers([0,0])",
+        "expected": "{'count':2,'min':0,'max':0,'sum':0,'average':0.0}"
       }
     ]
   },
@@ -2328,6 +2944,14 @@ window.QUESTIONS = [
       {
         "expr": "cart_total({'a':2,'b':1},{'a':5,'b':12})",
         "expected": "22.0"
+      },
+      {
+        "expr": "cart_total({},{},0)",
+        "expected": "0.0"
+      },
+      {
+        "expr": "cart_total({'a':1},{'a':12.5},20)",
+        "expected": "10.0"
       }
     ]
   },
@@ -2367,6 +2991,22 @@ window.QUESTIONS = [
       },
       {
         "expr": "strong_password('Short#1')",
+        "expected": "False"
+      },
+      {
+        "expr": "strong_password('Abcdef1!')",
+        "expected": "True"
+      },
+      {
+        "expr": "strong_password('Abcdef1')",
+        "expected": "False"
+      },
+      {
+        "expr": "strong_password('abcdefgh1!')",
+        "expected": "False"
+      },
+      {
+        "expr": "strong_password('ABCDEFGH1!')",
         "expected": "False"
       }
     ]
