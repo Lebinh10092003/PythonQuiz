@@ -43,6 +43,27 @@
   const savedCode = readJson(STORAGE.code, {});
   const savedInputs = readJson(STORAGE.inputs, {});
   const validQuestionIds = new Set(questions.map(q => q.id));
+  // Preserve old function-based starter drafts when migrating the introductory
+  // chapters to standalone programs. A backup stays in localStorage.
+  const archivedDrafts = readJson("pythonquiz.legacy-drafts.v1", {});
+  let migratedCount = 0;
+  for (const q of questions) {
+    if (q.mode !== "program" || typeof savedCode[q.id] !== "string") continue;
+    const legacyCall = q.checks?.[0]?.expr?.match(/^([A-Za-z_]\\w*)\\(/);
+    if (!legacyCall) continue;
+    const legacyFunction = new RegExp("^\\\\s*def\\\\s+" + legacyCall[1] + "\\\\s*\\\\(");
+    if (!legacyFunction.test(savedCode[q.id])) continue;
+    archivedDrafts[q.id] = savedCode[q.id];
+    delete savedCode[q.id];
+    migratedCount++;
+  }
+  if (migratedCount) {
+    try {
+      localStorage.setItem("pythonquiz.legacy-drafts.v1", JSON.stringify(archivedDrafts));
+      localStorage.setItem(STORAGE.code, JSON.stringify(savedCode));
+    } catch (_) {}
+  }
+
   let saveStatusTimer = null;
 
   function saveSnapshot(notify = false) {
@@ -69,7 +90,7 @@
     saveSnapshot();
     const snapshot = {
       format: "PythonQuiz-progress", version: 2, exportedAt: new Date().toISOString(),
-      code: savedCode, inputs: savedInputs, progress,
+      code: savedCode, inputs: savedInputs, progress, legacyDrafts: archivedDrafts,
       currentId: current?.id || questions[0]?.id
     };
     const url = URL.createObjectURL(new Blob([JSON.stringify(snapshot, null, 2)], {type:"application/json"}));
@@ -88,6 +109,10 @@
     if (file.size > 2_000_000) throw Error("File is too large");
     const snapshot = JSON.parse(await file.text());
     if (snapshot.format !== "PythonQuiz-progress" || snapshot.version !== 2) throw Error("Invalid backup format");
+    for (const [key, value] of Object.entries(snapshot.legacyDrafts || {})) {
+      if (validQuestionIds.has(key) && typeof value === "string") archivedDrafts[key] = value;
+    }
+    try { localStorage.setItem("pythonquiz.legacy-drafts.v1", JSON.stringify(archivedDrafts)); } catch (_) {}
     for (const [key, value] of Object.entries(snapshot.code || {})) {
       if (validQuestionIds.has(key) && typeof value === "string") savedCode[key] = value;
     }
