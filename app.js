@@ -49,9 +49,9 @@
   let migratedCount = 0;
   for (const q of questions) {
     if (q.mode !== "program" || typeof savedCode[q.id] !== "string") continue;
-    const legacyCall = q.checks?.[0]?.expr?.match(/^([A-Za-z_]\\w*)\\(/);
+    const legacyCall = q.checks?.[0]?.expr?.match(/^([A-Za-z_]\w*)\(/);
     if (!legacyCall) continue;
-    const legacyFunction = new RegExp("^\\\\s*def\\\\s+" + legacyCall[1] + "\\\\s*\\\\(");
+    const legacyFunction = new RegExp("^\\s*def\\s+" + legacyCall[1] + "\\s*\\(");
     if (!legacyFunction.test(savedCode[q.id])) continue;
     archivedDrafts[q.id] = savedCode[q.id];
     delete savedCode[q.id];
