@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="PythonQuiz IDE - IDE luyện và kiểm tra kiến thức Python song ngữ Việt - Anh." />
+  <meta name="description" content="PythonQuiz IDE — English and Japanese Python coding practice." />
   <meta name="theme-color" content="#0b1220" />
   <title>PythonQuiz IDE</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
@@ -23,14 +23,13 @@
       <div class="top-actions">
         <div class="runtime-pill" id="runtimePill">
           <span class="status-dot"></span>
-          <span id="runtimeText">Đang tải Python…</span>
+          <span id="runtimeText">Loading Python…</span>
         </div>
-        <select id="languageSelect" class="select compact" aria-label="Ngôn ngữ">
-          <option value="both">VI + EN</option>
-          <option value="vi">Tiếng Việt</option>
-          <option value="en">English</option>
+        <select id="languageSelect" class="select compact" aria-label="Language">
+          <option value="en" selected>English</option>
+          <option value="ja">日本語</option>
         </select>
-        <button class="icon-btn" id="themeBtn" type="button" aria-label="Đổi giao diện" title="Đổi giao diện">☼</button>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle theme" title="Toggle theme">☼</button>
       </div>
     </header>
 
@@ -39,14 +38,14 @@
         <div class="sidebar-head">
           <div>
             <div class="eyebrow">PYTHON ROADMAP</div>
-            <h1 id="sidebarTitle">Bài luyện tập</h1>
+            <h1 id="sidebarTitle">Coding exercises</h1>
           </div>
-          <button class="icon-btn mobile-only" id="closeSidebarBtn" type="button" aria-label="Đóng">×</button>
+          <button class="icon-btn mobile-only" id="closeSidebarBtn" type="button" aria-label="Close">×</button>
         </div>
 
         <div class="progress-card">
           <div class="progress-row">
-            <span id="progressLabel">Tiến độ</span>
+            <span id="progressLabel">Progress</span>
             <strong id="progressText">0 / 0</strong>
           </div>
           <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
@@ -55,14 +54,14 @@
         <div class="filters">
           <div class="search-wrap">
             <span>⌕</span>
-            <input id="searchInput" type="search" placeholder="Tìm bài / Search…" autocomplete="off" />
+            <input id="searchInput" type="search" placeholder="Search exercises…" autocomplete="off" />
           </div>
           <div class="filter-grid">
             <select id="levelFilter" class="select">
-              <option value="all">Tất cả cấp độ</option>
+              <option value="all">All levels</option>
             </select>
             <select id="topicFilter" class="select">
-              <option value="all">Tất cả chủ đề</option>
+              <option value="all">All topics</option>
             </select>
           </div>
         </div>
@@ -72,7 +71,7 @@
 
       <section class="main-panel">
         <div class="mobile-nav">
-          <button id="openSidebarBtn" class="btn secondary" type="button">☰ Bài tập</button>
+          <button id="openSidebarBtn" class="btn secondary" type="button">☰ Exercises</button>
           <span id="mobileQuestionIndex"></span>
         </div>
 
@@ -84,16 +83,16 @@
               <span class="question-number" id="questionNumber">#01</span>
             </div>
             <div class="problem-nav">
-              <button class="icon-btn" id="prevBtn" type="button" title="Bài trước">←</button>
-              <button class="icon-btn" id="nextBtn" type="button" title="Bài tiếp">→</button>
+              <button class="icon-btn" id="prevBtn" type="button" title="Previous exercise">←</button>
+              <button class="icon-btn" id="nextBtn" type="button" title="Next exercise">→</button>
             </div>
           </div>
 
           <div class="problem-copy">
-            <div id="viBlock" class="lang-block">
-              <div class="lang-label">VI</div>
-              <h2 id="titleVi"></h2>
-              <p id="promptVi"></p>
+            <div id="jaBlock" class="lang-block">
+              <div class="lang-label">JA</div>
+              <h2 id="titleJa"></h2>
+              <p id="promptJa"></p>
             </div>
             <div id="enBlock" class="lang-block">
               <div class="lang-label">EN</div>
@@ -104,15 +103,15 @@
 
           <div class="example-box" id="exampleBox">
             <div>
-              <span id="exampleLabel">Ví dụ / Example</span>
+              <span id="exampleLabel">Example</span>
               <code id="exampleCode"></code>
             </div>
           </div>
 
           <details class="hint-box">
-            <summary id="hintSummary">Gợi ý / Hint</summary>
+            <summary id="hintSummary">Hint</summary>
             <div class="hint-grid">
-              <p id="hintVi"></p>
+              <p id="hintJa"></p>
               <p id="hintEn"></p>
             </div>
           </details>
@@ -149,12 +148,12 @@
 
         <section class="result-panel" id="resultPanel">
           <div>
-            <div class="eyebrow" id="resultEyebrow">KẾT QUẢ</div>
-            <strong id="resultTitle">Chưa chấm bài</strong>
-            <p id="resultMessage">Viết lời giải và nhấn Test để kiểm tra với các test case.</p>
+            <div class="eyebrow" id="resultEyebrow">RESULT</div>
+            <strong id="resultTitle">Not submitted yet</strong>
+            <p id="resultMessage">Write your solution and press Test to run the test cases.</p>
           </div>
           <div class="score-box">
-            <span id="scoreLabel">Điểm</span>
+            <span id="scoreLabel">Score</span>
             <strong id="scoreValue">—</strong>
           </div>
         </section>
