@@ -257,3 +257,61 @@ body.light .console-panel { background: #101826; }
   .hint-grid { grid-template-columns: 1fr; }
   .result-panel { align-items: flex-start; }
 }
+
+/* Tutorial link and learning-progress controls */
+.lesson-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+  padding: 8px 11px;
+  border: 1px solid color-mix(in srgb, var(--accent) 33%, var(--border));
+  border-radius: 9px;
+  background: color-mix(in srgb, var(--accent) 8%, var(--panel));
+  color: var(--accent-2);
+  font-weight: 700;
+  font-size: 12px;
+  text-decoration: none;
+  max-width: 100%;
+}
+.lesson-link:hover { text-decoration: underline; border-color: var(--accent); }
+.progress-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; margin-top: 12px; }
+.progress-actions button {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--panel-3);
+  color: var(--text);
+  padding: 6px 3px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 700;
+}
+.progress-actions button:hover { border-color: var(--accent); }
+.save-status { padding-top: 8px; color: var(--muted-2); font-size: 10px; }
+.question-item.in-progress .completion-dot { border-color: var(--amber); background: var(--amber); }
+.stdin-panel {
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  background: var(--panel-2);
+}
+.stdin-panel label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 7px; }
+.stdin-panel textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 52px;
+  max-height: 180px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  font: 12px/1.5 var(--mono);
+}
+.stdin-panel textarea:focus { outline: 2px solid color-mix(in srgb, var(--accent) 40%, transparent); }
+.test-input { color: #99abc5; font-size: 11px; white-space: pre-wrap; overflow-wrap: anywhere; margin: 3px 0 6px; }
+.ide-toolbar { height: auto; min-height: 48px; padding-block: 7px; }
+.toolbar-actions { flex-wrap: wrap; justify-content: flex-end; }
+@media (max-width: 620px) {
+  .ide-toolbar { gap: 6px; }
+  .toolbar-actions .btn { flex: 1 1 0; min-width: 0; padding: 0 5px; }
+}
