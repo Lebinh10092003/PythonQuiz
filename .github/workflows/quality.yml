@@ -1,0 +1,23 @@
+name: PythonQuiz Quality Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check JavaScript syntax
+        run: |
+          node --check app.js
+          node --check python-worker.js
+          node --check questions.js
+      - name: Test every Python exercise and grading behavior
+        run: node --test tests/grader.test.cjs
