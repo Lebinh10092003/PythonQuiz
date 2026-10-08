@@ -143,7 +143,7 @@ button { color: inherit; }
 .badge { padding: 5px 8px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent-2); border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent); font-weight: 750; }
 .question-number { font-family: var(--mono); color: var(--muted-2); }
 .problem-nav { display: flex; gap: 6px; }
-.problem-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 15px; }
+.problem-copy { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 15px; }
 .lang-block { position: relative; padding-left: 34px; }
 .lang-label {
   position: absolute; left: 0; top: 2px; width: 24px; padding: 3px 0; text-align: center;
@@ -156,7 +156,7 @@ button { color: inherit; }
 .example-box code { color: var(--text); font: 12px var(--mono); white-space: pre-wrap; }
 .hint-box { margin-top: 10px; border: 1px dashed var(--border); border-radius: 10px; overflow: hidden; }
 .hint-box summary { cursor: pointer; padding: 9px 12px; color: var(--muted); font-size: 12px; user-select: none; }
-.hint-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 0 12px 11px; }
+.hint-grid { display: grid; grid-template-columns: 1fr; gap: 14px; padding: 0 12px 11px; }
 .hint-grid p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
 
 .ide-panel { margin: 18px 24px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--panel); box-shadow: var(--shadow); }
