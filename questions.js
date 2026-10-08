@@ -34,7 +34,7 @@ window.QUESTIONS = [
         "expected": "13"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_getstarted.asp",
+    "lessonUrl": "https://www.w3schools.com/python/python_output.asp",
     "mode": "program",
     "programTests": [
       {
@@ -2551,7 +2551,7 @@ window.QUESTIONS = [
         "expected": "'Hi, !'"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_functions.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_arguments.asp"
   },
   {
     "id": "args-stats",
@@ -2592,7 +2592,7 @@ window.QUESTIONS = [
         "expected": "(-5,-1,-9)"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_functions_args.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_args_kwargs.asp"
   },
   {
     "id": "kwargs-profile",
@@ -2633,7 +2633,7 @@ window.QUESTIONS = [
         "expected": "{'a':None}"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_functions_args.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_args_kwargs.asp"
   },
   {
     "id": "recursive-sum",
