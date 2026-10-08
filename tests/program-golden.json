@@ -39,5 +39,18 @@
   "sum-even": "n=int(input())\ns=0\nfor i in range(0,n+1,2):s+=i\nprint(s)",
   "times-table": "n=int(input())\nprint(*(n*i for i in range(1,11)))",
   "flatten-matrix": "n=int(input())\nitems=[]\nfor _ in range(n):\n    for v in input().split():\n        items.append(int(v))\nprint(*items)",
-  "is-prime": "n=int(input())\nprime=n>=2\nfor d in range(2,int(n**0.5)+1):\n    if n%d==0:\n        prime=False\n        break\nprint(prime)"
+  "is-prime": "n=int(input())\nprime=n>=2\nfor d in range(2,int(n**0.5)+1):\n    if n%d==0:\n        prime=False\n        break\nprint(prime)",
+  "circle-area": "import math\nradius=float(input())\nprint(round(math.pi*radius**2,2))",
+  "days-between": "from datetime import datetime\nfmt='%Y-%m-%d'\na=datetime.strptime(input(),fmt)\nb=datetime.strptime(input(),fmt)\nprint(abs((b-a).days))",
+  "json-field": "import json\ndata=json.loads(input())\nkey=input()\nprint(data.get(key))",
+  "regex-email": "import re\ntext=input()\nprint(bool(re.fullmatch(r'[^\\s@]+@[^\\s@.]+\\.[^\\s@.]+',text)))",
+  "safe-divide": "a=int(input());b=int(input())\ntry:print(a/b)\nexcept ZeroDivisionError:print(None)",
+  "format-price": "name=input()\nprice=float(input())\nprint(f'{name}: {price:,.2f}')",
+  "parse-age": "age=int(input().strip())\nprint(age)",
+  "none-default": "value=None\ndefault=10\nprint(default if value is None else value)",
+  "write-read-file": "text=input()\nwith open('lesson.txt','w',encoding='utf-8') as f:\n    f.write(text)\nwith open('lesson.txt','r',encoding='utf-8') as f:\n    print(f.read())",
+  "palindrome-clean": "text=input()\ns=''.join(c.casefold() for c in text if c.isalnum())\nprint(s==s[::-1])",
+  "analyze-numbers": "nums=list(map(int,input().split()))\nprint(len(nums),min(nums),max(nums),sum(nums),sum(nums)/len(nums))",
+  "cart-total": "n=int(input())\ntotal=0.0\nfor _ in range(n):\n    name,quantity,price=input().split()\n    total+=int(quantity)*float(price)\ndiscount=float(input())\nprint(f'{total*(1-discount/100):.2f}')",
+  "password-strength": "s=input()\nprint(len(s)>=8 and any(c.isupper() for c in s) and any(c.islower() for c in s) and any(c.isdigit() for c in s) and any(not c.isalnum() for c in s))"
 }
