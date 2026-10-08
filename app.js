@@ -242,7 +242,7 @@
     ui.submitBtn.disabled = true;
     ui.runtimePill.className = "runtime-pill";
     ui.runtimeText.textContent = language === "en" ? "Loading Python…" : "Python を読み込み中…";
-    worker = new Worker("./python-worker.js");
+    worker = new Worker("./python-worker.js?v=3");
     worker.onmessage = onWorkerMessage;
     worker.onerror = () => {
       ui.runtimePill.className = "runtime-pill error";
