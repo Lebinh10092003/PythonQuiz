@@ -1,40 +1,44 @@
 # PythonQuiz IDE
 
-IDE kiểm tra kiến thức Python dạng tự luận/code, song ngữ Việt - Anh, chạy hoàn toàn trên GitHub Pages.
+Browser-based Python coding exercises and automatic test-case grading.
 
-## Tính năng
+## Languages
 
-- Chạy Python trực tiếp trong trình duyệt bằng Pyodide.
-- Python chạy trong Web Worker để có thể ngắt khi code bị treo/vòng lặp vô hạn.
-- Trình soạn thảo Ace Editor.
-- Bài tập song ngữ VI/EN, có chế độ VI + EN.
-- Chấm tự động bằng test case.
-- Lưu tiến độ, mã đang làm, ngôn ngữ và theme bằng LocalStorage.
-- Lọc bài theo cấp độ/chủ đề, tìm kiếm nhanh.
-- Responsive cho laptop, tablet và điện thoại.
-- Không cần backend, database hoặc API key.
+- **English** — default.
+- **日本語 (Japanese)** — selectable in the language switcher.
+- All 70 coding exercises, topic names, prompts, and hints are available in both English and Japanese.
+- Older language settings from the former English/Vietnamese prototype automatically fall back to English.
+- Language changes preserve work-in-progress code in your browser.
 
-## Nội dung
+## Features
 
-Bộ bài tập được tự biên soạn theo lộ trình kiến thức chính trong W3Schools Python Tutorial: syntax, variables, data types, numbers, strings, operators, lists, tuples, sets, dictionaries, conditions, loops, functions, lambda, classes/OOP, iterators, modules, dates, math, JSON, RegEx, exceptions, formatting và file handling.
+- 70 self-written coding exercises across 19 topics and five difficulty levels.
+- Follows the broad learning progression of the W3Schools Python Tutorial; no verbatim copies of its questions.
+- Ace editor with Python syntax highlighting and light/dark themes.
+- Python execution in the browser using Pyodide, isolated in a Web Worker with a time limit.
+- Run code, test solutions with automatic test cases, and track completed exercises.
+- Progress and drafts saved to browser localStorage.
+- Search and filters; responsive layout for desktop and mobile.
+- Static hosting only — no backend or API keys.
 
-> Không sao chép nguyên văn bài tập W3Schools.
+## Publish with GitHub Pages
 
-## Chạy local
+1. Open **Settings → Pages** in this repository.
+2. Under **Build and deployment**, choose **Deploy from a branch**.
+3. Choose branch **main** and folder **/(root)**; click **Save**.
+4. Open https://lebinh10092003.github.io/PythonQuiz/ after GitHub Pages finishes publishing.
 
-Có thể dùng bất kỳ static server nào, ví dụ:
+No GitHub Actions workflow is required for branch-based publishing.
+
+## Run locally
 
 ```bash
 python -m http.server 8000
 ```
 
-Mở `http://localhost:8000`.
+Visit http://localhost:8000.
 
-## GitHub Pages
-
-Workflow `.github/workflows/pages.yml` tự deploy nhánh `main` lên GitHub Pages. Nếu Pages chưa từng được bật cho repository, workflow dùng `actions/configure-pages` với `enablement: true`.
-
-## Cấu trúc
+## Files
 
 ```
 index.html
@@ -42,9 +46,7 @@ styles.css
 questions.js
 app.js
 python-worker.js
-.github/workflows/pages.yml
+.nojekyll
 ```
 
-## Lưu ý
-
-Đây là hệ thống chấm phía client. Test case nằm trong mã nguồn nên phù hợp cho luyện tập/kiểm tra kiến thức, không phải hệ thống thi bảo mật cao.
+**Security note:** Grading is performed entirely in the browser. Test cases can be inspected by learners; this is intended for practice and formative assessment, not a secure high-stakes examination.
