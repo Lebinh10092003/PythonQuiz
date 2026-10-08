@@ -3085,14 +3085,14 @@ window.QUESTIONS = [
       "ja": "math モジュールを使う"
     },
     "prompt": {
-      "en": "Write circle_area(radius) using math.pi and return the area rounded to 2 decimal places.",
-      "ja": "math.pi を使って円の面積を計算し、小数点以下2桁に丸めて返す circle_area(radius) を作成してください。"
+      "en": "Read the radius as a number. Use math.pi and print the circle's area rounded to 2 decimals.",
+      "ja": "半径を数値で入力し、math.pi を使って円の面積を小数点以下2桁に丸めて表示してください。"
     },
-    "starter": "import math\n\ndef circle_area(radius):\n    pass",
-    "example": "circle_area(2)  →  12.57",
+    "starter": "# Import math and read a radius.\n",
+    "example": "Input: 2 → Output: 12.57",
     "hint": {
-      "en": "Use round(value, 2).",
-      "ja": "round(value, 2) を使います。"
+      "en": "Write a regular Python program using statements, input() and print() as needed. No function wrapper is required.",
+      "ja": "通常の Python の文を使い、必要に応じて input() と print() を記述してください。関数で囲む必要はありません。"
     },
     "checks": [
       {
@@ -3112,7 +3112,26 @@ window.QUESTIONS = [
         "expected": "28.27"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_math.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_math.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "2\n",
+        "expected": "12.57"
+      },
+      {
+        "input": "1\n",
+        "expected": "3.14"
+      },
+      {
+        "input": "0\n",
+        "expected": "0.0"
+      },
+      {
+        "input": "3\n",
+        "expected": "28.27"
+      }
+    ]
   },
   {
     "id": "days-between",
@@ -3126,14 +3145,14 @@ window.QUESTIONS = [
       "ja": "2つの日付の差"
     },
     "prompt": {
-      "en": "Write days_between(date1, date2) for two YYYY-MM-DD strings and return the absolute number of days between them.",
-      "ja": "YYYY-MM-DD 形式の2つの文字列を受け取り、その間の日数の絶対値を返す days_between(date1, date2) を作成してください。"
+      "en": "Read two dates on separate lines in YYYY-MM-DD format and print the absolute number of days between them.",
+      "ja": "YYYY-MM-DD 形式の日付を2行で入力し、日付間の日数の絶対値を表示してください。"
     },
-    "starter": "from datetime import datetime\n\ndef days_between(date1, date2):\n    pass",
-    "example": "days_between('2026-01-01','2026-01-10')  →  9",
+    "starter": "# Read two YYYY-MM-DD dates.\n",
+    "example": "Input: 2026-01-01 ↵ 2026-01-10 → Output: 9",
     "hint": {
-      "en": "Use datetime.strptime(..., '%Y-%m-%d') and subtract.",
-      "ja": "datetime.strptime(..., '%Y-%m-%d') で変換し、差を求めます。"
+      "en": "Write a regular Python program using statements, input() and print() as needed. No function wrapper is required.",
+      "ja": "通常の Python の文を使い、必要に応じて input() と print() を記述してください。関数で囲む必要はありません。"
     },
     "checks": [
       {
@@ -3153,7 +3172,22 @@ window.QUESTIONS = [
         "expected": "0"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_datetime.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_datetime.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "2026-01-01\n2026-01-10\n",
+        "expected": "9"
+      },
+      {
+        "input": "2026-02-01\n2026-01-30\n",
+        "expected": "2"
+      },
+      {
+        "input": "2024-02-28\n2024-03-01\n",
+        "expected": "2"
+      }
+    ]
   },
   {
     "id": "json-field",
@@ -3167,14 +3201,14 @@ window.QUESTIONS = [
       "ja": "JSON の読み込み"
     },
     "prompt": {
-      "en": "Write json_field(text, key), parse the JSON string, and return the value for key; return None if missing.",
-      "ja": "JSON 文字列を解析し、key に対応する値を返す json_field(text, key) を作成してください。キーがなければ None を返します。"
+      "en": "Read a JSON object as one line and then a key on the next line. Print the corresponding value, or None when missing.",
+      "ja": "1行目で JSON オブジェクト、2行目でキーを読み、値を表示してください。キーがなければ None を表示します。"
     },
-    "starter": "import json\n\ndef json_field(text, key):\n    pass",
-    "example": "json_field('{\"name\":\"An\"}', 'name')  →  'An'",
+    "starter": "# Use json.loads() and dictionary lookup.\n",
+    "example": "Input: {\"name\":\"An\"} ↵ name → Output: An",
     "hint": {
-      "en": "Use json.loads() then dict.get().",
-      "ja": "json.loads() の後に dict.get() を使います。"
+      "en": "Write a regular Python program using statements, input() and print() as needed. No function wrapper is required.",
+      "ja": "通常の Python の文を使い、必要に応じて input() と print() を記述してください。関数で囲む必要はありません。"
     },
     "checks": [
       {
@@ -3194,7 +3228,22 @@ window.QUESTIONS = [
         "expected": "None"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_json.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_json.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "{\"name\":\"An\",\"age\":15}\nname\n",
+        "expected": "An"
+      },
+      {
+        "input": "{\"name\":\"An\"}\nage\n",
+        "expected": "None"
+      },
+      {
+        "input": "{\"a\":0,\"b\":false}\nb\n",
+        "expected": "False"
+      }
+    ]
   },
   {
     "id": "regex-email",
@@ -3208,14 +3257,14 @@ window.QUESTIONS = [
       "ja": "正規表現でメール形式を確認"
     },
     "prompt": {
-      "en": "Write is_simple_email(text) returning True for a basic local@domain.tld shape without spaces. Use re.fullmatch.",
-      "ja": "空白を含まない基本的な local@domain.tld 形式なら True を返す is_simple_email(text) を作成してください。re.fullmatch を使います。"
+      "en": "Read a string and print True if it matches a basic local@domain.tld email format without spaces; otherwise False. Use re.fullmatch.",
+      "ja": "文字列を読み取り、空白を含まない基本的な local@domain.tld 形式なら True、そうでなければ False を表示してください。re.fullmatch を使います。"
     },
-    "starter": "import re\n\ndef is_simple_email(text):\n    pass",
-    "example": "is_simple_email('a@b.com')  →  True",
+    "starter": "# Use import re and re.fullmatch(...).\n",
+    "example": "Input: user@test.com → Output: True",
     "hint": {
-      "en": "A basic pattern can match non-space/non-@ text, @, domain, dot, and suffix.",
-      "ja": "空白や @ 以外の文字、@、ドメイン、ドット、末尾部分を正規表現で指定します。"
+      "en": "Write a regular Python program using statements, input() and print() as needed. No function wrapper is required.",
+      "ja": "通常の Python の文を使い、必要に応じて input() と print() を記述してください。関数で囲む必要はありません。"
     },
     "checks": [
       {
@@ -3251,7 +3300,30 @@ window.QUESTIONS = [
         "expected": "False"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_regex.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_regex.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "a@b.com\n",
+        "expected": "True"
+      },
+      {
+        "input": "user.name@test.org\n",
+        "expected": "True"
+      },
+      {
+        "input": "bad email@test.com\n",
+        "expected": "False"
+      },
+      {
+        "input": "abc@test\n",
+        "expected": "False"
+      },
+      {
+        "input": "a@@b.com\n",
+        "expected": "False"
+      }
+    ]
   },
   {
     "id": "safe-divide",
@@ -3265,14 +3337,14 @@ window.QUESTIONS = [
       "ja": "try/except で安全に除算"
     },
     "prompt": {
-      "en": "Write safe_divide(a, b) returning a/b; when b=0 return None by handling ZeroDivisionError.",
-      "ja": "a/b を返す safe_divide(a, b) を作成してください。b=0 なら ZeroDivisionError を処理して None を返します。"
+      "en": "Read integers a and b on separate lines. Print a/b. If b is zero, catch ZeroDivisionError and print None.",
+      "ja": "整数 a と b を2行で読み取り、a/b を表示してください。0 で割る場合は ZeroDivisionError を処理して None を表示してください。"
     },
-    "starter": "def safe_divide(a, b):\n    pass",
-    "example": "safe_divide(10, 0)  →  None",
+    "starter": "# Use try and except ZeroDivisionError.\n",
+    "example": "Input: 10 ↵ 0 → Output: None",
     "hint": {
-      "en": "Use try / except ZeroDivisionError.",
-      "ja": "try / except ZeroDivisionError を使います。"
+      "en": "Write a regular Python program using statements, input() and print() as needed. No function wrapper is required.",
+      "ja": "通常の Python の文を使い、必要に応じて input() と print() を記述してください。関数で囲む必要はありません。"
     },
     "checks": [
       {
@@ -3292,7 +3364,22 @@ window.QUESTIONS = [
         "expected": "0.0"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_try_except.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_try_except.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "10\n2\n",
+        "expected": "5.0"
+      },
+      {
+        "input": "10\n0\n",
+        "expected": "None"
+      },
+      {
+        "input": "-6\n3\n",
+        "expected": "-2.0"
+      }
+    ]
   },
   {
     "id": "format-price",
@@ -3306,14 +3393,14 @@ window.QUESTIONS = [
       "ja": "f-string で数値を整形"
     },
     "prompt": {
-      "en": "Write format_price(name, price) returning '<name>: <price>' with thousands separators and exactly 2 decimal places.",
-      "ja": "'<name>: <price>' という文字列を返す format_price(name, price) を作成してください。価格は桁区切り付き、小数点以下ちょうど2桁にします。"
+      "en": "Read a product name then a number (price) on the next line. Print '<name>: <price>' with thousands separators and exactly 2 decimal places.",
+      "ja": "商品名と価格を2行で読み、桁区切りと小数点以下2桁を使って '<name>: <price>' と表示してください。"
     },
-    "starter": "def format_price(name, price):\n    pass",
-    "example": "format_price('Laptop', 1234.5)  →  'Laptop: 1,234.50'",
+    "starter": "# Use an f-string with :,.2f.\n",
+    "example": "Input: Laptop ↵ 1234.5 → Output: Laptop: 1,234.50",
     "hint": {
-      "en": "In an f-string, use the :,.2f format specifier.",
-      "ja": "f-string の書式指定 :,.2f を使います。"
+      "en": "Write a regular Python program using statements, input() and print() as needed. No function wrapper is required.",
+      "ja": "通常の Python の文を使い、必要に応じて input() と print() を記述してください。関数で囲む必要はありません。"
     },
     "checks": [
       {
@@ -3333,7 +3420,22 @@ window.QUESTIONS = [
         "expected": "'PC: 1,234,567.89'"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_string_formatting.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_string_formatting.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "Laptop\n1234.5\n",
+        "expected": "Laptop: 1,234.50"
+      },
+      {
+        "input": "Mouse\n25\n",
+        "expected": "Mouse: 25.00"
+      },
+      {
+        "input": "PC\n1234567.891\n",
+        "expected": "PC: 1,234,567.89"
+      }
+    ]
   },
   {
     "id": "parse-age",
@@ -3347,14 +3449,14 @@ window.QUESTIONS = [
       "ja": "input の入力値を解析"
     },
     "prompt": {
-      "en": "Write parse_age(text) to simulate input() data: trim whitespace and convert it to int.",
-      "ja": "input() の入力を想定した parse_age(text) を作成してください。前後の空白を削除し、整数に変換します。"
+      "en": "Read a line containing an integer with possible spaces, convert it to int, then print it.",
+      "ja": "空白を含む可能性のある整数の文字列を読み、int に変換して表示してください。"
     },
-    "starter": "def parse_age(text):\n    pass",
-    "example": "parse_age(' 18 ')  →  18",
+    "starter": "# Use input(), strip() and int().\n",
+    "example": "Input:  18  → Output: 18",
     "hint": {
-      "en": "input() returns a string; here text plays that role.",
-      "ja": "input() の戻り値は文字列です。この課題では text がそれに相当します。"
+      "en": "Write a regular Python program using statements, input() and print() as needed. No function wrapper is required.",
+      "ja": "通常の Python の文を使い、必要に応じて input() と print() を記述してください。関数で囲む必要はありません。"
     },
     "checks": [
       {
@@ -3374,7 +3476,26 @@ window.QUESTIONS = [
         "expected": "0"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_user_input.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_user_input.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": " 18 \n",
+        "expected": "18"
+      },
+      {
+        "input": "007\n",
+        "expected": "7"
+      },
+      {
+        "input": "-5\n",
+        "expected": "-5"
+      },
+      {
+        "input": " 0 \n",
+        "expected": "0"
+      }
+    ]
   },
   {
     "id": "none-default",
@@ -3388,14 +3509,14 @@ window.QUESTIONS = [
       "ja": "None の扱い"
     },
     "prompt": {
-      "en": "Write value_or_default(value, default) returning default only when value is None; keep 0, False, and '' unchanged.",
-      "ja": "value が None の場合だけ default を返す value_or_default(value, default) を作成してください。0、False、'' はそのまま返します。"
+      "en": "Assign value = None and default = 10. Use is None to print the default when the value is None.",
+      "ja": "value = None と default = 10 を定義してください。value が None の場合は is None を使って default を表示してください。"
     },
-    "starter": "def value_or_default(value, default):\n    pass",
-    "example": "value_or_default(None, 10)  →  10",
+    "starter": "# Assign value and default; use is None.\n",
+    "example": "Output: 10",
     "hint": {
-      "en": "Use is None rather than truthiness.",
-      "ja": "真偽値判定ではなく is None を使います。"
+      "en": "Write a regular Python program using statements, input() and print() as needed. No function wrapper is required.",
+      "ja": "通常の Python の文を使い、必要に応じて input() と print() を記述してください。関数で囲む必要はありません。"
     },
     "checks": [
       {
@@ -3419,7 +3540,14 @@ window.QUESTIONS = [
         "expected": "[]"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_none.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_none.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "",
+        "expected": "10"
+      }
+    ]
   },
   {
     "id": "write-read-file",
@@ -3433,14 +3561,14 @@ window.QUESTIONS = [
       "ja": "ファイルに書いて読み込む"
     },
     "prompt": {
-      "en": "Write write_and_read(path, text): write text to path using mode 'w' and encoding='utf-8', then read it back and return the content.",
-      "ja": "write_and_read(path, text) を作成してください。encoding='utf-8'、モード 'w' で text を path に書き込み、再び読み取って内容を返します。"
+      "en": "Read a line of text, write it into lesson.txt with UTF-8 encoding, then read the same file and print its contents.",
+      "ja": "文字列を1行入力し、UTF-8 で lesson.txt に書き込み、読み直して内容を表示してください。"
     },
-    "starter": "def write_and_read(path, text):\n    pass",
-    "example": "write_and_read('/tmp/demo.txt', 'Python')  →  'Python'",
+    "starter": "# Use with open('lesson.txt', ..., encoding='utf-8').\n",
+    "example": "Input: Python → Output: Python",
     "hint": {
-      "en": "Use two with open(...) blocks: one for writing and one for reading.",
-      "ja": "with open(...) を2回使い、最初は書き込み、次に読み込みます。"
+      "en": "Write a regular Python program using statements, input() and print() as needed. No function wrapper is required.",
+      "ja": "通常の Python の文を使い、必要に応じて input() と print() を記述してください。関数で囲む必要はありません。"
     },
     "checks": [
       {
@@ -3460,7 +3588,22 @@ window.QUESTIONS = [
         "expected": "'日本語'"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_file_handling.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_file_handling.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "Python\n",
+        "expected": "Python"
+      },
+      {
+        "input": "日本語\n",
+        "expected": "日本語"
+      },
+      {
+        "input": "\n",
+        "expected": ""
+      }
+    ]
   },
   {
     "id": "even-generator",
@@ -3556,14 +3699,14 @@ window.QUESTIONS = [
       "ja": "正規化した回文判定"
     },
     "prompt": {
-      "en": "Write is_palindrome(text) ignoring non-alphanumeric characters and letter case.",
-      "ja": "英数字以外の文字と大文字・小文字の違いを無視して回文かどうか判定する is_palindrome(text) を作成してください。"
+      "en": "Read a line of text. Ignore case and non-alphanumeric characters, then print True if it is a palindrome, else False.",
+      "ja": "文字列を1行読み取り、大文字・小文字と英数字以外を無視して回文なら True、そうでなければ False を表示してください。"
     },
-    "starter": "def is_palindrome(text):\n    pass",
-    "example": "is_palindrome('A man, a plan, a canal: Panama!')  →  True",
+    "starter": "# Read the text and normalize it.\n",
+    "example": "Input: RaceCar → Output: True",
     "hint": {
-      "en": "isalnum() plus lower()/casefold() are useful.",
-      "ja": "isalnum() と lower()/casefold() が役立ちます。"
+      "en": "Write a regular Python program using statements, input() and print() as needed. No function wrapper is required.",
+      "ja": "通常の Python の文を使い、必要に応じて input() と print() を記述してください。関数で囲む必要はありません。"
     },
     "checks": [
       {
@@ -3591,7 +3734,26 @@ window.QUESTIONS = [
         "expected": "False"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_strings.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_strings.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "RaceCar\n",
+        "expected": "True"
+      },
+      {
+        "input": "Python\n",
+        "expected": "False"
+      },
+      {
+        "input": "A man, a plan, a canal: Panama!\n",
+        "expected": "True"
+      },
+      {
+        "input": "12321\n",
+        "expected": "True"
+      }
+    ]
   },
   {
     "id": "analyze-numbers",
@@ -3605,14 +3767,14 @@ window.QUESTIONS = [
       "ja": "数値リストの分析"
     },
     "prompt": {
-      "en": "Write analyze_numbers(numbers) for a non-empty list, returning a dict with count, min, max, sum, average.",
-      "ja": "空でない数値リストについて、count、min、max、sum、average を含む辞書を返す analyze_numbers(numbers) を作成してください。"
+      "en": "Read non-empty space-separated integers; print count, minimum, maximum, sum, and average on one line, separated by spaces.",
+      "ja": "空でないスペース区切りの整数を読み、要素数・最小値・最大値・合計・平均をスペースで区切って1行に表示してください。"
     },
-    "starter": "def analyze_numbers(numbers):\n    pass",
-    "example": "analyze_numbers([1,2,3])  →  {'count':3,...,'average':2.0}",
+    "starter": "# Read numbers and calculate basic statistics.\n",
+    "example": "Input: 1 2 3 → Output: 3 1 3 6 2.0",
     "hint": {
-      "en": "Combine len, min, max, and sum.",
-      "ja": "len、min、max、sum を組み合わせます。"
+      "en": "Write a regular Python program using statements, input() and print() as needed. No function wrapper is required.",
+      "ja": "通常の Python の文を使い、必要に応じて input() と print() を記述してください。関数で囲む必要はありません。"
     },
     "checks": [
       {
@@ -3632,7 +3794,22 @@ window.QUESTIONS = [
         "expected": "{'count':2,'min':0,'max':0,'sum':0,'average':0.0}"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_lists.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_lists.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "1 2 3\n",
+        "expected": "3 1 3 6 2.0"
+      },
+      {
+        "input": "-1\n",
+        "expected": "1 -1 -1 -1 -1.0"
+      },
+      {
+        "input": "0 0\n",
+        "expected": "2 0 0 0 0.0"
+      }
+    ]
   },
   {
     "id": "cart-total",
@@ -3646,14 +3823,14 @@ window.QUESTIONS = [
       "ja": "ショッピングカートの合計"
     },
     "prompt": {
-      "en": "Write cart_total(cart, prices, discount=0). cart maps item→quantity and prices maps item→unit price; compute total then apply discount percent. Return rounded to 2 decimals.",
-      "ja": "cart_total(cart, prices, discount=0) を作成してください。cart は商品と数量、prices は商品と単価の辞書です。合計から discount % を割り引き、小数点以下2桁に丸めて返します。"
+      "en": "Read an integer n (number of items), followed by n lines in 'name quantity unit_price' format. Read the discount percentage on the final line. Print the total with exactly 2 decimal places.",
+      "ja": "商品数 n を読み、続く n 行で '商品名 数量 単価' を入力します。最後に割引率（%）を読み、合計を小数点以下ちょうど2桁で表示してください。"
     },
-    "starter": "def cart_total(cart, prices, discount=0):\n    pass",
-    "example": "cart_total({'pen':2}, {'pen':10}, 10)  →  18.0",
+    "starter": "# Read item count; then item lines; then discount percent.\n",
+    "example": "Input: 1 ↵ pen 2 10 ↵ 10 → Output: 18.00",
     "hint": {
-      "en": "Loop through cart.items(), multiply quantity by prices[item], then apply the discount percentage.",
-      "ja": "cart.items() を巡回し、数量と単価を掛けてから割引率を適用します。"
+      "en": "Write a regular Python program using statements, input() and print() as needed. No function wrapper is required.",
+      "ja": "通常の Python の文を使い、必要に応じて input() と print() を記述してください。関数で囲む必要はありません。"
     },
     "checks": [
       {
@@ -3673,7 +3850,26 @@ window.QUESTIONS = [
         "expected": "10.0"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_dictionaries.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_dictionaries.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "1\npen 2 10\n10\n",
+        "expected": "18.00"
+      },
+      {
+        "input": "2\na 2 5\nb 1 12\n0\n",
+        "expected": "22.00"
+      },
+      {
+        "input": "0\n0\n",
+        "expected": "0.00"
+      },
+      {
+        "input": "1\na 1 12.5\n20\n",
+        "expected": "10.00"
+      }
+    ]
   },
   {
     "id": "password-strength",
@@ -3687,14 +3883,14 @@ window.QUESTIONS = [
       "ja": "パスワードの強度判定"
     },
     "prompt": {
-      "en": "Write strong_password(text) returning True when length >= 8 and it contains at least one uppercase, lowercase, digit, and non-alphanumeric character.",
-      "ja": "長さが8文字以上で、大文字・小文字・数字・英数字以外の記号をそれぞれ1つ以上含む場合に True を返す strong_password(text) を作成してください。"
+      "en": "Read a password. Print True if it has at least 8 characters and includes an uppercase letter, lowercase letter, digit, and non-alphanumeric symbol.",
+      "ja": "パスワードを読み、8文字以上かつ大文字・小文字・数字・英数字以外の記号が各1文字以上あれば True を表示してください。"
     },
-    "starter": "def strong_password(text):\n    pass",
-    "example": "strong_password('PyQuiz#26')  →  True",
+    "starter": "# Read one password string.\n",
+    "example": "Input: PyQuiz#26 → Output: True",
     "hint": {
-      "en": "any() with isupper/islower/isdigit/isalnum works well.",
-      "ja": "any() と isupper/islower/isdigit/isalnum を組み合わせます。"
+      "en": "Write a regular Python program using statements, input() and print() as needed. No function wrapper is required.",
+      "ja": "通常の Python の文を使い、必要に応じて input() と print() を記述してください。関数で囲む必要はありません。"
     },
     "checks": [
       {
@@ -3730,6 +3926,29 @@ window.QUESTIONS = [
         "expected": "False"
       }
     ],
-    "lessonUrl": "https://www.w3schools.com/python/python_strings.asp"
+    "lessonUrl": "https://www.w3schools.com/python/python_strings.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "PyQuiz#26\n",
+        "expected": "True"
+      },
+      {
+        "input": "python123\n",
+        "expected": "False"
+      },
+      {
+        "input": "PYTHON#1\n",
+        "expected": "False"
+      },
+      {
+        "input": "Short#1\n",
+        "expected": "False"
+      },
+      {
+        "input": "Abcdef1!\n",
+        "expected": "True"
+      }
+    ]
   }
 ];
