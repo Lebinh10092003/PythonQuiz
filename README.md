@@ -1,52 +1,56 @@
 # PythonQuiz IDE
 
-Browser-based Python coding exercises and automatic test-case grading.
+A standalone GitHub Pages IDE for learning Python with **English (default)** and **Japanese** explanations.
 
-## Languages
+## Learning workflow
 
-- **English** — default.
-- **日本語 (Japanese)** — selectable in the language switcher.
-- All 70 coding exercises, topic names, prompts, and hints are available in both English and Japanese.
-- Older language settings from the former English/Vietnamese prototype automatically fall back to English.
-- Language changes preserve work-in-progress code in your browser.
+- 70 coding exercises, aligned with W3Schools Python Tutorial topics. Each exercise links to its corresponding W3Schools lesson.
+- **41 beginner exercises** (intro, variables, strings, collections, conditions, loops) use ordinary Python scripts; no artificial function wrapper.
+- Script exercises read with `input()` (when needed) and output via `print()`. The **Program input** field supplies stdin to **Run**. **Test** checks the program with independent input/output examples.
+- Function, lambda, class, decorator and iterator tasks retain function/class definitions where those concepts are explicitly being assessed.
+- Code editor powered by Ace; Python runs locally in the browser through Pyodide and a worker.
+- Auto-grading against multiple test cases. Wrong outputs show expected/received values.
+- Scrolling works in the exercises sidebar and IDE on desktop, and down the page on mobile.
 
-## Features
+## Save and resume
 
-- 70 self-written coding exercises across 19 topics and five difficulty levels.
-- Follows the broad learning progression of the W3Schools Python Tutorial; no verbatim copies of its questions.
-- Ace editor with Python syntax highlighting and light/dark themes.
-- Python execution in the browser using Pyodide, isolated in a Web Worker with a time limit.
-- Run code, test solutions with automatic test cases, and track completed exercises.
-- Progress and drafts saved to browser localStorage.
-- Search and filters; responsive layout for desktop and mobile.
-- Static hosting only — no backend or API keys.
+- Drafts, input samples, current exercise, completion status, and grading history are stored in **localStorage** on this browser.
+- **Save** stores data on this device immediately. Drafts are also saved automatically as you type.
+- **Export** creates `pythonquiz-progress.json` with drafts and progress; **Import** restores the backup, including on a different device.
+- Function-style drafts from the old beginner exercises are archived in local storage and included in exported backups; new versions start with script-style instructions.
+- **Limitation:** GitHub Pages does not itself provide accounts, a shared database, or cross-device automatic synchronization. Clearing site data may delete local progress; export a backup first.
 
-## Publish with GitHub Pages
+## GitHub Pages
 
-1. Open **Settings → Pages** in this repository.
-2. Under **Build and deployment**, choose **Deploy from a branch**.
-3. Choose branch **main** and folder **/(root)**; click **Save**.
-4. Open https://lebinh10092003.github.io/PythonQuiz/ after GitHub Pages finishes publishing.
+1. Open **Settings → Pages**.
+2. Choose **Deploy from a branch**.
+3. Select **main** and **/(root)** and Save.
+4. Visit https://lebinh10092003.github.io/PythonQuiz/
 
-No GitHub Actions workflow is required for branch-based publishing.
+No server or build step is needed.
 
-## Run locally
+## Testing
 
-```bash
-python -m http.server 8000
-```
+GitHub Actions runs JavaScript syntax checks and Python grading tests:
 
-Visit http://localhost:8000.
+- 70 original reference solutions for function/advanced exercises
+- 41 new ordinary-program reference solutions for beginner exercises
+- Separate tests for wrong answers, missing returns, Boolean typing, Python syntax errors, and stdin/stdout behavior.
 
 ## Files
 
 ```
 index.html
 styles.css
-questions.js
 app.js
+questions.js
 python-worker.js
-.nojekyll
+tests/grader.test.cjs
+tests/golden.json
+tests/program-golden.json
+.github/workflows/quality.yml
 ```
 
-**Security note:** Grading is performed entirely in the browser. Test cases can be inspected by learners; this is intended for practice and formative assessment, not a secure high-stakes examination.
+## Security
+
+All grading runs on the client; test cases can be viewed in the browser. This tool is for learning and practice, not a secure exam system with protected tests.
