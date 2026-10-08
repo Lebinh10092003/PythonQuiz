@@ -300,7 +300,7 @@
     const outputParts = [result.stdout?.trimEnd(), result.stderr?.trimEnd(), result.error?.trimEnd()].filter(Boolean);
     ui.consoleOutput.textContent = outputParts.join("\n") ||
       (withTests
-        ? (language === "en" ? "No printed output. Tests check return values." : "出力はありません。テストでは戻り値を確認します。")
+        ? (language === "en" ? "Each test case runs separately. Open TESTS to see the results." : "各テストは個別に実行されます。テストタブで結果を確認してください。")
         : (language === "en" ? "Code executed. No printed output. Use Test to check function return values." : "実行完了。出力はありません。関数の戻り値はテストで確認できます。"));
     ui.resultPanel.classList.remove("success", "failure");
 
@@ -414,8 +414,12 @@
             : "出力が一致しません。print()、スペース、大文字小文字、改行を確認してください。";
         } else if (d.issue === "test_exception") {
           tip.textContent = language === "en"
-            ? "Your function raised an exception. Check its name, arguments and body."
-            : "関数の実行中に例外が発生しました。関数名・引数・処理を確認してください。";
+            ? (current.mode === "program"
+                ? "Your program raised an exception. Check input() calls and the error details."
+                : "Your function raised an exception. Check its name, arguments and body.")
+            : (current.mode === "program"
+                ? "プログラムで例外が発生しました。input() とエラー内容を確認してください。"
+                : "関数の実行中に例外が発生しました。関数名・引数・処理を確認してください。");
         }
         if (tip.textContent) main.appendChild(tip);
       }
