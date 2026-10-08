@@ -8,7 +8,8 @@
     code: "pythonquiz.code.v1",
     language: "pythonquiz.language.v1",
     theme: "pythonquiz.theme.v1",
-    current: "pythonquiz.current.v1"
+    current: "pythonquiz.current.v1",
+    inputs: "pythonquiz.stdin.v2"
   };
 
   const ui = {
@@ -27,7 +28,11 @@
     consoleOutput: $("consoleOutput"), testOutput: $("testOutput"), unsavedDot: $("unsavedDot"),
     resultPanel: $("resultPanel"), resultEyebrow: $("resultEyebrow"), resultTitle: $("resultTitle"),
     resultMessage: $("resultMessage"), scoreLabel: $("scoreLabel"), scoreValue: $("scoreValue"),
-    toast: $("toast")
+    toast: $("toast"),
+    lessonLink: $("lessonLink"), stdinPanel: $("stdinPanel"), stdinInput: $("stdinInput"),
+    stdinLabel: $("stdinLabel"), saveBtn: $("saveBtn"), saveProgressBtn: $("saveProgressBtn"),
+    exportProgressBtn: $("exportProgressBtn"), importProgressBtn: $("importProgressBtn"),
+    importFile: $("importFile"), saveStatus: $("saveStatus")
   };
 
   const readJson = (key, fallback) => {
@@ -36,6 +41,70 @@
   };
   const progress = readJson(STORAGE.progress, {});
   const savedCode = readJson(STORAGE.code, {});
+  const savedInputs = readJson(STORAGE.inputs, {});
+  const validQuestionIds = new Set(questions.map(q => q.id));
+  let saveStatusTimer = null;
+
+  function saveSnapshot(notify = false) {
+    try {
+      localStorage.setItem(STORAGE.code, JSON.stringify(savedCode));
+      localStorage.setItem(STORAGE.inputs, JSON.stringify(savedInputs));
+      localStorage.setItem(STORAGE.progress, JSON.stringify(progress));
+      if (current) localStorage.setItem(STORAGE.current, current.id);
+      ui.saveStatus.textContent = language === "en" ? "Saved on this device" : "この端末に保存しました";
+      clearTimeout(saveStatusTimer);
+      saveStatusTimer = setTimeout(() => {
+        ui.saveStatus.textContent = language === "en" ? "Autosave enabled" : "自動保存が有効です";
+      }, 2200);
+      if (notify) toast(language === "en" ? "Your work has been saved" : "学習データを保存しました");
+    } catch (error) {
+      ui.saveStatus.textContent = language === "en" ? "Storage unavailable" : "保存できません";
+      if (notify) toast(String(error));
+    }
+  }
+
+  function exportSnapshot() {
+    if (current && editor) savedCode[current.id] = editor.getValue();
+    if (current) savedInputs[current.id] = ui.stdinInput.value;
+    saveSnapshot();
+    const snapshot = {
+      format: "PythonQuiz-progress", version: 2, exportedAt: new Date().toISOString(),
+      code: savedCode, inputs: savedInputs, progress,
+      currentId: current?.id || questions[0]?.id
+    };
+    const url = URL.createObjectURL(new Blob([JSON.stringify(snapshot, null, 2)], {type:"application/json"}));
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "pythonquiz-progress.json";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1500);
+    toast(language === "en" ? "Backup exported" : "バックアップを書き出しました");
+  }
+
+  async function importSnapshot(file) {
+    if (!file) return;
+    if (file.size > 2_000_000) throw Error("File is too large");
+    const snapshot = JSON.parse(await file.text());
+    if (snapshot.format !== "PythonQuiz-progress" || snapshot.version !== 2) throw Error("Invalid backup format");
+    for (const [key, value] of Object.entries(snapshot.code || {})) {
+      if (validQuestionIds.has(key) && typeof value === "string") savedCode[key] = value;
+    }
+    for (const [key, value] of Object.entries(snapshot.inputs || {})) {
+      if (validQuestionIds.has(key) && typeof value === "string") savedInputs[key] = value;
+    }
+    for (const [key, value] of Object.entries(snapshot.progress || {})) {
+      if (validQuestionIds.has(key) && value && typeof value === "object") {
+        progress[key] = {...progress[key], ...value};
+      }
+    }
+    saveSnapshot();
+    renderProgress();
+    if (snapshot.currentId && validQuestionIds.has(snapshot.currentId)) current = questions.find(q => q.id === snapshot.currentId);
+    renderCurrent();
+    toast(language === "en" ? "Progress imported" : "進捗を読み込みました");
+  }
   const storedLanguage = localStorage.getItem(STORAGE.language);
   let language = ["en", "ja"].includes(storedLanguage) ? storedLanguage : "en";
   if (storedLanguage !== language) localStorage.setItem(STORAGE.language, language);
@@ -127,7 +196,8 @@
     editor.onChange(() => {
       if (suppressEditorChange || !current) return;
       savedCode[current.id] = editor.getValue();
-      localStorage.setItem(STORAGE.code, JSON.stringify(savedCode));
+      progress[current.id] = {...progress[current.id], started:true, editedAt: Date.now()};
+      saveSnapshot();
       ui.unsavedDot.classList.add("visible");
       ui.resultPanel.classList.remove("success", "failure");
       ui.resultTitle.textContent = language === "en" ? "Code modified" : "コードを変更しました";
@@ -270,6 +340,13 @@
       heading.className = "test-expression";
       heading.textContent = (language === "en" ? "Test " : "テスト ") + d.index + ": " + d.expr;
       main.appendChild(heading);
+      if (typeof d.input === "string") {
+        const input = document.createElement("div");
+        input.className = "test-input";
+        input.textContent = (language === "en" ? "Input: " : "入力: ") +
+          (d.input ? JSON.stringify(d.input.trimEnd()) : "(none)");
+        main.appendChild(input);
+      }
       const comparison = document.createElement("div");
       comparison.className = "test-comparison";
       if (d.ok) {
@@ -297,6 +374,10 @@
           tip.textContent = language === "en"
             ? "Wrong type: use a Boolean (True/False), not a number (1/0), or vice versa."
             : "型が違います。真偽値（True/False）と数値（1/0）を区別してください。";
+        } else if (d.issue === "wrong_output") {
+          tip.textContent = language === "en"
+            ? "Output does not match. Check print() values, spacing, case and line breaks."
+            : "出力が一致しません。print()、スペース、大文字小文字、改行を確認してください。";
         } else if (d.issue === "test_exception") {
           tip.textContent = language === "en"
             ? "Your function raised an exception. Check its name, arguments and body."
@@ -325,6 +406,9 @@
       requestId,
       code: editor.getValue(),
       checks: withTests ? current.checks : [],
+      programTests: withTests && current.mode === "program" ? current.programTests : [],
+      mode: current.mode || "function",
+      stdin: current.mode === "program" ? ui.stdinInput.value : "",
       withTests
     });
     pendingTimer = setTimeout(() => {
@@ -384,7 +468,9 @@
       const index = questions.indexOf(q) + 1;
       const button = document.createElement("button");
       button.type = "button";
-      button.className = "question-item" + (q.id === current?.id ? " active" : "") + (progress[q.id]?.completed ? " completed" : "");
+      button.className = "question-item" + (q.id === current?.id ? " active" : "") +
+        (progress[q.id]?.completed ? " completed" : "") +
+        (progress[q.id]?.started && !progress[q.id]?.completed ? " in-progress" : "");
       const idx = document.createElement("span");
       idx.className = "question-index";
       idx.textContent = String(index).padStart(2,"0");
@@ -408,7 +494,9 @@
 
   function renderProgress() {
     const completed = questions.filter(q => progress[q.id]?.completed).length;
-    ui.progressText.textContent = completed + " / " + questions.length;
+    const started = questions.filter(q => !progress[q.id]?.completed && progress[q.id]?.started).length;
+    ui.progressText.textContent = completed + " / " + questions.length + " ✓ · " + started +
+      (language === "en" ? " in progress" : " 作業中");
     ui.progressBar.style.width = questions.length ? ((completed / questions.length) * 100) + "%" : "0%";
   }
 
@@ -417,6 +505,14 @@
     ui.sidebarTitle.textContent = language === "en" ? "Coding exercises" : "コーディング課題";
     ui.progressLabel.textContent = language === "en" ? "Progress" : "進捗";
     ui.exampleLabel.textContent = language === "en" ? "Example" : "例";
+    ui.lessonLink.textContent = language === "en" ? "↗ Learn this topic on W3Schools" : "↗ W3Schools でこのトピックを学ぶ";
+    ui.stdinLabel.textContent = language === "en" ? "Program input (stdin) · used by Run" : "プログラム入力（stdin）・実行時に使用";
+    ui.stdinInput.placeholder = language === "en" ? "Values for input(), one per line" : "input() に渡す値を1行ずつ入力";
+    ui.saveBtn.textContent = language === "en" ? "↓ Save" : "↓ 保存";
+    ui.saveProgressBtn.textContent = language === "en" ? "Save" : "保存";
+    ui.exportProgressBtn.textContent = language === "en" ? "Export" : "書き出し";
+    ui.importProgressBtn.textContent = language === "en" ? "Import" : "読み込み";
+    ui.saveStatus.textContent = language === "en" ? "Autosave enabled" : "自動保存が有効です";
     ui.hintSummary.textContent = language === "en" ? "Hint" : "ヒント";
     ui.scoreLabel.textContent = language === "en" ? "Score" : "スコア";
     ui.resultEyebrow.textContent = language === "en" ? "RESULT" : "結果";
@@ -449,6 +545,9 @@
     ui.hintJa.textContent = current.hint.ja;
     ui.hintEn.textContent = current.hint.en;
     ui.exampleCode.textContent = current.example;
+    ui.lessonLink.href = current.lessonUrl || "https://www.w3schools.com/python/default.asp";
+    ui.stdinPanel.classList.toggle("hidden", current.mode !== "program");
+    ui.stdinInput.value = savedInputs[current.id] || "";
     ui.jaBlock.classList.toggle("hidden", language !== "ja");
     ui.hintJa.classList.toggle("hidden", language !== "ja");
     ui.hintEn.classList.toggle("hidden", language !== "en");
@@ -485,7 +584,9 @@
     current = found;
     currentId = id;
     renderCurrent();
-    window.scrollTo({top:0, behavior:"smooth"});
+    const panel = document.querySelector(".main-panel");
+    if (panel && panel.scrollHeight > panel.clientHeight) panel.scrollTo({top:0, behavior:"smooth"});
+    else window.scrollTo({top:0, behavior:"smooth"});
   }
 
   function buildFilters() {
@@ -532,6 +633,27 @@
 
   function bindEvents() {
     ui.languageSelect.value = language;
+    ui.stdinInput.addEventListener("input", () => {
+      if (!current) return;
+      savedInputs[current.id] = ui.stdinInput.value;
+      saveSnapshot();
+    });
+    const saveNow = () => {
+      if (current) {
+        savedCode[current.id] = editor.getValue();
+        savedInputs[current.id] = ui.stdinInput.value;
+      }
+      saveSnapshot(true);
+    };
+    ui.saveBtn.addEventListener("click", saveNow);
+    ui.saveProgressBtn.addEventListener("click", saveNow);
+    ui.exportProgressBtn.addEventListener("click", exportSnapshot);
+    ui.importProgressBtn.addEventListener("click", () => ui.importFile.click());
+    ui.importFile.addEventListener("change", async () => {
+      try { await importSnapshot(ui.importFile.files[0]); }
+      catch (e) { toast((language === "en" ? "Import failed: " : "読み込みエラー: ") + e.message); }
+      finally { ui.importFile.value = ""; }
+    });
     ui.languageSelect.addEventListener("change", () => {
       language = ui.languageSelect.value;
       localStorage.setItem(STORAGE.language, language);
@@ -551,7 +673,7 @@
       editor.setValue(current.starter);
       suppressEditorChange = false;
       delete savedCode[current.id];
-      localStorage.setItem(STORAGE.code, JSON.stringify(savedCode));
+      saveSnapshot();
       ui.unsavedDot.classList.remove("visible");
       toast(language === "en" ? "Starter code restored" : "初期コードを復元しました");
     });
