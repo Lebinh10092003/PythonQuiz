@@ -11,14 +11,14 @@ window.QUESTIONS = [
       "ja": "最初のあいさつ"
     },
     "prompt": {
-      "en": "Write a hello() function that returns exactly Hello, World!. Do not print it; use return.",
-      "ja": "hello() 関数を作成し、文字列 'Hello, World!' を正確に返してください。画面に出力せず、return を使用してください。"
+      "en": "Write a normal Python program that prints exactly Hello, World! Do not define a function. No input is required.",
+      "ja": "関数を定義せず、Hello, World! と正確に表示する通常の Python プログラムを書いてください。入力は不要です。"
     },
-    "starter": "def hello():\n    # Return: Hello, World!\n    pass",
-    "example": "hello()  →  'Hello, World!'",
+    "starter": "# Write a Python program using print().\n",
+    "example": "Output: Hello, World!",
     "hint": {
-      "en": "Use return with a string literal.",
-      "ja": "文字列リテラルを return で返します。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -32,6 +32,14 @@ window.QUESTIONS = [
       {
         "expr": "len(hello())",
         "expected": "13"
+      }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_getstarted.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "",
+        "expected": "Hello, World!"
       }
     ]
   },
@@ -47,14 +55,14 @@ window.QUESTIONS = [
       "ja": "名前を使ったあいさつ"
     },
     "prompt": {
-      "en": "Write greet(name) returning Hello, <name>! using the provided name.",
-      "ja": "受け取った name を使い、'Hello, <name>!' という形式の文字列を返す greet(name) を作成してください。"
+      "en": "Read a name from input() and print Hello, <name>!.",
+      "ja": "input() で名前を読み取り、Hello, <name>! と表示してください。"
     },
-    "starter": "def greet(name):\n    pass",
-    "example": "greet('Binh')  →  'Hello, Binh!'",
+    "starter": "# Read a name and print a greeting.\n",
+    "example": "Input: Yuki  →  Output: Hello, Yuki!",
     "hint": {
-      "en": "An f-string is a good fit.",
-      "ja": "f-string を使うと簡単です。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -73,6 +81,22 @@ window.QUESTIONS = [
         "expr": "greet('Yuki')",
         "expected": "'Hello, Yuki!'"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_user_input.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "Yuki\n",
+        "expected": "Hello, Yuki!"
+      },
+      {
+        "input": "Ken\n",
+        "expected": "Hello, Ken!"
+      },
+      {
+        "input": "\n",
+        "expected": "Hello, !"
+      }
     ]
   },
   {
@@ -87,14 +111,14 @@ window.QUESTIONS = [
       "ja": "2つの数の加算"
     },
     "prompt": {
-      "en": "Write add(a, b) that returns the sum of a and b.",
-      "ja": "a と b の合計を返す add(a, b) を作成してください。"
+      "en": "Read two integers, one per line, and print their sum.",
+      "ja": "整数を1行ずつ2つ読み取り、合計を表示してください。"
     },
-    "starter": "def add(a, b):\n    pass",
-    "example": "add(4, 7)  →  11",
+    "starter": "# Read two integers, then print their sum.\n",
+    "example": "Input: 4 ↵ 7  →  Output: 11",
     "hint": {
-      "en": "Use the + operator.",
-      "ja": "+ 演算子を使用します。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -117,6 +141,22 @@ window.QUESTIONS = [
         "expr": "add(-10,-5)",
         "expected": "-15"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_operators.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "4\n7\n",
+        "expected": "11"
+      },
+      {
+        "input": "-3\n8\n",
+        "expected": "5"
+      },
+      {
+        "input": "0\n0\n",
+        "expected": "0"
+      }
     ]
   },
   {
@@ -131,14 +171,14 @@ window.QUESTIONS = [
       "ja": "データ型の名前"
     },
     "prompt": {
-      "en": "Write type_name(value) that returns the value's type name as a string, such as int, str, or list.",
-      "ja": "値の型名（int、str、list など）を文字列で返す type_name(value) を作成してください。"
+      "en": "Create three variables: age = 15, name = 'Python', active = True. Print the type names of each, one per line (int, str, bool).",
+      "ja": "age = 15、name = 'Python'、active = True の変数を作成し、それぞれの型名（int、str、bool）を1行ずつ表示してください。"
     },
-    "starter": "def type_name(value):\n    pass",
-    "example": "type_name(42)  →  'int'",
+    "starter": "# Create age, name and active, then print their type names.\n",
+    "example": "Output: int ↵ str ↵ bool",
     "hint": {
-      "en": "Use type(...) and its __name__ attribute.",
-      "ja": "type(...) の __name__ 属性を使います。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -165,6 +205,14 @@ window.QUESTIONS = [
         "expr": "type_name({'x':1})",
         "expected": "'dict'"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_datatypes.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "",
+        "expected": "int\nstr\nbool"
+      }
     ]
   },
   {
@@ -179,14 +227,14 @@ window.QUESTIONS = [
       "ja": "文字列を整数に変換"
     },
     "prompt": {
-      "en": "Write to_int(text) that converts numeric text to int and returns it.",
-      "ja": "数値を表す文字列を int に変換して返す to_int(text) を作成してください。"
+      "en": "Read a number as a string, convert it to int and print the integer.",
+      "ja": "数値の文字列を読み取り、int に変換して表示してください。"
     },
-    "starter": "def to_int(text):\n    pass",
-    "example": "to_int('125')  →  125",
+    "starter": "# Convert input text to an integer.\n",
+    "example": "Input: 007  →  Output: 7",
     "hint": {
-      "en": "Use int(...).",
-      "ja": "int(...) を使用します。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -205,6 +253,22 @@ window.QUESTIONS = [
         "expr": "to_int(' 42 ')",
         "expected": "42"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_casting.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "125\n",
+        "expected": "125"
+      },
+      {
+        "input": "-7\n",
+        "expected": "-7"
+      },
+      {
+        "input": "007\n",
+        "expected": "7"
+      }
     ]
   },
   {
@@ -219,14 +283,14 @@ window.QUESTIONS = [
       "ja": "長方形の面積"
     },
     "prompt": {
-      "en": "Write rectangle_area(width, height) and return the rectangle area.",
-      "ja": "長方形の面積を返す rectangle_area(width, height) を作成してください。"
+      "en": "Read a width and height as integers (one per line), then print the rectangle's area.",
+      "ja": "幅と高さを整数として1行ずつ入力し、長方形の面積を表示してください。"
     },
-    "starter": "def rectangle_area(width, height):\n    pass",
-    "example": "rectangle_area(5, 3)  →  15",
+    "starter": "# Input width and height as integers.\n",
+    "example": "Input: 5 ↵ 3  →  Output: 15",
     "hint": {
-      "en": "Area = width × height.",
-      "ja": "面積 = 幅 × 高さ です。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -245,6 +309,22 @@ window.QUESTIONS = [
         "expr": "rectangle_area(3,7)",
         "expected": "21"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_numbers.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "5\n3\n",
+        "expected": "15"
+      },
+      {
+        "input": "0\n10\n",
+        "expected": "0"
+      },
+      {
+        "input": "8\n7\n",
+        "expected": "56"
+      }
     ]
   },
   {
@@ -259,14 +339,14 @@ window.QUESTIONS = [
       "ja": "最初と最後の文字"
     },
     "prompt": {
-      "en": "Write first_last(text) returning a tuple containing the first and last characters of a non-empty string.",
-      "ja": "空でない文字列から、最初と最後の文字を含むタプルを返す first_last(text) を作成してください。"
+      "en": "Read a non-empty string and print its first and last characters separated by one space.",
+      "ja": "空でない文字列を読み取り、最初と最後の文字をスペース1つで区切って表示してください。"
     },
-    "starter": "def first_last(text):\n    pass",
-    "example": "first_last('Python')  →  ('P', 'n')",
+    "starter": "# Read one non-empty string.\n",
+    "example": "Input: Python  →  Output: P n",
     "hint": {
-      "en": "Use indexes 0 and -1.",
-      "ja": "インデックス 0 と -1 を使います。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -285,6 +365,22 @@ window.QUESTIONS = [
         "expr": "first_last('あいう')",
         "expected": "('あ','う')"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_strings_slicing.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "Python\n",
+        "expected": "P n"
+      },
+      {
+        "input": "a\n",
+        "expected": "a a"
+      },
+      {
+        "input": "あいう\n",
+        "expected": "あ う"
+      }
     ]
   },
   {
@@ -299,14 +395,14 @@ window.QUESTIONS = [
       "ja": "名前の表記を整える"
     },
     "prompt": {
-      "en": "Write normalize_name(name): trim outer whitespace, then capitalize the first letter of each word.",
-      "ja": "normalize_name(name) を作成してください。文字列の両端の空白を削除し、各単語の先頭文字を大文字にします。"
+      "en": "Read a line of text. Remove leading/trailing spaces and capitalize the first letter of each word; print the result.",
+      "ja": "1行の文字列を読み、前後の空白を削除して各単語の先頭を大文字にし、表示してください。"
     },
-    "starter": "def normalize_name(name):\n    pass",
-    "example": "normalize_name('  le van binh  ')  →  'Le Van Binh'",
+    "starter": "# Use strip() and title().\n",
+    "example": "Input:   le van binh   →  Output: Le Van Binh",
     "hint": {
-      "en": "Combine strip() and title().",
-      "ja": "strip() と title() を組み合わせます。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -325,6 +421,22 @@ window.QUESTIONS = [
         "expr": "normalize_name('')",
         "expected": "''"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_strings_modify.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "  le van binh  \n",
+        "expected": "Le Van Binh"
+      },
+      {
+        "input": "python quiz\n",
+        "expected": "Python Quiz"
+      },
+      {
+        "input": "   \n",
+        "expected": ""
+      }
     ]
   },
   {
@@ -339,14 +451,14 @@ window.QUESTIONS = [
       "ja": "文字列を逆順にする"
     },
     "prompt": {
-      "en": "Write reverse_text(text) returning the text in reverse order.",
-      "ja": "文字列を逆順にした結果を返す reverse_text(text) を作成してください。"
+      "en": "Read a string and print it in reverse order.",
+      "ja": "文字列を読み取り、逆順に表示してください。"
     },
-    "starter": "def reverse_text(text):\n    pass",
-    "example": "reverse_text('Python')  →  'nohtyP'",
+    "starter": "# Reverse the input string.\n",
+    "example": "Input: Python  →  Output: nohtyP",
     "hint": {
-      "en": "Try slicing with a negative step.",
-      "ja": "負のステップを使ったスライスを試しましょう。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -365,6 +477,22 @@ window.QUESTIONS = [
         "expr": "reverse_text('たぬき')",
         "expected": "'きぬた'"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_strings_slicing.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "Python\n",
+        "expected": "nohtyP"
+      },
+      {
+        "input": "abc 123\n",
+        "expected": "321 cba"
+      },
+      {
+        "input": "たぬき\n",
+        "expected": "きぬた"
+      }
     ]
   },
   {
@@ -379,14 +507,14 @@ window.QUESTIONS = [
       "ja": "文字の出現回数"
     },
     "prompt": {
-      "en": "Write count_char(text, char) returning how many times char appears in text.",
-      "ja": "text 内に char が何回現れるかを返す count_char(text, char) を作成してください。"
+      "en": "Read a text line and then a character on the next line. Print its number of occurrences.",
+      "ja": "1行目に文章、2行目に文字を読み取り、その出現回数を表示してください。"
     },
-    "starter": "def count_char(text, char):\n    pass",
-    "example": "count_char('banana', 'a')  →  3",
+    "starter": "# Two lines: text, then character.\n",
+    "example": "Input: banana ↵ a  →  Output: 3",
     "hint": {
-      "en": "Strings have a count() method.",
-      "ja": "文字列には count() メソッドがあります。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -405,6 +533,22 @@ window.QUESTIONS = [
         "expr": "count_char('aaaa','a')",
         "expected": "4"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_strings_methods.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "banana\na\n",
+        "expected": "3"
+      },
+      {
+        "input": "Mississippi\ns\n",
+        "expected": "4"
+      },
+      {
+        "input": "abc\nz\n",
+        "expected": "0"
+      }
     ]
   },
   {
@@ -419,14 +563,14 @@ window.QUESTIONS = [
       "ja": "部分文字列の確認"
     },
     "prompt": {
-      "en": "Write contains_word(text, word) returning True when word occurs in text, otherwise False. Keep matching case-sensitive.",
-      "ja": "word が text に含まれれば True、含まれなければ False を返す contains_word(text, word) を作成してください。大文字と小文字は区別します。"
+      "en": "Read text and a word (two lines). Print True if the word occurs in the text, else False. Case-sensitive.",
+      "ja": "文章と単語を1行ずつ読み取り、単語が含まれれば True、そうでなければ False を表示します。大文字と小文字は区別してください。"
     },
-    "starter": "def contains_word(text, word):\n    pass",
-    "example": "contains_word('Learn Python', 'Python')  →  True",
+    "starter": "# Read text, then word.\n",
+    "example": "Input: Learn Python ↵ Python  →  Output: True",
     "hint": {
-      "en": "Use the in operator.",
-      "ja": "in 演算子を使用します。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -445,6 +589,22 @@ window.QUESTIONS = [
         "expr": "contains_word('','Python')",
         "expected": "False"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_strings.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "Learn Python\nPython\n",
+        "expected": "True"
+      },
+      {
+        "input": "Learn Python\npython\n",
+        "expected": "False"
+      },
+      {
+        "input": "abc\nz\n",
+        "expected": "False"
+      }
     ]
   },
   {
@@ -459,14 +619,14 @@ window.QUESTIONS = [
       "ja": "プロフィールの書式設定"
     },
     "prompt": {
-      "en": "Write profile(name, age) returning exactly: <name> is <age> years old.",
-      "ja": "'<name> is <age> years old.' という形式の文字列を正確に返す profile(name, age) を作成してください。"
+      "en": "Read name and age from two lines. Print '<name> is <age> years old.'.",
+      "ja": "名前と年齢を2行で読み取り、'<name> is <age> years old.' と表示してください。"
     },
-    "starter": "def profile(name, age):\n    pass",
-    "example": "profile('An', 15)  →  'An is 15 years old.'",
+    "starter": "# Read name and age.\n",
+    "example": "Input: An ↵ 15  →  Output: An is 15 years old.",
     "hint": {
-      "en": "Use an f-string.",
-      "ja": "f-string を使用します。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -485,6 +645,22 @@ window.QUESTIONS = [
         "expr": "profile('',1)",
         "expected": "' is 1 years old.'"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_string_formatting.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "An\n15\n",
+        "expected": "An is 15 years old."
+      },
+      {
+        "input": "Ken\n23\n",
+        "expected": "Ken is 23 years old."
+      },
+      {
+        "input": "Yuki\n0\n",
+        "expected": "Yuki is 0 years old."
+      }
     ]
   },
   {
@@ -499,14 +675,14 @@ window.QUESTIONS = [
       "ja": "偶数かどうか"
     },
     "prompt": {
-      "en": "Write is_even(n) returning True if n is even.",
-      "ja": "n が偶数なら True を返す is_even(n) を作成してください。"
+      "en": "Read an integer and print True if it is even, otherwise False.",
+      "ja": "整数を読み取り、偶数なら True、それ以外は False を表示してください。"
     },
-    "starter": "def is_even(n):\n    pass",
-    "example": "is_even(12)  →  True",
+    "starter": "# Read one integer.\n",
+    "example": "Input: 12  →  Output: True",
     "hint": {
-      "en": "Check the remainder after division by 2.",
-      "ja": "2 で割った余りを確認します。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -529,6 +705,26 @@ window.QUESTIONS = [
         "expr": "is_even(-3)",
         "expected": "False"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_operators.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "12\n",
+        "expected": "True"
+      },
+      {
+        "input": "7\n",
+        "expected": "False"
+      },
+      {
+        "input": "-4\n",
+        "expected": "True"
+      },
+      {
+        "input": "0\n",
+        "expected": "True"
+      }
     ]
   },
   {
@@ -543,14 +739,14 @@ window.QUESTIONS = [
       "ja": "2つの数を比較"
     },
     "prompt": {
-      "en": "Write compare(a, b): return -1 if a < b, 0 if equal, and 1 if a > b.",
-      "ja": "compare(a, b) を作成してください。a < b なら -1、等しければ 0、a > b なら 1 を返します。"
+      "en": "Read integers a and b (one per line). Print -1 if a<b, 0 if a==b, or 1 otherwise.",
+      "ja": "整数 a と b を1行ずつ読み取り、a<b なら -1、等しければ 0、そうでなければ 1 を表示してください。"
     },
-    "starter": "def compare(a, b):\n    pass",
-    "example": "compare(9, 3)  →  1",
+    "starter": "# Read a, then b.\n",
+    "example": "Input: 9 ↵ 3  →  Output: 1",
     "hint": {
-      "en": "Use if / elif / else.",
-      "ja": "if / elif / else を使います。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -573,6 +769,26 @@ window.QUESTIONS = [
         "expr": "compare(0,-1)",
         "expected": "1"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_conditions.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "2\n5\n",
+        "expected": "-1"
+      },
+      {
+        "input": "5\n5\n",
+        "expected": "0"
+      },
+      {
+        "input": "9\n3\n",
+        "expected": "1"
+      },
+      {
+        "input": "-5\n-2\n",
+        "expected": "-1"
+      }
     ]
   },
   {
@@ -587,14 +803,14 @@ window.QUESTIONS = [
       "ja": "範囲内かどうか"
     },
     "prompt": {
-      "en": "Write in_range(n, low, high) returning True when low <= n <= high.",
-      "ja": "low <= n <= high のとき True を返す in_range(n, low, high) を作成してください。"
+      "en": "Read n, low, high as three integers (one per line). Print whether low <= n <= high.",
+      "ja": "整数 n、low、high を1行ずつ読み取り、low <= n <= high かどうか表示してください。"
     },
-    "starter": "def in_range(n, low, high):\n    pass",
-    "example": "in_range(5, 1, 10)  →  True",
+    "starter": "# Read n, low and high.\n",
+    "example": "Input: 5 ↵ 1 ↵ 10  →  Output: True",
     "hint": {
-      "en": "Python supports chained comparisons.",
-      "ja": "Python では比較演算子を連結できます。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -621,6 +837,22 @@ window.QUESTIONS = [
         "expr": "in_range(-3,-5,0)",
         "expected": "True"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_operators.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "5\n1\n10\n",
+        "expected": "True"
+      },
+      {
+        "input": "10\n1\n10\n",
+        "expected": "True"
+      },
+      {
+        "input": "12\n1\n10\n",
+        "expected": "False"
+      }
     ]
   },
   {
@@ -635,14 +867,14 @@ window.QUESTIONS = [
       "ja": "3つの算術演算"
     },
     "prompt": {
-      "en": "Write calc_ops(a, b) returning a tuple of (sum, a-b difference, product).",
-      "ja": "合計、差 (a-b)、積をタプルで返す calc_ops(a, b) を作成してください。"
+      "en": "Read integers a and b (two lines). Print sum, difference (a-b), and product separated by spaces.",
+      "ja": "整数 a、b を2行で読み取り、合計、差（a-b）、積をスペース区切りで表示してください。"
     },
-    "starter": "def calc_ops(a, b):\n    pass",
-    "example": "calc_ops(6, 2)  →  (8, 4, 12)",
+    "starter": "# Read two integers.\n",
+    "example": "Input: 6 ↵ 2  →  Output: 8 4 12",
     "hint": {
-      "en": "You can return multiple values as a tuple.",
-      "ja": "複数の値をタプルとして返せます。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -661,6 +893,22 @@ window.QUESTIONS = [
         "expr": "calc_ops(2.5,1.5)",
         "expected": "(4.0,1.0,3.75)"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_operators.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "6\n2\n",
+        "expected": "8 4 12"
+      },
+      {
+        "input": "-3\n4\n",
+        "expected": "1 -7 -12"
+      },
+      {
+        "input": "0\n5\n",
+        "expected": "5 -5 0"
+      }
     ]
   },
   {
@@ -675,14 +923,14 @@ window.QUESTIONS = [
       "ja": "リストの合計"
     },
     "prompt": {
-      "en": "Write list_total(numbers) returning the sum of all list items.",
-      "ja": "リスト内のすべての値の合計を返す list_total(numbers) を作成してください。"
+      "en": "Read integers separated by spaces on one line. Print their sum. An empty line represents an empty list.",
+      "ja": "1行のスペース区切りの整数を読み取り、合計を表示してください。空行は空リストを表します。"
     },
-    "starter": "def list_total(numbers):\n    pass",
-    "example": "list_total([1, 2, 3, 4])  →  10",
+    "starter": "# Read space-separated integers.\n",
+    "example": "Input: 1 2 3 4  →  Output: 10",
     "hint": {
-      "en": "You may use sum().",
-      "ja": "sum() を使えます。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -701,6 +949,22 @@ window.QUESTIONS = [
         "expr": "list_total([0,0])",
         "expected": "0"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_lists.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "1 2 3 4\n",
+        "expected": "10"
+      },
+      {
+        "input": "\n",
+        "expected": "0"
+      },
+      {
+        "input": "-2 2 -3\n",
+        "expected": "-3"
+      }
     ]
   },
   {
@@ -715,14 +979,14 @@ window.QUESTIONS = [
       "ja": "リストの平均"
     },
     "prompt": {
-      "en": "Write average(numbers) returning the arithmetic mean of a non-empty list.",
-      "ja": "空でないリストの算術平均を返す average(numbers) を作成してください。"
+      "en": "Read a non-empty list of integers separated by spaces and print the arithmetic mean as a number.",
+      "ja": "スペース区切りの1個以上の整数を読み取り、算術平均を数値で表示してください。"
     },
-    "starter": "def average(numbers):\n    pass",
-    "example": "average([2, 4, 6])  →  4.0",
+    "starter": "# Read non-empty space-separated integers.\n",
+    "example": "Input: 2 4 6  →  Output: 4.0",
     "hint": {
-      "en": "Sum divided by the number of items.",
-      "ja": "合計を要素数で割ります。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -741,6 +1005,22 @@ window.QUESTIONS = [
         "expr": "average([10])",
         "expected": "10.0"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_lists.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "2 4 6\n",
+        "expected": "4.0"
+      },
+      {
+        "input": "1 2\n",
+        "expected": "1.5"
+      },
+      {
+        "input": "10\n",
+        "expected": "10.0"
+      }
     ]
   },
   {
@@ -755,14 +1035,14 @@ window.QUESTIONS = [
       "ja": "重複を除いて並べ替え"
     },
     "prompt": {
-      "en": "Write unique_sorted(items) returning an ascending list with duplicates removed.",
-      "ja": "重複を除外し、昇順に並べた新しいリストを返す unique_sorted(items) を作成してください。"
+      "en": "Read space-separated integers; remove duplicates, sort ascending, then print numbers separated by one space.",
+      "ja": "スペース区切りの整数を読み取り、重複を除いて昇順にし、スペース1つで区切って表示してください。"
     },
-    "starter": "def unique_sorted(items):\n    pass",
-    "example": "unique_sorted([3, 1, 3, 2])  →  [1, 2, 3]",
+    "starter": "# Read integers and print sorted unique values.\n",
+    "example": "Input: 3 1 3 2  →  Output: 1 2 3",
     "hint": {
-      "en": "You can combine set() and sorted().",
-      "ja": "set() と sorted() を組み合わせられます。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -781,6 +1061,22 @@ window.QUESTIONS = [
         "expr": "unique_sorted([-1,5,-1,0])",
         "expected": "[-1,0,5]"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_lists_sort.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "3 1 3 2\n",
+        "expected": "1 2 3"
+      },
+      {
+        "input": "5 5 5\n",
+        "expected": "5"
+      },
+      {
+        "input": "\n",
+        "expected": ""
+      }
     ]
   },
   {
@@ -795,14 +1091,14 @@ window.QUESTIONS = [
       "ja": "2番目に大きい値"
     },
     "prompt": {
-      "en": "Write second_largest(numbers) returning the second distinct largest value. Assume at least two distinct values exist.",
-      "ja": "異なる値のうち2番目に大きいものを返す second_largest(numbers) を作成してください。異なる値は必ず2種類以上あります。"
+      "en": "Read space-separated integers with at least two distinct values. Print the second distinct largest value.",
+      "ja": "異なる数が2種類以上あるスペース区切りの整数を読み取り、2番目に大きい異なる値を表示してください。"
     },
-    "starter": "def second_largest(numbers):\n    pass",
-    "example": "second_largest([5, 1, 5, 3])  →  3",
+    "starter": "# Read integers; ignore duplicate values.\n",
+    "example": "Input: 5 1 5 3  →  Output: 3",
     "hint": {
-      "en": "Remove duplicates before sorting.",
-      "ja": "並べ替える前に重複を取り除きます。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -821,6 +1117,22 @@ window.QUESTIONS = [
         "expr": "second_largest([1,1,2,2,3,3])",
         "expected": "2"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_lists_sort.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "5 1 5 3\n",
+        "expected": "3"
+      },
+      {
+        "input": "10 9 8 10\n",
+        "expected": "9"
+      },
+      {
+        "input": "-5 -1 -3\n",
+        "expected": "-3"
+      }
     ]
   },
   {
@@ -835,14 +1147,14 @@ window.QUESTIONS = [
       "ja": "偶数の二乗"
     },
     "prompt": {
-      "en": "Write even_squares(numbers) returning squares of even values while preserving order.",
-      "ja": "偶数だけを二乗し、元の順序を保ったリストを返す even_squares(numbers) を作成してください。"
+      "en": "Read space-separated integers and print the squares of even values in their original order, separated by spaces.",
+      "ja": "スペース区切りの整数を読み取り、偶数の二乗を元の順番でスペース区切りで表示してください。"
     },
-    "starter": "def even_squares(numbers):\n    pass",
-    "example": "even_squares([1, 2, 3, 4])  →  [4, 16]",
+    "starter": "# Read integers and process even numbers.\n",
+    "example": "Input: 1 2 3 4  →  Output: 4 16",
     "hint": {
-      "en": "A list comprehension fits this task.",
-      "ja": "リスト内包表記が適しています。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -861,6 +1173,22 @@ window.QUESTIONS = [
         "expr": "even_squares([0,5,-4])",
         "expected": "[0,16]"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_lists_comprehension.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "1 2 3 4\n",
+        "expected": "4 16"
+      },
+      {
+        "input": "-2 3 6\n",
+        "expected": "4 36"
+      },
+      {
+        "input": "1 3 5\n",
+        "expected": ""
+      }
     ]
   },
   {
@@ -875,14 +1203,14 @@ window.QUESTIONS = [
       "ja": "リストを左に回転"
     },
     "prompt": {
-      "en": "Write rotate_left(items) moving the first item to the end. An empty list must return [].",
-      "ja": "リストの先頭要素を末尾に移動する rotate_left(items) を作成してください。空リストの場合は [] を返します。"
+      "en": "Read space-separated integers; move the first to the end and print the list separated by spaces. Empty input prints nothing.",
+      "ja": "スペース区切りの整数を読み、先頭を末尾に移動して表示してください。空入力の場合は何も表示しません。"
     },
-    "starter": "def rotate_left(items):\n    pass",
-    "example": "rotate_left([1, 2, 3])  →  [2, 3, 1]",
+    "starter": "# Read integers and rotate the list to the left.\n",
+    "example": "Input: 1 2 3  →  Output: 2 3 1",
     "hint": {
-      "en": "Use slicing; remember the empty-list case.",
-      "ja": "スライスを使い、空リストにも対応します。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -905,6 +1233,22 @@ window.QUESTIONS = [
         "expr": "rotate_left([0,0,1])",
         "expected": "[0,1,0]"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_lists.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "1 2 3\n",
+        "expected": "2 3 1"
+      },
+      {
+        "input": "\n",
+        "expected": ""
+      },
+      {
+        "input": "1\n",
+        "expected": "1"
+      }
     ]
   },
   {
@@ -919,14 +1263,14 @@ window.QUESTIONS = [
       "ja": "タプルの要素を交換"
     },
     "prompt": {
-      "en": "Write swap_pair(pair) for a 2-item tuple and return the items swapped.",
-      "ja": "2要素のタプルを受け取り、順番を入れ替えたタプルを返す swap_pair(pair) を作成してください。"
+      "en": "Read two space-separated items, create a tuple, and print the items in reverse order separated by a space.",
+      "ja": "スペース区切りの2つの値を読み取り、タプルを作成し、順番を逆にしてスペース区切りで表示してください。"
     },
-    "starter": "def swap_pair(pair):\n    pass",
-    "example": "swap_pair((10, 20))  →  (20, 10)",
+    "starter": "# Read two items, store them in a tuple and swap.\n",
+    "example": "Input: 10 20  →  Output: 20 10",
     "hint": {
-      "en": "You can unpack the tuple into two variables.",
-      "ja": "タプルを2つの変数にアンパックできます。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -945,6 +1289,22 @@ window.QUESTIONS = [
         "expr": "swap_pair((None,True))",
         "expected": "(True,None)"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_tuples_unpack.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "10 20\n",
+        "expected": "20 10"
+      },
+      {
+        "input": "a b\n",
+        "expected": "b a"
+      },
+      {
+        "input": "0 0\n",
+        "expected": "0 0"
+      }
     ]
   },
   {
@@ -959,14 +1319,14 @@ window.QUESTIONS = [
       "ja": "座標の象限"
     },
     "prompt": {
-      "en": "Write quadrant(point), where point=(x,y). Return 1,2,3,4 for the quadrant; return 0 when the point lies on an axis.",
-      "ja": "point=(x,y) を受け取る quadrant(point) を作成してください。第1〜第4象限なら 1〜4、座標軸上なら 0 を返します。"
+      "en": "Read x and y as two integers (one per line). Print the quadrant (1–4); print 0 when x or y equals zero.",
+      "ja": "x と y を1行ずつ整数で読み、座標の象限（1〜4）を表示してください。どちらかが 0 なら 0 を表示します。"
     },
-    "starter": "def quadrant(point):\n    pass",
-    "example": "quadrant((3, -2))  →  4",
+    "starter": "# Read x and y.\n",
+    "example": "Input: 3 ↵ -2  →  Output: 4",
     "hint": {
-      "en": "Unpack x, y and use conditions.",
-      "ja": "x と y をアンパックして条件分岐します。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -997,6 +1357,30 @@ window.QUESTIONS = [
         "expr": "quadrant((0,-1))",
         "expected": "0"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_conditions.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "2\n3\n",
+        "expected": "1"
+      },
+      {
+        "input": "-2\n3\n",
+        "expected": "2"
+      },
+      {
+        "input": "-2\n-3\n",
+        "expected": "3"
+      },
+      {
+        "input": "3\n-2\n",
+        "expected": "4"
+      },
+      {
+        "input": "0\n5\n",
+        "expected": "0"
+      }
     ]
   },
   {
@@ -1011,14 +1395,14 @@ window.QUESTIONS = [
       "ja": "集合の共通部分"
     },
     "prompt": {
-      "en": "Write common(a, b) returning the set intersection of two iterables.",
-      "ja": "2つのイテラブルの共通部分を set で返す common(a, b) を作成してください。"
+      "en": "Read two lines of space-separated integers. Print the common distinct values in ascending order, separated by spaces.",
+      "ja": "スペース区切りの整数を2行で読み、共通する重複なしの値を昇順でスペース区切り表示してください。"
     },
-    "starter": "def common(a, b):\n    pass",
-    "example": "common([1,2,3], [2,3,4])  →  {2, 3}",
+    "starter": "# Each of the two lines contains a set of integers.\n",
+    "example": "Input: 1 2 3 ↵ 2 3 4  →  Output: 2 3",
     "hint": {
-      "en": "Convert to sets and use intersection.",
-      "ja": "set に変換して積集合を求めます。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1037,6 +1421,22 @@ window.QUESTIONS = [
         "expr": "common([0,0,1],[1,2])",
         "expected": "{1}"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_sets_join.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "1 2 3\n2 3 4\n",
+        "expected": "2 3"
+      },
+      {
+        "input": "1 2\n3 4\n",
+        "expected": ""
+      },
+      {
+        "input": "1 1 2\n1 1\n",
+        "expected": "1"
+      }
     ]
   },
   {
@@ -1051,14 +1451,14 @@ window.QUESTIONS = [
       "ja": "対称差集合"
     },
     "prompt": {
-      "en": "Write only_one(a, b) returning items present in exactly one of the two sets.",
-      "ja": "2つの集合のどちらか一方にだけ含まれる要素を set で返す only_one(a, b) を作成してください。"
+      "en": "Read two lines of space-separated integers. Print distinct values found in exactly one line, sorted ascending.",
+      "ja": "スペース区切りの整数を2行で読み、どちらか一方にだけある値を昇順で表示してください。"
     },
-    "starter": "def only_one(a, b):\n    pass",
-    "example": "only_one({1,2}, {2,3})  →  {1, 3}",
+    "starter": "# Read two sets of integers.\n",
+    "example": "Input: 1 2 ↵ 2 3  →  Output: 1 3",
     "hint": {
-      "en": "Use symmetric difference (^ or symmetric_difference).",
-      "ja": "対称差（^ または symmetric_difference）を使います。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1077,6 +1477,22 @@ window.QUESTIONS = [
         "expr": "only_one({1,2},{3,4})",
         "expected": "{1,2,3,4}"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_sets_join.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "1 2\n2 3\n",
+        "expected": "1 3"
+      },
+      {
+        "input": "1 2\n1 2\n",
+        "expected": ""
+      },
+      {
+        "input": "\n1 2\n",
+        "expected": "1 2"
+      }
     ]
   },
   {
@@ -1091,14 +1507,14 @@ window.QUESTIONS = [
       "ja": "辞書から安全に値を取得"
     },
     "prompt": {
-      "en": "Write get_value(data, key) returning the value when the key exists, otherwise None.",
-      "ja": "キーが存在すればその値を返し、なければ None を返す get_value(data, key) を作成してください。"
+      "en": "Use the dictionary {'x':5,'y':10}. Read a key and print its value; print None for a missing key.",
+      "ja": "辞書 {'x':5,'y':10} を使います。キーを入力し、対応する値を表示してください。存在しない場合は None を表示します。"
     },
-    "starter": "def get_value(data, key):\n    pass",
-    "example": "get_value({'x': 5}, 'y')  →  None",
+    "starter": "# Dictionary: {'x': 5, 'y': 10}\n# Read a key.\n",
+    "example": "Input: x  →  Output: 5",
     "hint": {
-      "en": "Dictionaries have a get() method.",
-      "ja": "辞書の get() メソッドを使います。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1117,6 +1533,22 @@ window.QUESTIONS = [
         "expr": "get_value({},'a')",
         "expected": "None"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_dictionaries_access.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "x\n",
+        "expected": "5"
+      },
+      {
+        "input": "y\n",
+        "expected": "10"
+      },
+      {
+        "input": "z\n",
+        "expected": "None"
+      }
     ]
   },
   {
@@ -1131,14 +1563,14 @@ window.QUESTIONS = [
       "ja": "単語の出現頻度"
     },
     "prompt": {
-      "en": "Write word_frequency(words) returning a dictionary that counts each word.",
-      "ja": "各単語の出現回数を数える辞書を返す word_frequency(words) を作成してください。"
+      "en": "Read a line of words separated by spaces. Count each word (case-sensitive); print 'word:count', sorted alphabetically, one per line.",
+      "ja": "スペース区切りの単語を1行で読み取り、出現回数を数えます。単語順に並べ、各行に '単語:回数' と表示してください。大文字小文字を区別します。"
     },
-    "starter": "def word_frequency(words):\n    pass",
-    "example": "word_frequency(['a','b','a'])  →  {'a': 2, 'b': 1}",
+    "starter": "# Read words on one line.\n",
+    "example": "Input: a b a  →  Output: a:2 ↵ b:1",
     "hint": {
-      "en": "Loop through words and increment a dictionary counter.",
-      "ja": "単語を順に調べて辞書のカウンターを増やします。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1157,6 +1589,22 @@ window.QUESTIONS = [
         "expr": "word_frequency(['日本','日本'])",
         "expected": "{'日本':2}"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_dictionaries.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "a b a\n",
+        "expected": "a:2\nb:1"
+      },
+      {
+        "input": "b a b c\n",
+        "expected": "a:1\nb:2\nc:1"
+      },
+      {
+        "input": "\n",
+        "expected": ""
+      }
     ]
   },
   {
@@ -1171,14 +1619,14 @@ window.QUESTIONS = [
       "ja": "辞書を結合"
     },
     "prompt": {
-      "en": "Write merge_dicts(a, b) returning a new dictionary containing both; b wins on duplicate keys. Do not mutate a or b.",
-      "ja": "a と b の内容を結合した新しい辞書を返す merge_dicts(a, b) を作成してください。同じキーは b の値を優先し、元の辞書は変更しないでください。"
+      "en": "Start with a={'x':1,'y':2} and b={'y':3,'z':4}. Merge into a new dictionary (b wins) and print key=value pairs sorted by key on one line.",
+      "ja": "a={'x':1,'y':2}、b={'y':3,'z':4} を作り、b の値を優先して新しい辞書に結合します。キー順に key=value を1行で表示してください。"
     },
-    "starter": "def merge_dicts(a, b):\n    pass",
-    "example": "merge_dicts({'x':1}, {'x':2,'y':3})  →  {'x':2,'y':3}",
+    "starter": "# Create two dictionaries, merge them, and print sorted key=value pairs.\n",
+    "example": "Output: x=1 y=3 z=4",
     "hint": {
-      "en": "You can use copying, unpacking, or the | operator.",
-      "ja": "辞書のコピー、アンパック、| 演算子などを使えます。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1197,6 +1645,14 @@ window.QUESTIONS = [
         "expr": "merge_dicts({}, {})",
         "expected": "{}"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_dictionaries.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "",
+        "expected": "x=1 y=3 z=4"
+      }
     ]
   },
   {
@@ -1211,14 +1667,14 @@ window.QUESTIONS = [
       "ja": "最高得点の生徒"
     },
     "prompt": {
-      "en": "Write best_student(scores) for a non-empty {name: score} dict and return the name with the highest score.",
-      "ja": "空でない {名前: 点数} の辞書から、最高得点の生徒名を返す best_student(scores) を作成してください。"
+      "en": "Create scores={'An':8,'Binh':9,'Chi':7}. Print the name of the student with the highest score.",
+      "ja": "辞書 scores={'An':8,'Binh':9,'Chi':7} を作成し、最高得点の生徒名を表示してください。"
     },
-    "starter": "def best_student(scores):\n    pass",
-    "example": "best_student({'An':8, 'Binh':9})  →  'Binh'",
+    "starter": "# Create the scores dictionary and print the top student's name.\n",
+    "example": "Output: Binh",
     "hint": {
-      "en": "max() can accept a key= function.",
-      "ja": "max() の key= 引数が使えます。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1237,6 +1693,14 @@ window.QUESTIONS = [
         "expr": "best_student({'A':0,'B':10})",
         "expected": "'B'"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_dictionaries.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "",
+        "expected": "Binh"
+      }
     ]
   },
   {
@@ -1251,14 +1715,14 @@ window.QUESTIONS = [
       "ja": "点数の成績評価"
     },
     "prompt": {
-      "en": "Write grade(score): >=90 'A', >=80 'B', >=70 'C', >=60 'D', otherwise 'F'.",
-      "ja": "grade(score) を作成してください。90以上なら 'A'、80以上なら 'B'、70以上なら 'C'、60以上なら 'D'、それ以外は 'F' を返します。"
+      "en": "Read a score. Print A (>=90), B (>=80), C (>=70), D (>=60), otherwise F.",
+      "ja": "点数を読み取り、90以上 A、80以上 B、70以上 C、60以上 D、それ以外 F を表示してください。"
     },
-    "starter": "def grade(score):\n    pass",
-    "example": "grade(85)  →  'B'",
+    "starter": "# Read a numeric score.\n",
+    "example": "Input: 85  →  Output: B",
     "hint": {
-      "en": "Check thresholds from highest to lowest.",
-      "ja": "高い基準から順に判定します。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1301,6 +1765,34 @@ window.QUESTIONS = [
         "expr": "grade(59)",
         "expected": "'F'"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_conditions.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "95\n",
+        "expected": "A"
+      },
+      {
+        "input": "85\n",
+        "expected": "B"
+      },
+      {
+        "input": "75\n",
+        "expected": "C"
+      },
+      {
+        "input": "65\n",
+        "expected": "D"
+      },
+      {
+        "input": "50\n",
+        "expected": "F"
+      },
+      {
+        "input": "90\n",
+        "expected": "A"
+      }
     ]
   },
   {
@@ -1315,14 +1807,14 @@ window.QUESTIONS = [
       "ja": "うるう年の判定"
     },
     "prompt": {
-      "en": "Write is_leap_year(year) using Gregorian rules: divisible by 400, or divisible by 4 but not by 100.",
-      "ja": "グレゴリオ暦の規則に従う is_leap_year(year) を作成してください。400 で割り切れる年、または 4 で割り切れて 100 では割り切れない年がうるう年です。"
+      "en": "Read a year as an integer and print True if Gregorian leap year, otherwise False.",
+      "ja": "年を整数で読み取り、グレゴリオ暦のうるう年なら True、そうでなければ False を表示してください。"
     },
-    "starter": "def is_leap_year(year):\n    pass",
-    "example": "is_leap_year(2000)  →  True",
+    "starter": "# Read the year.\n",
+    "example": "Input: 2024  →  Output: True",
     "hint": {
-      "en": "Combine and/or with modulo.",
-      "ja": "剰余演算と and/or を組み合わせます。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1353,6 +1845,26 @@ window.QUESTIONS = [
         "expr": "is_leap_year(2020)",
         "expected": "True"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_conditions.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "2024\n",
+        "expected": "True"
+      },
+      {
+        "input": "1900\n",
+        "expected": "False"
+      },
+      {
+        "input": "2000\n",
+        "expected": "True"
+      },
+      {
+        "input": "2023\n",
+        "expected": "False"
+      }
     ]
   },
   {
@@ -1367,14 +1879,14 @@ window.QUESTIONS = [
       "ja": "1つの数で FizzBuzz"
     },
     "prompt": {
-      "en": "Write fizzbuzz(n): divisible by 3 and 5 → 'FizzBuzz'; only 3 → 'Fizz'; only 5 → 'Buzz'; otherwise return n.",
-      "ja": "fizzbuzz(n) を作成してください。3と5の両方で割り切れれば 'FizzBuzz'、3のみなら 'Fizz'、5のみなら 'Buzz'、それ以外は n を返します。"
+      "en": "Read an integer and print FizzBuzz if divisible by 15, Fizz if by 3, Buzz if by 5, otherwise print the number.",
+      "ja": "整数を読み、15で割り切れれば FizzBuzz、3なら Fizz、5なら Buzz、それ以外は整数を表示してください。"
     },
-    "starter": "def fizzbuzz(n):\n    pass",
-    "example": "fizzbuzz(30)  →  'FizzBuzz'",
+    "starter": "# Read n and use if/elif/else.\n",
+    "example": "Input: 15  →  Output: FizzBuzz",
     "hint": {
-      "en": "Check divisibility by both 3 and 5 first.",
-      "ja": "最初に 3 と 5 の両方で割り切れるか確認します。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1405,6 +1917,30 @@ window.QUESTIONS = [
         "expr": "fizzbuzz(0)",
         "expected": "'FizzBuzz'"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_conditions.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "30\n",
+        "expected": "FizzBuzz"
+      },
+      {
+        "input": "9\n",
+        "expected": "Fizz"
+      },
+      {
+        "input": "10\n",
+        "expected": "Buzz"
+      },
+      {
+        "input": "7\n",
+        "expected": "7"
+      },
+      {
+        "input": "0\n",
+        "expected": "FizzBuzz"
+      }
     ]
   },
   {
@@ -1419,14 +1955,14 @@ window.QUESTIONS = [
       "ja": "match による曜日の分類"
     },
     "prompt": {
-      "en": "Write day_type(day) for lowercase English day names. Mon-Fri → 'weekday', Sat/Sun → 'weekend', otherwise 'invalid'. Prefer match.",
-      "ja": "英語の小文字の曜日名を受け取る day_type(day) を作成してください。月〜金なら 'weekday'、土・日なら 'weekend'、それ以外は 'invalid' を返します。match の使用を推奨します。"
+      "en": "Read a lowercase English weekday name. Print weekday for Monday–Friday, weekend for Saturday/Sunday, otherwise invalid. Try match.",
+      "ja": "英語小文字の曜日を入力し、月〜金は weekday、土日は weekend、それ以外は invalid を表示します。match を使ってみましょう。"
     },
-    "starter": "def day_type(day):\n    # day: 'monday', 'tuesday', ...\n    pass",
-    "example": "day_type('sunday')  →  'weekend'",
+    "starter": "# Read a lowercase day name.\n",
+    "example": "Input: sunday  →  Output: weekend",
     "hint": {
-      "en": "match can combine patterns with |.",
-      "ja": "match では | を使って複数のパターンをまとめられます。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1453,6 +1989,26 @@ window.QUESTIONS = [
         "expr": "day_type('MONDAY')",
         "expected": "'invalid'"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_match.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "monday\n",
+        "expected": "weekday"
+      },
+      {
+        "input": "sunday\n",
+        "expected": "weekend"
+      },
+      {
+        "input": "holiday\n",
+        "expected": "invalid"
+      },
+      {
+        "input": "MONDAY\n",
+        "expected": "invalid"
+      }
     ]
   },
   {
@@ -1467,14 +2023,14 @@ window.QUESTIONS = [
       "ja": "while で 1 から n までの合計"
     },
     "prompt": {
-      "en": "Write sum_to_n(n) using a while loop to compute 1 + 2 + ... + n for n >= 0.",
-      "ja": "while ループを使って 1 + 2 + ... + n（n >= 0）を計算する sum_to_n(n) を作成してください。"
+      "en": "Read non-negative integer n. Use a while loop to print the sum 1+2+...+n.",
+      "ja": "0以上の整数 n を読み、while ループで 1+2+...+n の合計を表示してください。"
     },
-    "starter": "def sum_to_n(n):\n    pass",
-    "example": "sum_to_n(5)  →  15",
+    "starter": "# Read n; use while to sum integers.\n",
+    "example": "Input: 5  →  Output: 15",
     "hint": {
-      "en": "Use an accumulator and a counter.",
-      "ja": "累積用の変数とカウンターを用意します。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1497,6 +2053,22 @@ window.QUESTIONS = [
         "expr": "sum_to_n(10)",
         "expected": "55"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_while_loops.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "5\n",
+        "expected": "15"
+      },
+      {
+        "input": "0\n",
+        "expected": "0"
+      },
+      {
+        "input": "100\n",
+        "expected": "5050"
+      }
     ]
   },
   {
@@ -1511,14 +2083,14 @@ window.QUESTIONS = [
       "ja": "while で桁数を数える"
     },
     "prompt": {
-      "en": "Write digit_count(n) returning the number of digits using while. Ignore the sign; 0 has one digit.",
-      "ja": "while を使って整数 n の桁数を返す digit_count(n) を作成してください。負号は数えず、0 は1桁です。"
+      "en": "Read an integer. Use while to print the number of its digits; ignore minus sign, and treat 0 as one digit.",
+      "ja": "整数を読み取り、while を使って桁数を表示してください。負号は無視し、0 は1桁です。"
     },
-    "starter": "def digit_count(n):\n    pass",
-    "example": "digit_count(-1205)  →  4",
+    "starter": "# Read an integer and count digits with while.\n",
+    "example": "Input: -1205  →  Output: 4",
     "hint": {
-      "en": "Use abs(); repeatedly integer-divide by 10.",
-      "ja": "abs() で符号を除き、10 での整数除算を繰り返します。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1541,6 +2113,26 @@ window.QUESTIONS = [
         "expr": "digit_count(-1)",
         "expected": "1"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_while_loops.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "-1205\n",
+        "expected": "4"
+      },
+      {
+        "input": "0\n",
+        "expected": "1"
+      },
+      {
+        "input": "99\n",
+        "expected": "2"
+      },
+      {
+        "input": "1000\n",
+        "expected": "4"
+      }
     ]
   },
   {
@@ -1555,14 +2147,14 @@ window.QUESTIONS = [
       "ja": "最初に割り切れる整数"
     },
     "prompt": {
-      "en": "Write first_divisible(start, divisor) returning the smallest integer >= start divisible by divisor. divisor is non-zero.",
-      "ja": "start 以上で divisor で割り切れる最小の整数を返す first_divisible(start, divisor) を作成してください。divisor は 0 ではありません。"
+      "en": "Read start and nonzero divisor, one integer per line. Use while to find and print the smallest integer >= start divisible by divisor.",
+      "ja": "start と0以外の divisor を整数で読み取り、while で start 以上で divisor で割り切れる最小の整数を表示してください。"
     },
-    "starter": "def first_divisible(start, divisor):\n    pass",
-    "example": "first_divisible(10, 6)  →  12",
+    "starter": "# Read start, then divisor.\n",
+    "example": "Input: 10 ↵ 6  →  Output: 12",
     "hint": {
-      "en": "Increment from start in a while loop and stop when the condition is met.",
-      "ja": "while で start から増やし、条件を満たしたら終了します。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1589,6 +2181,26 @@ window.QUESTIONS = [
         "expr": "first_divisible(5,-3)",
         "expected": "6"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_while_loops.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "10\n6\n",
+        "expected": "12"
+      },
+      {
+        "input": "12\n6\n",
+        "expected": "12"
+      },
+      {
+        "input": "-3\n5\n",
+        "expected": "0"
+      },
+      {
+        "input": "5\n-3\n",
+        "expected": "6"
+      }
     ]
   },
   {
@@ -1603,14 +2215,14 @@ window.QUESTIONS = [
       "ja": "for で偶数の合計"
     },
     "prompt": {
-      "en": "Write sum_even_to_n(n) summing even integers from 0 through n using for/range.",
-      "ja": "for/range を使い、0 から n までの偶数を合計する sum_even_to_n(n) を作成してください。n が偶数なら含めます。"
+      "en": "Read non-negative n. Use for/range to print the sum of even integers from 0 through n.",
+      "ja": "0以上の n を読み、for/range を使って 0 から n までの偶数の合計を表示してください。"
     },
-    "starter": "def sum_even_to_n(n):\n    pass",
-    "example": "sum_even_to_n(10)  →  30",
+    "starter": "# Read n, use for and range.\n",
+    "example": "Input: 10  →  Output: 30",
     "hint": {
-      "en": "range() has a step argument.",
-      "ja": "range() ではステップ幅を指定できます。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1633,6 +2245,26 @@ window.QUESTIONS = [
         "expr": "sum_even_to_n(9)",
         "expected": "20"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_for_loops.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "10\n",
+        "expected": "30"
+      },
+      {
+        "input": "1\n",
+        "expected": "0"
+      },
+      {
+        "input": "6\n",
+        "expected": "12"
+      },
+      {
+        "input": "0\n",
+        "expected": "0"
+      }
     ]
   },
   {
@@ -1647,14 +2279,14 @@ window.QUESTIONS = [
       "ja": "掛け算表"
     },
     "prompt": {
-      "en": "Write multiplication_table(n) returning the 10 products [n*1, n*2, ..., n*10].",
-      "ja": "[n*1, n*2, ..., n*10] という10個の積をリストで返す multiplication_table(n) を作成してください。"
+      "en": "Read integer n. Print n*1 through n*10 on one line, separated by spaces.",
+      "ja": "整数 n を読み取り、n*1 から n*10 をスペース区切りで1行に表示してください。"
     },
-    "starter": "def multiplication_table(n):\n    pass",
-    "example": "multiplication_table(3)  →  [3,6,...,30]",
+    "starter": "# Read n and generate ten products.\n",
+    "example": "Input: 3  →  Output: 3 6 9 ... 30",
     "hint": {
-      "en": "Loop over range(1, 11).",
-      "ja": "range(1, 11) を順に処理します。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1673,6 +2305,22 @@ window.QUESTIONS = [
         "expr": "multiplication_table(1)",
         "expected": "[1,2,3,4,5,6,7,8,9,10]"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_for_loops.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "3\n",
+        "expected": "3 6 9 12 15 18 21 24 27 30"
+      },
+      {
+        "input": "0\n",
+        "expected": "0 0 0 0 0 0 0 0 0 0"
+      },
+      {
+        "input": "-2\n",
+        "expected": "-2 -4 -6 -8 -10 -12 -14 -16 -18 -20"
+      }
     ]
   },
   {
@@ -1687,14 +2335,14 @@ window.QUESTIONS = [
       "ja": "二重リストを平坦化"
     },
     "prompt": {
-      "en": "Write flatten(matrix) using nested loops to turn a list of lists into one flat list.",
-      "ja": "ネストしたループでリストのリストを1つの平坦なリストに変換する flatten(matrix) を作成してください。"
+      "en": "Read an integer row count n, followed by n lines of space-separated integers (rows may be empty). Print all values in row order on one line.",
+      "ja": "最初に行数 n を読み、続く n 行のスペース区切り整数を読みます。空行も可能です。すべての数を行順に1行で表示してください。"
     },
-    "starter": "def flatten(matrix):\n    pass",
-    "example": "flatten([[1,2],[3],[4,5]])  →  [1,2,3,4,5]",
+    "starter": "# First line: row count. Following lines: rows of integers.\n",
+    "example": "Input: 3 ↵ 1 2 ↵ 3 ↵ 4 5  →  Output: 1 2 3 4 5",
     "hint": {
-      "en": "Use one loop for rows and another for items.",
-      "ja": "外側のループで行、内側で各要素を処理します。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1713,6 +2361,22 @@ window.QUESTIONS = [
         "expr": "flatten([[1],[2,3],[]])",
         "expected": "[1,2,3]"
       }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_for_loops.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "3\n1 2\n3\n4 5\n",
+        "expected": "1 2 3 4 5"
+      },
+      {
+        "input": "2\n\n1 2\n",
+        "expected": "1 2"
+      },
+      {
+        "input": "0\n",
+        "expected": ""
+      }
     ]
   },
   {
@@ -1727,14 +2391,14 @@ window.QUESTIONS = [
       "ja": "素数の判定"
     },
     "prompt": {
-      "en": "Write is_prime(n) returning True for prime numbers. Values below 2 are not prime.",
-      "ja": "n が素数なら True を返す is_prime(n) を作成してください。2未満の数は素数ではありません。"
+      "en": "Read integer n and print True if it is prime, otherwise False. Values below 2 are not prime.",
+      "ja": "整数 n を読み取り、素数なら True、それ以外は False を表示してください。2未満は素数ではありません。"
     },
-    "starter": "def is_prime(n):\n    pass",
-    "example": "is_prime(29)  →  True",
+    "starter": "# Read n and check divisors using a loop.\n",
+    "example": "Input: 29  →  Output: True",
     "hint": {
-      "en": "You only need to test divisors up to sqrt(n).",
-      "ja": "約数は n の平方根まで確認すれば十分です。"
+      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
+      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
     },
     "checks": [
       {
@@ -1771,6 +2435,34 @@ window.QUESTIONS = [
       },
       {
         "expr": "is_prime(49)",
+        "expected": "False"
+      }
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_for_loops.asp",
+    "mode": "program",
+    "programTests": [
+      {
+        "input": "2\n",
+        "expected": "True"
+      },
+      {
+        "input": "29\n",
+        "expected": "True"
+      },
+      {
+        "input": "1\n",
+        "expected": "False"
+      },
+      {
+        "input": "21\n",
+        "expected": "False"
+      },
+      {
+        "input": "97\n",
+        "expected": "True"
+      },
+      {
+        "input": "49\n",
         "expected": "False"
       }
     ]
@@ -1817,7 +2509,8 @@ window.QUESTIONS = [
         "expr": "factorial(10)",
         "expected": "3628800"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_functions.asp"
   },
   {
     "id": "default-arg",
@@ -1857,7 +2550,8 @@ window.QUESTIONS = [
         "expr": "greet_person('','Hi')",
         "expected": "'Hi, !'"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_functions.asp"
   },
   {
     "id": "args-stats",
@@ -1897,7 +2591,8 @@ window.QUESTIONS = [
         "expr": "stats(-5,-1,-3)",
         "expected": "(-5,-1,-9)"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_functions_args.asp"
   },
   {
     "id": "kwargs-profile",
@@ -1937,7 +2632,8 @@ window.QUESTIONS = [
         "expr": "build_profile(a=None)",
         "expected": "{'a':None}"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_functions_args.asp"
   },
   {
     "id": "recursive-sum",
@@ -1977,7 +2673,8 @@ window.QUESTIONS = [
         "expr": "recursive_sum([-10,5,1])",
         "expected": "-4"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_recursion.asp"
   },
   {
     "id": "lambda-sort",
@@ -2017,7 +2714,8 @@ window.QUESTIONS = [
         "expr": "sort_by_second([('a',2),('b',1)])",
         "expected": "[('b',1),('a',2)]"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_lambda.asp"
   },
   {
     "id": "apply-operation",
@@ -2065,7 +2763,8 @@ window.QUESTIONS = [
         "expr": "apply_operation(-2,0,'max')",
         "expected": "0"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_lambda.asp"
   },
   {
     "id": "closure-multiplier",
@@ -2105,7 +2804,8 @@ window.QUESTIONS = [
         "expr": "make_multiplier(5)(-2)",
         "expected": "-10"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_scope.asp"
   },
   {
     "id": "filter-positive",
@@ -2145,7 +2845,8 @@ window.QUESTIONS = [
         "expr": "positive_numbers([0,1,0,2])",
         "expected": "[1,2]"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_lambda.asp"
   },
   {
     "id": "student-class",
@@ -2193,7 +2894,8 @@ window.QUESTIONS = [
         "expr": "Student('A',4.99).passed()",
         "expected": "False"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_classes.asp"
   },
   {
     "id": "rectangle-class",
@@ -2237,7 +2939,8 @@ window.QUESTIONS = [
         "expr": "Rectangle(2,4).width",
         "expected": "2"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_classes.asp"
   },
   {
     "id": "inheritance-dog",
@@ -2281,7 +2984,8 @@ window.QUESTIONS = [
         "expr": "issubclass(Dog, Animal)",
         "expected": "True"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_inheritance.asp"
   },
   {
     "id": "polymorphism",
@@ -2321,7 +3025,8 @@ window.QUESTIONS = [
         "expr": "Dog().speak()",
         "expected": "'Woof'"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_polymorphism.asp"
   },
   {
     "id": "countdown-iterator",
@@ -2365,7 +3070,8 @@ window.QUESTIONS = [
         "expr": "iter(Countdown(2)) is not None",
         "expected": "True"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_iterators.asp"
   },
   {
     "id": "circle-area",
@@ -2405,7 +3111,8 @@ window.QUESTIONS = [
         "expr": "circle_area(3)",
         "expected": "28.27"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_math.asp"
   },
   {
     "id": "days-between",
@@ -2445,7 +3152,8 @@ window.QUESTIONS = [
         "expr": "days_between('2026-01-01','2026-01-01')",
         "expected": "0"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_datetime.asp"
   },
   {
     "id": "json-field",
@@ -2485,7 +3193,8 @@ window.QUESTIONS = [
         "expr": "json_field('{\"x\":null}','x')",
         "expected": "None"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_json.asp"
   },
   {
     "id": "regex-email",
@@ -2541,7 +3250,8 @@ window.QUESTIONS = [
         "expr": "is_simple_email('a@b.')",
         "expected": "False"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_regex.asp"
   },
   {
     "id": "safe-divide",
@@ -2581,7 +3291,8 @@ window.QUESTIONS = [
         "expr": "safe_divide(0,3)",
         "expected": "0.0"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_try_except.asp"
   },
   {
     "id": "format-price",
@@ -2621,7 +3332,8 @@ window.QUESTIONS = [
         "expr": "format_price('PC',1234567.891)",
         "expected": "'PC: 1,234,567.89'"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_string_formatting.asp"
   },
   {
     "id": "parse-age",
@@ -2661,7 +3373,8 @@ window.QUESTIONS = [
         "expr": "parse_age(' 0 ')",
         "expected": "0"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_user_input.asp"
   },
   {
     "id": "none-default",
@@ -2705,7 +3418,8 @@ window.QUESTIONS = [
         "expr": "value_or_default([],['default'])",
         "expected": "[]"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_none.asp"
   },
   {
     "id": "write-read-file",
@@ -2745,7 +3459,8 @@ window.QUESTIONS = [
         "expr": "write_and_read('/tmp/pythonquiz_4.txt','日本語')",
         "expected": "'日本語'"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_file_handling.asp"
   },
   {
     "id": "even-generator",
@@ -2785,7 +3500,8 @@ window.QUESTIONS = [
         "expr": "list(even_numbers(5))",
         "expected": "[0,2,4]"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_generators.asp"
   },
   {
     "id": "double-decorator",
@@ -2825,7 +3541,8 @@ window.QUESTIONS = [
         "expr": "add(5,-7)",
         "expected": "-4"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_decorators.asp"
   },
   {
     "id": "palindrome-clean",
@@ -2873,7 +3590,8 @@ window.QUESTIONS = [
         "expr": "is_palindrome('hello!')",
         "expected": "False"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_strings.asp"
   },
   {
     "id": "analyze-numbers",
@@ -2913,7 +3631,8 @@ window.QUESTIONS = [
         "expr": "analyze_numbers([0,0])",
         "expected": "{'count':2,'min':0,'max':0,'sum':0,'average':0.0}"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_lists.asp"
   },
   {
     "id": "cart-total",
@@ -2953,7 +3672,8 @@ window.QUESTIONS = [
         "expr": "cart_total({'a':1},{'a':12.5},20)",
         "expected": "10.0"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_dictionaries.asp"
   },
   {
     "id": "password-strength",
@@ -3009,6 +3729,7 @@ window.QUESTIONS = [
         "expr": "strong_password('ABCDEFGH1!')",
         "expected": "False"
       }
-    ]
+    ],
+    "lessonUrl": "https://www.w3schools.com/python/python_strings.asp"
   }
 ];
