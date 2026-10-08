@@ -91,12 +91,12 @@ const programSolutions = JSON.parse(fs.readFileSync(root + "/tests/program-golde
 
 function gradeProgram(code, cases, withTests=true, stdin="") {
   const prefix =
-    "USER_CODE = " + JSON.stringify(code) + "\\n" +
-    "CHECKS_JSON = '[]'\\n" +
-    "PROGRAM_CHECKS_JSON = " + JSON.stringify(JSON.stringify(cases)) + "\\n" +
-    "WITH_TESTS = " + (withTests ? "True" : "False") + "\\n" +
-    "MODE = 'program'\\n" +
-    "RUN_INPUT = " + JSON.stringify(stdin) + "\\n";
+    "USER_CODE = " + JSON.stringify(code) + "\n" +
+    "CHECKS_JSON = '[]'\n" +
+    "PROGRAM_CHECKS_JSON = " + JSON.stringify(JSON.stringify(cases)) + "\n" +
+    "WITH_TESTS = " + (withTests ? "True" : "False") + "\n" +
+    "MODE = 'program'\n" +
+    "RUN_INPUT = " + JSON.stringify(stdin) + "\n";
   const run = spawnSync("python3", ["-"], {input:prefix+harness, encoding:"utf8", timeout:7000, maxBuffer:2_000_000});
   assert.equal(run.status,0,"Python subprocess failed: "+run.stderr+" "+run.error);
   return JSON.parse(run.stdout.trim());
