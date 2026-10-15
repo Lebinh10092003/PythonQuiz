@@ -89,11 +89,12 @@ test("per-test exceptions preserve failure details", () => {
 
 const programSolutions = JSON.parse(fs.readFileSync(root + "/tests/program-golden.json", "utf8"));
 
-function gradeProgram(code, cases, withTests=true, stdin="") {
+function gradeProgram(code, cases, withTests=true, stdin="", requiredCalls=[]) {
   const prefix =
     "USER_CODE = " + JSON.stringify(code) + "\n" +
     "CHECKS_JSON = '[]'\n" +
     "PROGRAM_CHECKS_JSON = " + JSON.stringify(JSON.stringify(cases)) + "\n" +
+    "REQUIRED_CALLS_JSON = " + JSON.stringify(JSON.stringify(requiredCalls)) + "\n" +
     "WITH_TESTS = " + (withTests ? "True" : "False") + "\n" +
     "MODE = 'program'\n" +
     "RUN_INPUT = " + JSON.stringify(stdin) + "\n";
@@ -225,4 +226,22 @@ test("an iterator must return itself from iter()", () => {
   const result = grade(imposter, q.checks);
   assert(result.passed < result.total, "A reusable iterable is not necessarily an iterator");
   assert(result.details.some(d => !d.ok && d.expr.includes("iter(iterator) is iterator")));
+});
+
+
+test("type() lesson rejects hardcoded output even when its text is correct", () => {
+  const q = questions.find(x => x.id === "type-name");
+  assert.deepEqual(q.requiredCalls, ["type"]);
+  const correct = gradeProgram(programSolutions[q.id], q.programTests, true, "", q.requiredCalls);
+  assert.equal(correct.total, 2);
+  assert.equal(correct.passed, correct.total, JSON.stringify(correct.details));
+  const forged = [
+    "print(\"<class 'tuple'>\")",
+    "print(\"<class 'str'>\")",
+    "print(\"<class 'int'>\")"
+  ].join("\n");
+  const dishonest = gradeProgram(forged, q.programTests, true, "", q.requiredCalls);
+  assert.equal(dishonest.total, 2);
+  assert.equal(dishonest.passed, 1);
+  assert(dishonest.details.some(d => d.issue === "missing_required_call"));
 });
