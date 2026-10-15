@@ -37,7 +37,7 @@ test("every exercise has EN/JA text, valid expected literals and >= 3 distinct t
     allChecks.push(...q.checks);
     assert.equal(typeof solutions[q.id], "string", "Missing golden solution: " + q.id);
   }
-  assert.equal(allChecks.length, 333);
+  assert.equal(allChecks.length, 335);
   const exprs = allChecks.map(c => c.expected);
   const run = spawnSync("python3", ["-c", "import ast,json,sys; [ast.literal_eval(x) for x in json.loads(sys.stdin.read())]; print('OK')"], {input:JSON.stringify(exprs),encoding:"utf8"});
   assert.equal(run.status,0,"Invalid expected literal: "+run.stderr);
@@ -205,4 +205,24 @@ test("each active grading mode validates what learners actually submit", () => {
         "Missing executable function solution: " + q.id);
     }
   }
+});
+
+
+test("a generator must yield, not simply return a list", () => {
+  const q = questions.find(q => q.id === "even-generator");
+  const imposter = "def even_numbers(n):\n    return list(range(0, n+1, 2))";
+  const result = grade(imposter, q.checks);
+  assert(result.passed < result.total, "Returning a list is not a generator");
+  assert(result.details.some(d => !d.ok && d.expr.includes("__name__")));
+});
+
+test("an iterator must return itself from iter()", () => {
+  const q = questions.find(q => q.id === "countdown-iterator");
+  const imposter =
+    "class Countdown:\n" +
+    "    def __init__(self, start): self.start=start\n" +
+    "    def __iter__(self): return iter(range(self.start, 0, -1))";
+  const result = grade(imposter, q.checks);
+  assert(result.passed < result.total, "A reusable iterable is not necessarily an iterator");
+  assert(result.details.some(d => !d.ok && d.expr.includes("iter(iterator) is iterator")));
 });
