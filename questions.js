@@ -213,6 +213,9 @@ window.QUESTIONS = [
         "input": "",
         "expected": "<class 'tuple'>\n<class 'str'>\n<class 'int'>"
       }
+    ],
+    "requiredCalls": [
+      "type"
     ]
   },
   {
