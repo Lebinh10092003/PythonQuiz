@@ -182,28 +182,28 @@ window.QUESTIONS = [
     },
     "checks": [
       {
-        "expr": "type_name(42)",
-        "expected": "'int'"
+        "expr": "type_name((1,2,3))",
+        "expected": "\"<class 'tuple'>\""
       },
       {
-        "expr": "type_name('abc')",
-        "expected": "'str'"
+        "expr": "type_name('Python')",
+        "expected": "\"<class 'str'>\""
+      },
+      {
+        "expr": "type_name(15)",
+        "expected": "\"<class 'int'>\""
       },
       {
         "expr": "type_name([1,2])",
-        "expected": "'list'"
+        "expected": "\"<class 'list'>\""
       },
       {
         "expr": "type_name(True)",
-        "expected": "'bool'"
+        "expected": "\"<class 'bool'>\""
       },
       {
         "expr": "type_name(None)",
-        "expected": "'NoneType'"
-      },
-      {
-        "expr": "type_name({'x':1})",
-        "expected": "'dict'"
+        "expected": "\"<class 'NoneType'>\""
       }
     ],
     "lessonUrl": "https://www.w3schools.com/python/python_datatypes.asp",
