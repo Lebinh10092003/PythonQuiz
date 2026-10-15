@@ -44,7 +44,7 @@ test("every exercise has EN/JA text, valid expected literals and >= 3 distinct t
 });
 
 for (const q of questions) {
-  test("valid solution must pass all test cases: " + q.id, () => {
+  test("legacy function-bank compatibility (including migrated programs): " + q.id, () => {
     const result = grade(solutions[q.id], q.checks);
     assert.equal(result.ok, true, "Python error: " + result.error);
     assert.equal(result.passed, q.checks.length, JSON.stringify(result.details.filter(x=>!x.ok)));
@@ -151,4 +151,58 @@ test("Run accepts provided stdin and prints output", () => {
   assert.equal(r.ok,true,r.error);
   assert.equal(r.stdout,"Hi Yuki\n");
   assert.equal(r.total,0);
+});
+
+
+test("native type() output is full Python class representation, not just short names", () => {
+  const q = questions.find(q => q.id === "type-name");
+  const output = "<class 'tuple'>\n<class 'str'>\n<class 'int'>";
+  assert.equal(q.mode, "program");
+  assert.equal(q.programTests[0].expected, output);
+  assert.match(q.prompt.en, /type\(items\)/);
+  const correct = gradeProgram(programSolutions[q.id], q.programTests);
+  assert.equal(correct.passed, correct.total, JSON.stringify(correct.details));
+  const shortened = gradeProgram("print('tuple')\nprint('str')\nprint('int')", q.programTests);
+  assert.equal(shortened.passed, 0, "Short type names must not pass type() exercise");
+  const wrongOrder = gradeProgram("print(type(15))\nprint(type('Python'))\nprint(type((1,2,3)))", q.programTests);
+  assert.equal(wrongOrder.passed, 0, "Output order must match the prompt");
+});
+
+test("program mode rejects printed integer in place of Boolean True", () => {
+  const q = questions.find(q => q.id === "is-even");
+  const result = gradeProgram("print(1)", q.programTests);
+  assert.equal(result.passed, 0);
+});
+
+test("program tests include decimal scores and true division", () => {
+  const scores = questions.find(q => q.id === "grade");
+  assert(scores.programTests.some(x => x.input === "89.5\n"));
+  const r1 = gradeProgram(programSolutions[scores.id], scores.programTests);
+  assert.equal(r1.passed, r1.total);
+  const division = questions.find(q => q.id === "safe-divide");
+  assert(division.programTests.some(x => x.input === "9\n4\n" && x.expected === "2.25"));
+  const r2 = gradeProgram(programSolutions[division.id], division.programTests);
+  assert.equal(r2.passed, r2.total);
+});
+
+test("each active grading mode validates what learners actually submit", () => {
+  const ids = new Set();
+  for (const q of questions) {
+    assert(!ids.has(q.id), "Duplicate question id: " + q.id);
+    ids.add(q.id);
+    if (q.mode === "program") {
+      assert(Array.isArray(q.programTests) && q.programTests.length > 0,
+        "Missing active program tests: " + q.id);
+      assert.equal(typeof programSolutions[q.id], "string",
+        "Missing executable standalone solution: " + q.id);
+      const pairs = q.programTests.map(t => JSON.stringify([t.input, t.expected]));
+      assert.equal(new Set(pairs).size, pairs.length,
+        "Duplicate input-output pair: " + q.id);
+    } else {
+      assert(Array.isArray(q.checks) && q.checks.length > 0,
+        "Missing active function checks: " + q.id);
+      assert.equal(typeof solutions[q.id], "string",
+        "Missing executable function solution: " + q.id);
+    }
+  }
 });
