@@ -18,6 +18,7 @@ from contextlib import redirect_stdout, redirect_stderr
 _user_code = USER_CODE
 _checks = json.loads(CHECKS_JSON)
 _program_checks = json.loads(globals().get("PROGRAM_CHECKS_JSON", "[]"))
+_required_calls = json.loads(globals().get("REQUIRED_CALLS_JSON", "[]"))
 _mode = globals().get("MODE", "function")
 _run_input = globals().get("RUN_INPUT", "")
 _with_tests = bool(WITH_TESTS)
@@ -89,6 +90,22 @@ except BaseException:
 
 if _compiled is not None and _mode == "program":
     if _with_tests:
+        _call_names = {
+            n.func.id for n in ast.walk(ast.parse(_user_code))
+            if isinstance(n, ast.Call) and isinstance(n.func, ast.Name)
+        }
+        for i, call_name in enumerate(_required_calls):
+            present = call_name in _call_names
+            if present:
+                _passed += 1
+            _details.append({
+                "index": i + 1,
+                "ok": present,
+                "expr": "Required Python call",
+                "expected": call_name + "()",
+                "actual": "Found " + call_name + "()" if present else "Missing " + call_name + "()",
+                "issue": "" if present else "missing_required_call"
+            })
         for i, case in enumerate(_program_checks):
             expected = _normal_output(case["expected"])
             stdout, stderr, failure = _run_program(_compiled, case.get("input", ""))
@@ -97,7 +114,7 @@ if _compiled is not None and _mode == "program":
             if correct:
                 _passed += 1
             _details.append({
-                "index": i + 1,
+                "index": len(_required_calls) + i + 1,
                 "ok": correct,
                 "input": case.get("input", ""),
                 "expr": "Program output",
@@ -167,7 +184,7 @@ json.dumps({
     "stdout": _stdout.getvalue(),
     "stderr": _stderr.getvalue(),
     "passed": _passed,
-    "total": (len(_program_checks) if _mode == "program" else len(_checks)) if _with_tests else 0,
+    "total": (len(_program_checks) + len(_required_calls) if _mode == "program" else len(_checks)) if _with_tests else 0,
     "details": _details
 }, ensure_ascii=False)
 `;
@@ -180,6 +197,7 @@ async function execute(payload) {
   runtime.globals.set("WITH_TESTS", Boolean(payload.withTests));
   runtime.globals.set("MODE", payload.mode === "program" ? "program" : "function");
   runtime.globals.set("PROGRAM_CHECKS_JSON", JSON.stringify(payload.programTests || []));
+  runtime.globals.set("REQUIRED_CALLS_JSON", JSON.stringify(payload.requiredCalls || []));
   runtime.globals.set("RUN_INPUT", payload.stdin || "");
 
   try {
@@ -198,6 +216,7 @@ async function execute(payload) {
       runtime.globals.delete("WITH_TESTS");
       runtime.globals.delete("MODE");
       runtime.globals.delete("PROGRAM_CHECKS_JSON");
+      runtime.globals.delete("REQUIRED_CALLS_JSON");
       runtime.globals.delete("RUN_INPUT");
     } catch (_) {}
   }
