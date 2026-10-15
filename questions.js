@@ -3113,6 +3113,10 @@ window.QUESTIONS = [
       {
         "expr": "iter(Countdown(2)) is not None",
         "expected": "True"
+      },
+      {
+        "expr": "(lambda iterator: iter(iterator) is iterator)(Countdown(2))",
+        "expected": "True"
       }
     ],
     "lessonUrl": "https://www.w3schools.com/python/python_iterators.asp"
@@ -3702,6 +3706,10 @@ window.QUESTIONS = [
       {
         "expr": "list(even_numbers(5))",
         "expected": "[0,2,4]"
+      },
+      {
+        "expr": "type(even_numbers(4)).__name__",
+        "expected": "'generator'"
       }
     ],
     "lessonUrl": "https://www.w3schools.com/python/python_generators.asp"
