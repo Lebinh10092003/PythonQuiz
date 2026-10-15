@@ -2,7 +2,7 @@
   "hello-world": "def hello(): return \"Hello, World!\"",
   "greet-name": "def greet(name): return f\"Hello, {name}!\"",
   "add-two": "def add(a,b): return a+b",
-  "type-name": "def type_name(value): return type(value).__name__",
+  "type-name": "def type_name(value):\n    return str(type(value))",
   "to-int": "def to_int(text): return int(text)",
   "rectangle-area": "def rectangle_area(width,height): return width*height",
   "first-last": "def first_last(text): return (text[0],text[-1])",
