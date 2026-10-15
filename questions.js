@@ -167,18 +167,18 @@ window.QUESTIONS = [
       "ja": "変数とデータ型"
     },
     "title": {
-      "en": "Data type name",
-      "ja": "データ型の名前"
+      "en": "Inspect Python types",
+      "ja": "Python の型を確認する"
     },
     "prompt": {
-      "en": "Create three variables: age = 15, name = 'Python', active = True. Print the type names of each, one per line (int, str, bool).",
-      "ja": "age = 15、name = 'Python'、active = True の変数を作成し、それぞれの型名（int、str、bool）を1行ずつ表示してください。"
+      "en": "Create items = (1, 2, 3) (tuple), name = 'Python' (string), and age = 15 (integer). Print type(items), type(name), and type(age) in this exact order, one per line. Show Python's full <class '...'> representation, not just tuple/str/int.",
+      "ja": "items = (1, 2, 3)（タプル）、name = 'Python'（文字列）、age = 15（整数）を定義し、type(items)、type(name)、type(age) をこの順に1行ずつ表示してください。型名だけでなく、<class '...'> 形式で表示してください。"
     },
-    "starter": "# Create age, name and active, then print their type names.\n",
-    "example": "Output: int ↵ str ↵ bool",
+    "starter": "# Create a tuple, a string, and an integer. Print type(...) for each.\n",
+    "example": "Output:\n<class 'tuple'>\n<class 'str'>\n<class 'int'>",
     "hint": {
-      "en": "Write regular Python statements. Use input() for the provided data and print() for the answer. No def is needed.",
-      "ja": "通常の Python の文を記述してください。input() で値を読み、print() で答えを表示します。def は必要ありません。"
+      "en": "Use print(type(items)), print(type(name)) and print(type(age)). Calling type() prints the complete class representation; type(...).__name__ only gives the short name.",
+      "ja": "print(type(items))、print(type(name))、print(type(age)) を使います。type() は <class '...'> を表示し、type(...).__name__ は短い型名のみ返します。"
     },
     "checks": [
       {
@@ -211,7 +211,7 @@ window.QUESTIONS = [
     "programTests": [
       {
         "input": "",
-        "expected": "int\nstr\nbool"
+        "expected": "<class 'tuple'>\n<class 'str'>\n<class 'int'>"
       }
     ]
   },
@@ -268,6 +268,14 @@ window.QUESTIONS = [
       {
         "input": "007\n",
         "expected": "7"
+      },
+      {
+        "input": "+004\n",
+        "expected": "4"
+      },
+      {
+        "input": " 42 \n",
+        "expected": "42"
       }
     ]
   },
@@ -1715,8 +1723,8 @@ window.QUESTIONS = [
       "ja": "点数の成績評価"
     },
     "prompt": {
-      "en": "Read a score. Print A (>=90), B (>=80), C (>=70), D (>=60), otherwise F.",
-      "ja": "点数を読み取り、90以上 A、80以上 B、70以上 C、60以上 D、それ以外 F を表示してください。"
+      "en": "Read a numeric score (integer or decimal). Print A (>=90), B (>=80), C (>=70), D (>=60), otherwise F.",
+      "ja": "整数または小数の点数を読み取り、90以上はA、80以上はB、70以上はC、60以上はD、それ未満はFと表示してください。"
     },
     "starter": "# Read a numeric score.\n",
     "example": "Input: 85  →  Output: B",
@@ -1792,6 +1800,22 @@ window.QUESTIONS = [
       {
         "input": "90\n",
         "expected": "A"
+      },
+      {
+        "input": "89.5\n",
+        "expected": "B"
+      },
+      {
+        "input": "79.5\n",
+        "expected": "C"
+      },
+      {
+        "input": "59.9\n",
+        "expected": "F"
+      },
+      {
+        "input": "90.0\n",
+        "expected": "A"
       }
     ]
   },
@@ -1864,6 +1888,14 @@ window.QUESTIONS = [
       {
         "input": "2023\n",
         "expected": "False"
+      },
+      {
+        "input": "2100\n",
+        "expected": "False"
+      },
+      {
+        "input": "2400\n",
+        "expected": "True"
       }
     ]
   },
@@ -2463,6 +2495,18 @@ window.QUESTIONS = [
       },
       {
         "input": "49\n",
+        "expected": "False"
+      },
+      {
+        "input": "0\n",
+        "expected": "False"
+      },
+      {
+        "input": "-13\n",
+        "expected": "False"
+      },
+      {
+        "input": "4\n",
         "expected": "False"
       }
     ]
@@ -3242,6 +3286,14 @@ window.QUESTIONS = [
       {
         "input": "{\"a\":0,\"b\":false}\nb\n",
         "expected": "False"
+      },
+      {
+        "input": "{\"x\":null}\nx\n",
+        "expected": "None"
+      },
+      {
+        "input": "{\"v\":[1,2]}\nv\n",
+        "expected": "[1, 2]"
       }
     ]
   },
@@ -3378,6 +3430,14 @@ window.QUESTIONS = [
       {
         "input": "-6\n3\n",
         "expected": "-2.0"
+      },
+      {
+        "input": "9\n4\n",
+        "expected": "2.25"
+      },
+      {
+        "input": "-7\n2\n",
+        "expected": "-3.5"
       }
     ]
   },
@@ -3868,6 +3928,10 @@ window.QUESTIONS = [
       {
         "input": "1\na 1 12.5\n20\n",
         "expected": "10.00"
+      },
+      {
+        "input": "1\nitem 3 3.5\n10\n",
+        "expected": "9.45"
       }
     ]
   },
