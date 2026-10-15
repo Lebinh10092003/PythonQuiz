@@ -242,7 +242,7 @@
     ui.submitBtn.disabled = true;
     ui.runtimePill.className = "runtime-pill";
     ui.runtimeText.textContent = language === "en" ? "Loading Python…" : "Python を読み込み中…";
-    worker = new Worker("./python-worker.js?v=3");
+    worker = new Worker("./python-worker.js?v=4");
     worker.onmessage = onWorkerMessage;
     worker.onerror = () => {
       ui.runtimePill.className = "runtime-pill error";
@@ -408,6 +408,10 @@
           tip.textContent = language === "en"
             ? "Wrong type: use a Boolean (True/False), not a number (1/0), or vice versa."
             : "型が違います。真偽値（True/False）と数値（1/0）を区別してください。";
+         } else if (d.issue === "missing_required_call") {
+          tip.textContent = language === "en"
+            ? "Call the required Python function in your solution. Printing hardcoded output is not sufficient."
+            : "指定された Python 関数を実際に呼び出してください。固定の文字列を表示するだけでは合格できません。";
         } else if (d.issue === "wrong_output") {
           tip.textContent = language === "en"
             ? "Output does not match. Check print() values, spacing, case and line breaks."
@@ -445,6 +449,7 @@
       code: editor.getValue(),
       checks: withTests ? current.checks : [],
       programTests: withTests && current.mode === "program" ? current.programTests : [],
+      requiredCalls: withTests && current.mode === "program" ? (current.requiredCalls || []) : [],
       mode: current.mode || "function",
       stdin: current.mode === "program" ? ui.stdinInput.value : "",
       withTests
